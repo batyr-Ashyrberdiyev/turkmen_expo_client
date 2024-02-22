@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #f2f9ff;
+}
+
+@layer utilities {
+  .container {
+    @apply w-full mx-auto max-w-[1260px] px-[20px];
+  }
+
+  .btn {
+    @apply bg-green text-bgWhite rounded-[2px] px-[43px] py-[17px] text-sm;
+  }
+}
