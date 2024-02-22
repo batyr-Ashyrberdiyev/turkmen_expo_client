@@ -1,29 +1,42 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectHeader } from "@/redux/slices/headerSlice";
+
 import logo from "@/public/assets/icons/logo.svg";
-import { headerMenu, headerMenu2 } from "@/lib/data";
+import { LangMenu } from "./ui/LangMenu";
 
 export const Header = () => {
+  const dispatch = useAppDispatch();
+  const { menu, menu2 } = useAppSelector(selectHeader);
+
   return (
     <>
       <header className="bg-darkBlue text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
           <p className="extraSm">Справочный центр: 993 (12) 34-56-78</p>
           <div className="flex gap-x-[20px]">
-            {headerMenu.map((item) => (
-              <Link href={item.link}>{item.title}</Link>
+            {menu.map((item, id) => (
+              <Link key={id} href={item.link}>
+                {item.title}
+              </Link>
             ))}
+            <LangMenu />
           </div>
         </div>
       </header>
-      <footer className="bg-bgWhite">
+      <footer className="bg-bgWhite text-black">
         <div className="container py-[17px] flex items-center justify-between">
-          <Image src={logo} alt="logo" height={38} width={235} />
+          <Link href="/">
+            <Image src={logo} alt="logo" height={38} width={235} />
+          </Link>
           <div className="flex items-center gap-x-[20px]">
-            {headerMenu2.map((item) => (
-              <Link href={item.link} className="cursor-pointer">
+            {menu2.map((item, id) => (
+              <Link key={id} href={item.link} className="cursor-pointer">
                 {item.title}
               </Link>
             ))}
