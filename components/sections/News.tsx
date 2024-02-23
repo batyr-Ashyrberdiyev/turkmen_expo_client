@@ -3,7 +3,13 @@
 import React from "react";
 
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import {
+  A11y,
+  Controller,
+  Navigation,
+  Pagination,
+  Scrollbar,
+} from "swiper/modules";
 
 import { NewsCard } from "../NewsCard";
 import { NavBtn } from "../ui/NavBtn";
@@ -16,9 +22,13 @@ import "swiper/css/scrollbar";
 
 const News = () => {
   const swiper = useSwiper();
-  const [next, setNext] = React.useState(false);
+  const [firstSlide, setFirstSlide] = React.useState(true);
+  const [endSlide, setEndSlide] = React.useState(false);
 
-  console.log(swiper);
+  const setSlide = (swiper: any) => {
+    setFirstSlide(swiper.isBeginning);
+    setEndSlide(swiper.isEnd);
+  };
 
   return (
     <div className="container">
@@ -30,12 +40,15 @@ const News = () => {
         </div>
       </header>
       <Swiper
-        modules={[Pagination, Navigation, Scrollbar, A11y]}
+        modules={[Pagination, Navigation, Scrollbar, A11y, Controller]}
         spaceBetween={20}
         slidesPerView={4}
-        navigation
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        navigation={{
+          nextEl: ".next-btn",
+          prevEl: ".prev-btn",
+        }}
+        // onSwiper={}
+        onSlideChange={setSlide}
       >
         {newsCardData.map((item) => (
           <SwiperSlide>
