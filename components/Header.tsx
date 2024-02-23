@@ -19,9 +19,9 @@ export const Header = () => {
       <header className="bg-darkBlue text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
           <p className="extraSm">Справочный центр: 993 (12) 34-56-78</p>
-          <div className="flex gap-x-[20px]">
+          <div className="flex gap-x-[10px]">
             {menu.map((item, id) => (
-              <Link key={id} href={item.link}>
+              <Link key={id} href={item.link} className="px-[5px]">
                 {item.title}
               </Link>
             ))}
