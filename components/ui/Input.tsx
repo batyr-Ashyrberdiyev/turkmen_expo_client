@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 import search from "@/public/assets/icons/search.svg";
 
@@ -15,6 +15,8 @@ export const Input = () => {
   const dispatch = useAppDispatch();
   const { showInput } = useAppSelector(selectHeader);
   const searchParams = useSearchParams();
+  const { replace } = useRouter();
+  const pathname = usePathname();
 
   const params = new URLSearchParams(searchParams);
 
@@ -28,6 +30,16 @@ export const Input = () => {
 
     return () => document.body.removeEventListener("click", handleClick);
   }, []);
+
+  const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value) {
+      params.set("query", e.target.value);
+    } else {
+      params.delete("query");
+    }
+
+    replace(pathname + "?" + params.toString());
+  };
 
   return (
     <div className="cursor-pointer">
@@ -47,10 +59,12 @@ export const Input = () => {
       </div>
       {showInput && (
         <input
+          onChange={updateValue}
+          defaultValue={searchParams.get("query")?.toString()}
           ref={inputRef}
           type="text"
           placeholder="Поиск..."
-          className="rounded-[2px] z-50 absolute top-[7px] py-[5px] px-[10px] focus:outline-none text-black placeholder:text-black"
+          className="rounded-[2px] py-[5px] px-[10px] focus:outline-none text-black placeholder:text-black"
         />
       )}
     </div>

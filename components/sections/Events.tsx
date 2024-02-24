@@ -2,13 +2,12 @@
 
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-
-import { EventCard } from "../EventCard";
+import { EventCard } from "../cards/EventCard";
 import { Button } from "../ui/Button";
-import { eventCardData } from "@/lib/data";
+import { eventCardData } from "@/lib/database/eventsData";
 
 export const Events = () => {
-  const [openCards, setOpenCards] = React.useState<boolean>(false);
+  const [openCards, setOpenCards] = React.useState<boolean>(true);
 
   const onEventBtn = () => {
     setOpenCards(!openCards);

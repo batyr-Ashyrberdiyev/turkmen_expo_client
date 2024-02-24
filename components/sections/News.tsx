@@ -11,9 +11,9 @@ import {
   Scrollbar,
 } from "swiper/modules";
 
-import { NewsCard } from "../NewsCard";
+import { NewsCard } from "../cards/NewsCard";
 import { NavBtn } from "../ui/NavBtn";
-import { newsCardData } from "@/lib/data";
+import { newsCardData } from "@/lib/database/newsData";
 
 import "swiper/css";
 import "swiper/css/navigation";

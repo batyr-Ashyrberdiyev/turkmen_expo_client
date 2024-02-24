@@ -14,6 +14,7 @@ export const LangMenu = () => {
   const dispatch = useAppDispatch();
   const { activeLang } = useAppSelector(selectHeader);
   const [active, setActive] = React.useState(false);
+  const [rotate, setRotate] = React.useState(false);
   const menuRef = React.useRef<HTMLDivElement>(null);
 
   const setLang = (str: string) => {
@@ -25,6 +26,7 @@ export const LangMenu = () => {
     const handleClick = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setActive(false);
+        setRotate(false);
       }
     };
 
@@ -37,16 +39,18 @@ export const LangMenu = () => {
     <div
       ref={menuRef}
       className="cursor-pointer flex items-center gap-x-[20px]"
+      onClick={() => {
+        setActive(!active);
+        setRotate(!rotate);
+      }}
     >
       <div className="flex gap-x-[5px]">
-        <p
-          onClick={() => {
-            setActive(!active);
-          }}
-        >
-          {activeLang}
-        </p>
-        <Image src={triangle} alt="arrow" />
+        <p>{activeLang}</p>
+        <Image
+          src={triangle}
+          alt="arrow"
+          className={`${rotate && "rotate-180 "}transition-rotate duration-300`}
+        />
       </div>
       {active && (
         <div className="absolute z-10 flex flex-col top-10 rounded-[2px] bg-gray2 text-bgWhite transition-all duration-300">

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { partnersData } from "@/lib/data";
+import { partnersData } from "@/lib/database/homeInfoData";
 
 export const Partners = () => {
   return (

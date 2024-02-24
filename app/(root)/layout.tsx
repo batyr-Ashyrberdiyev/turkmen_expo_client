@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="bg-blue">
+    <div>
       <Header />
       {children}
       <Footer />

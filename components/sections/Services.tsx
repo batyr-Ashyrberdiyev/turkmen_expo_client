@@ -1,4 +1,4 @@
-import { contactCardData, roadCardData } from "@/lib/data";
+import { contactCardData, roadCardData } from "@/lib/database/homeInfoData";
 import React from "react";
 import Image from "next/image";
 
