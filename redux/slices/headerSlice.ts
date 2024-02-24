@@ -25,13 +25,13 @@ const initialState: HeaderState = {
   activeLang: "Ру",
   showInput: false,
   menu: [
-    { title: "О компании", link: "/about", id: 1 },
+    { title: "О компании", link: "/company", id: 1 },
     { title: "Новости", link: "/news", id: 2 },
     { title: "FAQ", link: "/faq", id: 3 },
     { title: "Контакты", link: "/contacts", id: 4 },
   ],
   menu2: [
-    { title: "Календарь мероприятий", link: "/about", id: 1 },
+    { title: "Календарь мероприятий", link: "/company", id: 1 },
     { title: "Участникам", link: "/news", id: 2 },
     { title: "Посетителям", link: "/faq", id: 3 },
     { title: "Услуги", link: "/contacts", id: 4 },
@@ -39,7 +39,7 @@ const initialState: HeaderState = {
 
   footerMenu: [
     { title: "Территория комплекса", link: "/complex" },
-    { title: "О компании", link: "/about" },
+    { title: "О компании", link: "/company" },
     { title: "Пресс-центр", link: "/center" },
     { title: "FAQ", link: "/faq" },
     { title: "Контакты", link: "/complex" },
