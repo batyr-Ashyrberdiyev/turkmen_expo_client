@@ -8,7 +8,10 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectHeader } from "@/redux/slices/headerSlice";
 
 import logo from "@/public/assets/icons/logo.svg";
+import search from "@/public/assets/icons/search.svg";
+
 import { LangMenu } from "./ui/LangMenu";
+import { Input } from "./ui/Input";
 
 export const Header = () => {
   const dispatch = useAppDispatch();
@@ -19,13 +22,16 @@ export const Header = () => {
       <header className="bg-darkBlue text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
           <p className="extraSm">Справочный центр: 993 (12) 34-56-78</p>
-          <div className="flex gap-x-[10px]">
-            {menu.map((item, id) => (
-              <Link key={id} href={item.link} className="px-[5px]">
-                {item.title}
-              </Link>
-            ))}
-            <LangMenu />
+          <div>
+            <div className="flex gap-x-[10px]">
+              {menu.map((item, id) => (
+                <Link key={id} href={item.link} className="px-[5px]">
+                  {item.title}
+                </Link>
+              ))}
+              <LangMenu />
+              <Input />
+            </div>
           </div>
         </div>
       </header>

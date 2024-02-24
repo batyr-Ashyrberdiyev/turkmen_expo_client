@@ -17,4 +17,8 @@
   .btn {
     @apply bg-green text-bgWhite rounded-[2px] px-[43px] py-[17px] text-sm;
   }
+
+  :disabled {
+    @apply opacity-50;
+  }
 }

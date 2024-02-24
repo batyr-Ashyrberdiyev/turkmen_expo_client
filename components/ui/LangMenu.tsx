@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 
-import search from "@/public/assets/icons/search.svg";
 import triangle from "@/public/assets/icons/arrow-menu.svg";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { selectHeader } from "@/redux/slices/headerSlice";
@@ -62,7 +61,6 @@ export const LangMenu = () => {
           ))}
         </div>
       )}
-      <Image src={search} alt="search" />
     </div>
   );
 };
