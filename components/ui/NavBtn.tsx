@@ -32,7 +32,7 @@ export const NavBtn = ({
       <Image
         src={navBtn}
         alt="arrow"
-        className={`${left && "rotate-[180deg]"}`}
+        className={`${left && "rotate-[180deg]"} img-auto`}
       />
     </button>
   );

@@ -25,14 +25,14 @@ const initialState: HeaderState = {
   activeLang: "Ру",
   showInput: false,
   menu: [
-    { title: "О компании", link: "/company", id: 1 },
+    { title: "О компании", link: "/company/aboutus", id: 1 },
     { title: "Новости", link: "/news", id: 2 },
     { title: "FAQ", link: "/faq", id: 3 },
     { title: "Контакты", link: "/contacts", id: 4 },
   ],
   menu2: [
     { title: "Календарь мероприятий", link: "/company", id: 1 },
-    { title: "Участникам", link: "/news", id: 2 },
+    { title: "Участникам", link: "/members", id: 2 },
     { title: "Посетителям", link: "/faq", id: 3 },
     { title: "Услуги", link: "/contacts", id: 4 },
   ],

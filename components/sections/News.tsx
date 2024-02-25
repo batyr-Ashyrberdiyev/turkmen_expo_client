@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import {
-  A11y,
-  Controller,
-  Navigation,
-  Pagination,
-  Scrollbar,
-} from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 import { NewsCard } from "../cards/NewsCard";
 import { NavBtn } from "../ui/NavBtn";
@@ -20,16 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const News = () => {
-  const swiper = useSwiper();
-  const [firstSlide, setFirstSlide] = React.useState(true);
-  const [endSlide, setEndSlide] = React.useState(false);
-
-  const setSlide = (swiper: any) => {
-    setFirstSlide(swiper.isBeginning);
-    setEndSlide(swiper.isEnd);
-  };
-
+export const News = () => {
   return (
     <div className="container">
       <header className="flex items-center mb-[43px] justify-between">
@@ -40,7 +26,7 @@ const News = () => {
         </div>
       </header>
       <Swiper
-        modules={[Pagination, Navigation, Scrollbar, A11y, Controller]}
+        modules={[Navigation]}
         spaceBetween={20}
         slidesPerView={4}
         navigation={{
@@ -48,10 +34,10 @@ const News = () => {
           prevEl: ".prev-btn",
         }}
         // onSwiper={}
-        onSlideChange={setSlide}
+        // onSlideChange={}
       >
         {newsCardData.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={uuidv4()}>
             <NewsCard {...item} />
           </SwiperSlide>
         ))}
@@ -59,5 +45,3 @@ const News = () => {
     </div>
   );
 };
-
-export default News;

@@ -7,11 +7,20 @@
   font-weight: 400;
   line-height: 1;
   color: #f2f9ff;
+  height: 100%;
 }
 
 @layer utilities {
   .container {
     @apply w-full mx-auto max-w-[1260px] px-[20px];
+  }
+
+  .page-container {
+    @apply w-full mr-auto ml-[20px] max-w-[853px] pr-[20px];
+  }
+
+  .main-container {
+    @apply w-full ml-[auto] mr-[120px] max-w-[195px] pl-[20px];
   }
 
   .btn {
@@ -20,5 +29,13 @@
 
   :disabled {
     @apply opacity-50;
+  }
+
+  .section-mb {
+    @apply mb-[160px];
+  }
+
+  .text-p {
+    @apply text-[16px] leading-[1.5];
   }
 }

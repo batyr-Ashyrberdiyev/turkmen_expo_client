@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
 
 import triangle from "@/public/assets/icons/arrow-menu.svg";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
@@ -49,7 +50,9 @@ export const LangMenu = () => {
         <Image
           src={triangle}
           alt="arrow"
-          className={`${rotate && "rotate-180 "}transition-rotate duration-300`}
+          className={`${
+            rotate && "rotate-180 "
+          }transition-rotate duration-300 img-auto`}
         />
       </div>
       {active && (
@@ -58,7 +61,7 @@ export const LangMenu = () => {
             <div
               onClick={() => setLang(item)}
               className={`${activeLang === item && "bg-darkBlue"} px-5 py-2`}
-              key={id}
+              key={uuidv4()}
             >
               {item}
             </div>

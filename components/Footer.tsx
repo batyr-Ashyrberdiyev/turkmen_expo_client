@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
 
 import { useAppSelector } from "@/redux/hooks";
 import { selectHeader } from "@/redux/slices/headerSlice";
@@ -27,19 +28,23 @@ export const Footer = () => {
           <div className="flex items-start justify-between gap-x-[145px]">
             <div className="flex flex-col items-start gap-y-[5px]">
               {menu2.map((item) => (
-                <Link href={item.link}>{item.title}</Link>
+                <Link key={uuidv4()} href={item.link}>
+                  {item.title}
+                </Link>
               ))}
             </div>
             <div className="flex flex-col gap-y-[5px]">
               {footerMenu.map((item) => (
-                <Link href={item.link}>{item.title}</Link>
+                <Link key={uuidv4()} href={item.link}>
+                  {item.title}
+                </Link>
               ))}
             </div>
           </div>
           <div className="flex flex-col">
             <div className="mb-[39px] flex flex-col gap-y-[5px]">
               {footerMenu2.map((item) => (
-                <p>{item}</p>
+                <p key={uuidv4()}>{item}</p>
               ))}
             </div>
             <p className="text-sm mb-[19px]">
@@ -63,7 +68,7 @@ export const Footer = () => {
           </p>
           <div className="flex items-center gap-x-[10px]">
             {icons.map((item) => (
-              <Link href={item.link}>
+              <Link key={uuidv4()} href={item.link}>
                 <Image src={item.title} alt={item.title} />
               </Link>
             ))}

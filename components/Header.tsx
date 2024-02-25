@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectHeader } from "@/redux/slices/headerSlice";
@@ -24,8 +25,8 @@ export const Header = () => {
           <p className="extraSm">Справочный центр: 993 (12) 34-56-78</p>
           <div>
             <div className="flex items-center gap-x-[10px]">
-              {menu.map((item, id) => (
-                <Link key={id} href={item.link} className="px-[5px]">
+              {menu.map((item) => (
+                <Link key={uuidv4()} href={item.link} className="px-[5px]">
                   {item.title}
                 </Link>
               ))}
@@ -42,7 +43,7 @@ export const Header = () => {
           </Link>
           <div className="flex items-center gap-x-[20px]">
             {menu2.map((item, id) => (
-              <Link key={id} href={item.link} className="cursor-pointer">
+              <Link key={uuidv4()} href={item.link} className="cursor-pointer">
                 {item.title}
               </Link>
             ))}

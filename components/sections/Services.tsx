@@ -13,7 +13,7 @@ export const Services = () => {
           {roadCardData.map((item) => (
             <div className="bg-white px-[40px] py-[20px] text-black rounded-[2px]">
               <div className="flex items-center gap-x-[40px]">
-                <Image src={item.icon} alt="icon" />
+                <Image className="img-auto" src={item.icon} alt="icon" />
                 <p>{item.text}</p>
               </div>
             </div>
