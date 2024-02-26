@@ -5,13 +5,13 @@ import aboutImg from "@/public/assets/images/about.png";
 
 const About = () => {
   return (
-    <div className="flex flex-col items-start gap-y-[24px] mb-[100px]">
+    <div className="flex flex-col items-start gap-y-[24px] mb-[100px] w-full">
       <p className="text-[12px] text-gray4">
         Главная / О компании / Коротко о нас
       </p>
       <h2 className="text-extra font-semibold">Коротко о нас</h2>
 
-      <Image src={aboutImg} alt="about image" />
+      <Image src={aboutImg} width={1000} height={500} alt="about image" />
       <div className="flex flex-col items-start gap-y-[24px] text-p">
         <p>
           Turkmen Expo - новое направление компании TPS в Туркменистане, успешно

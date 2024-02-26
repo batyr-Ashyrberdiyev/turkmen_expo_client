@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { ContactsSec } from "@/components/sections/Contacts";
 
 import mapImg from "@/public/assets/images/map.png";
 
 const Contacts = () => {
   return (
-    <div className="bg-blueBg ">
-      <div className="container flex flex-col items-start mb-[100px] pt-[20px]">
+    <div className="bg-blueBg h-full">
+      <div className="container flex flex-col items-start pt-[20px]">
         <p className="text-[12px] mb-[24px] text-gray4">
           Главная / Календарь мероприятий
         </p>
@@ -20,7 +21,16 @@ const Contacts = () => {
           +7 (499) 795-37-99 <br />
           E-mail: centr@expocentr.ru
         </p>
-        <Image src={mapImg} alt="map" className="w-full" />
+      </div>
+      <Image
+        src={mapImg}
+        width={1920}
+        height={800}
+        alt="map"
+        className="mx-auto mb-[24px]"
+      />
+      <div className="container mb-[132px]">
+        <ContactsSec />
       </div>
     </div>
   );

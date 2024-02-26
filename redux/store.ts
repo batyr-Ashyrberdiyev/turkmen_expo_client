@@ -2,10 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import headerSlice from "./slices/headerSlice";
 import homeSlice from "./slices/homeSlice";
+import contactsSlice from "./slices/contactsSlice";
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { headerSlice, homeSlice },
+    reducer: { headerSlice, homeSlice, contactsSlice },
   });
 };
 

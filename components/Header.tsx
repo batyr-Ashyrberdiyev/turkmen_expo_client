@@ -19,8 +19,8 @@ export const Header = () => {
   const { menu, menu2 } = useAppSelector(selectHeader);
 
   return (
-    <>
-      <header className="flex items-center bg-darkBlue text-white py-[12px] font-regular text-extraSm">
+    <header className="">
+      <div className="flex items-center bg-darkBlue text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
           <p className="extraSm">Справочный центр: 993 (12) 34-56-78</p>
           <div>
@@ -35,8 +35,8 @@ export const Header = () => {
             </div>
           </div>
         </div>
-      </header>
-      <footer className="bg-bgWhite text-black">
+      </div>
+      <div className="bg-bgWhite text-black">
         <div className="container py-[17px] flex items-center justify-between">
           <Link href="/">
             <Image src={logo} alt="logo" height={38} width={235} />
@@ -49,7 +49,7 @@ export const Header = () => {
             ))}
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </header>
   );
 };

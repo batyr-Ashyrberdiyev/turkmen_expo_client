@@ -9,7 +9,7 @@ export const MembersSec = () => {
       <p className="text-[12px] text-gray4">
         Главная / О компании / Коротко о нас
       </p>
-      <h2 className="text-extra font-semibold">Участникам</h2>
+      <h2 className="text-extra font-semibold">Информация для участников</h2>
 
       <p className="text-p">
         В распоряжении компании имеются возможности размещения и застройки
@@ -19,7 +19,7 @@ export const MembersSec = () => {
         Конгрессы, конференции и другие мероприятия проводятся в специально
         подготовленных залах.
       </p>
-      <Image src={membersImg} alt="members" />
+      <Image src={membersImg} width={1000} height={500} alt="members" />
       <div className="flex flex-col items-start gap-y-[24px] text-p">
         <p>
           В выставках принимают участие более 1500 компаний, а ежегодно их
