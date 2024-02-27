@@ -15,7 +15,7 @@ export const EventCard = ({
   date,
 }: EventCardProps) => {
   return (
-    <div className="bg-bgWhite p-[60px] rounded-[2px] w-full shadow-sm">
+    <div className="bg-bgWhite p-[60px] rounded-[2px] w-full drop-shadow-md">
       <div className="flex items-start gap-x-[33px]">
         <Image src={img} width={150} height={150} alt="Event Image" />
         <div className="flex flex-col items-start gap-x-[25px] max-w-[650px]">

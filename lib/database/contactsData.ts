@@ -4,21 +4,18 @@ export const menuData = [
     subtitle: "Управление собственных выставок",
     phone: "Тел.: +7 (499) 795-37-33",
     email: "E-mail: mezvist@expocentr.ru",
-    id: 1,
   },
   {
     title: "Организация выставок за рубежом",
     subtitle: "Отдел зарубежных выставок",
     phone: "Тел.: +7 (499) 795-39-48, 795-29-56",
     email: "E-mail: world@expocentr.ru",
-    id: 2,
   },
   {
     title: "Организация и проведение гостевых выставок",
     subtitle: "Отдел гостевых выставок",
     phone: "Тел.: +7 (499) 795-28-90",
     email: "E-mail: expoinex@expocentr.ru",
-    id: 3,
   },
   {
     title: "Конгрессные мероприятия, деловые программы",
@@ -26,6 +23,30 @@ export const menuData = [
       "Отдел по организации деловых программ и вневыставочных мероприятий",
     phone: "Тел.: +7 (499) 795-39-65",
     email: "E-mail: expocon@expocentr.ru",
-    id: 4,
+  },
+  {
+    title: "Комплекс услуг для экспонентов",
+    subtitle: "Услуги на стенде:",
+    phone: "Тел.: +7 (499) 795-37-79",
+    email: "E-mail: usluga@expocentr.ru",
+    site: "Cайт: services.expocentr.ru",
+  },
+];
+
+export const innerContactData = [
+  {
+    subtitle: "Рекламные услуги:",
+    phone: "Тел.: +7 (499) 795-25-97",
+    email: "E-mail: expo-adv@expocentr.ru",
+  },
+  {
+    subtitle: "Оформление визовых приглашений:",
+    phone: "Тел.: +7 (499) 795-37-43, 795-37-44",
+    email: "E-mail: visa@expocentr.ru",
+  },
+  {
+    subtitle: "Информация в официальные каталоги и путеводители выставок:",
+    phone: "Тел.: +7 (499) 795-29-52/53/02",
+    email: "E-mail: katalog@expocentr.ru",
   },
 ];

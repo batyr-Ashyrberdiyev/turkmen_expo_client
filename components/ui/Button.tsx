@@ -14,7 +14,7 @@ export const Button = ({
   const [eventBtn, setEventBtn] = React.useState<boolean>(false);
 
   return (
-    <button onClick={onEventBtn} className={`btn ${mt}`}>
+    <button onClick={onEventBtn} className={`btn ${mt} drop-shadow-md`}>
       {text}
     </button>
   );

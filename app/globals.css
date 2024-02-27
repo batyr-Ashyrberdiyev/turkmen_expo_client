@@ -24,6 +24,10 @@ body {
   background-color: rgb(52 67 80 / var(--tw-bg-opacity));
 }
 
+.custom-shadow {
+  box-shadow: 10px 4px 0 5px rgba(black, black, black, 1);
+}
+
 @layer utilities {
   .container {
     @apply w-full mx-auto max-w-[1260px] px-[20px];

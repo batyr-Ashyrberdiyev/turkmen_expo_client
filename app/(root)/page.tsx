@@ -7,12 +7,17 @@ import { Events } from "@/components/sections/Events";
 import { News } from "@/components/sections/News";
 import { Services } from "@/components/sections/Services";
 import { Partners } from "@/components/sections/Partners";
-import Swiper from "swiper";
 
 const Home = () => {
   return (
     <div className="bg-blueBg">
-      <Image src={heroImg} alt="hero" className="w-full h-full mb-[160px]" />
+      <Image
+        src={heroImg}
+        width={1920}
+        height={500}
+        alt="hero"
+        className="h-full mx-auto mb-[160px]"
+      />
       <section className="section-mb w-full">
         <Events />
       </section>
@@ -20,7 +25,13 @@ const Home = () => {
         <News />
       </section>
       <section className="section-mb">
-        <Image src={videoImg} alt="video" className="w-full mx-auto" />
+        <Image
+          src={videoImg}
+          alt="video"
+          width={1920}
+          height={800}
+          className="mx-auto"
+        />
       </section>
       <section className="section-mb">
         <Services />

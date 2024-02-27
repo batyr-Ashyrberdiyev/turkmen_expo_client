@@ -26,7 +26,7 @@ export const Services = () => {
         </h3>
         <div className="flex flex-col gap-y-[20px] w-full">
           {contactCardData.map((item) => (
-            <div className="bg-white px-[40px] py-[20px] text-black rounded-[2px] ">
+            <div className="bg-white px-[40px] py-[20px] text-black drop-shadow-md rounded-[2px] ">
               <div className="flex items-center gap-x-[40px]">
                 <Image src={item.icon} alt="icon" />
                 <p>{item.text}</p>

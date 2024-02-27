@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 
 import { useAppSelector } from "@/redux/hooks";
@@ -20,9 +21,13 @@ export const Sidebar = () => {
         {aboutCompanyData
           .filter((name) => name.title !== activeTitle)
           .map((item) => (
-            <li className="cursor-pointer py-1 ml-[16px]" key={uuidv4()}>
+            <Link
+              href={item.link}
+              className="cursor-pointer py-1 ml-[16px]"
+              key={uuidv4()}
+            >
               {item.title}
-            </li>
+            </Link>
           ))}
       </ul>
     </div>

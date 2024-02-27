@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ContactsSec } from "@/components/sections/Contacts";
+import { ContactsSec } from "@/components/sections/ContactsSec";
 
 import mapImg from "@/public/assets/images/map.png";
 

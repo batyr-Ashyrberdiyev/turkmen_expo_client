@@ -26,24 +26,24 @@ const initialState: HeaderState = {
   showInput: false,
   menu: [
     { title: "О компании", link: "/company/aboutus", id: 1 },
-    { title: "Новости", link: "/news", id: 2 },
+    { title: "Новости", link: "/", id: 2 },
     { title: "FAQ", link: "/faq", id: 3 },
     { title: "Контакты", link: "/contacts", id: 4 },
   ],
   menu2: [
-    { title: "Календарь мероприятий", link: "/company", id: 1 },
+    { title: "Календарь мероприятий", link: "/", id: 1 },
     { title: "Участникам", link: "/members", id: 2 },
-    { title: "Посетителям", link: "/faq", id: 3 },
-    { title: "Услуги", link: "/contacts", id: 4 },
+    { title: "Посетителям", link: "/", id: 3 },
+    { title: "Услуги", link: "/", id: 4 },
   ],
 
   footerMenu: [
-    { title: "Территория комплекса", link: "/complex" },
-    { title: "О компании", link: "/company" },
-    { title: "Пресс-центр", link: "/center" },
+    { title: "Территория комплекса", link: "/" },
+    { title: "О компании", link: "/company/aboutus" },
+    { title: "Пресс-центр", link: "/" },
     { title: "FAQ", link: "/faq" },
-    { title: "Контакты", link: "/complex" },
-    { title: "Справочный центр", link: "/s" },
+    { title: "Контакты", link: "/" },
+    { title: "Справочный центр", link: "/" },
   ],
   footerMenu2: [
     "123100, Москва, Краснопресненская наб., 14",
