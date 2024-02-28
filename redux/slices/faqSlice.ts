@@ -2,25 +2,35 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 interface Props {
-  status: string;
+  faqStatus: string;
+  faqTitle: string;
+  faqInfo: string;
 }
 
 const initialState: Props = {
-  status: "all",
+  faqStatus: "all",
+  faqTitle: "",
+  faqInfo: "",
 };
 
 const faqSlice = createSlice({
   name: "faq",
   initialState,
   reducers: {
-    setStatus(state, action: PayloadAction<string>) {
-      state.status = action.payload;
+    setFaqStatus(state, action: PayloadAction<string>) {
+      state.faqStatus = action.payload;
+    },
+    setFaqTitle(state, action: PayloadAction<string>) {
+      state.faqTitle = action.payload;
+    },
+    setFaqInfo(state, action: PayloadAction<string>) {
+      state.faqInfo = action.payload;
     },
   },
 });
 
 export const selectFaq = (state: RootState) => state.faqSlice;
 
-export const { setStatus } = faqSlice.actions;
+export const { setFaqStatus, setFaqTitle, setFaqInfo } = faqSlice.actions;
 
 export default faqSlice.reducer;

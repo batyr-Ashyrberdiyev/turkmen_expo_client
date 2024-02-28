@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import { Radio } from "../ui/Radio";
-import { selectFaq, setStatus } from "@/redux/slices/faqSlice";
+import { selectFaq, setFaqStatus } from "@/redux/slices/faqSlice";
 import { Members } from "../faq/Members";
 import { All } from "../faq/All";
 import { Visitors } from "../faq/Visitors";
@@ -19,11 +19,13 @@ export const radio = [
 
 export const FaqSec = () => {
   const dispatch = useAppDispatch();
-  const { status } = useAppSelector(selectFaq);
+  const { faqStatus } = useAppSelector(selectFaq);
 
   const changeRadio = (name: string) => {
-    dispatch(setStatus(name));
+    dispatch(setFaqStatus(name));
   };
+
+  console.log(faqStatus);
 
   return (
     <div className="container flex flex-col items-start pt-[20px] mb-[136px]">
@@ -37,14 +39,14 @@ export const FaqSec = () => {
               key={uuidv4()}
               text={item.name}
               id={item.id}
-              active={status === item.id}
+              active={faqStatus === item.id}
             />
           </div>
         ))}
       </div>
-      {(status === "all" && <All />) ||
-        (status === "visitors" && <Visitors />) ||
-        (status === "members" && <Members />)}
+      {faqStatus === "all" && <All />}
+      {faqStatus === "visitors" && <Visitors />}
+      {faqStatus === "members" && <Members />}
     </div>
   );
 };

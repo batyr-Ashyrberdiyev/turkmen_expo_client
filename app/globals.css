@@ -56,4 +56,16 @@ body {
   .text-p {
     @apply text-[16px] leading-[1.5];
   }
+
+  .faq-list {
+    @apply leading-[1.5] before:content-['•']  before:rounded-full before:pr-[5px];
+  }
+
+  .bid-input {
+    @apply focus:outline-none bg-transparent border-[1px] border-navyBlue rounded-[2px] py-[8px] px-[15px];
+  }
+
+  .bid-option {
+    @apply bg-navyBlue3 py-[15px] px-[12px];
+  }
 }

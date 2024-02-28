@@ -4,10 +4,11 @@ import headerSlice from "./slices/headerSlice";
 import homeSlice from "./slices/homeSlice";
 import contactsSlice from "./slices/contactsSlice";
 import faqSlice from "./slices/faqSlice";
+import bidSlice from "./slices/bidSlice";
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { headerSlice, homeSlice, contactsSlice, faqSlice },
+    reducer: { headerSlice, homeSlice, contactsSlice, faqSlice, bidSlice },
   });
 };
 

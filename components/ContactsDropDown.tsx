@@ -35,7 +35,6 @@ export const ContactsDropDown = ({
   const openMenu = () => {
     setRotate(!rotate);
     if (contactTitle === title) {
-      // Close the menu if it's already open
       dispatch(setActiveMenu(activeMenu === title ? "" : title));
     } else {
       openContacts(title);

@@ -6,16 +6,11 @@ import { v4 as uuidv4 } from "uuid";
 import { innerContactData, menuData } from "@/lib/database/contactsData";
 import { ContactsDropDown } from "../ContactsDropDown";
 
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import {
-  selectContacts,
-  setActiveMenu,
-  setContactTitle,
-} from "@/redux/slices/contactsSlice";
+import { useAppDispatch } from "@/redux/hooks";
+import { setActiveMenu, setContactTitle } from "@/redux/slices/contactsSlice";
 
 export const ContactsSec = () => {
   const dispatch = useAppDispatch();
-  const { contactTitle, activeMenu } = useAppSelector(selectContacts);
 
   const openContacts = (name: string) => {
     dispatch(setContactTitle(name));
@@ -26,7 +21,7 @@ export const ContactsSec = () => {
     <div className="flex flex-col items-start w-full">
       {menuData.map((item) => (
         <ContactsDropDown
-          key={item.title} // Ensure each dropdown has a unique key
+          key={item.title}
           openContacts={openContacts}
           {...item}
         />
