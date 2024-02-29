@@ -320,6 +320,7 @@ export const faqData: ExhibitionFAQ[] = [
       },
     ],
     members: true,
+    visitors: true,
     wifi: true,
   },
 ];

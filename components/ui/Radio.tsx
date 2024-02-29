@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import clsx from "clsx";
 
 interface Props {
   text: string;
@@ -18,9 +19,12 @@ export const Radio = ({ text, id, active, changeRadio }: Props) => {
       >
         <div className="p-[3px] rounded-full w-[16px] h-[16px] border-[1px] border-navyBlue cursor-pointer">
           <div
-            className={`transition-opacity opacity-0 ${
-              active && "opacity-100"
-            } bg-green h-full w-full rounded-full`}
+            className={clsx(
+              "opacity-0 transition-all bg-green h-full w-full rounded-full",
+              {
+                "opacity-100": active,
+              }
+            )}
           ></div>
         </div>
         <div>{text}</div>

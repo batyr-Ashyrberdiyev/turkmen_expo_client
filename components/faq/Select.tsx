@@ -2,8 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
 
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppSelector } from "@/redux/hooks";
 
 import minus from "@/public/assets/icons/minus-btn.svg";
 import openIcon from "@/public/assets/icons/contact-arrow.svg";
@@ -37,7 +38,7 @@ export const Select = ({
             (all && item)
         )
         .map((item) => (
-          <div className="w-full">
+          <div key={uuidv4()} className="w-full">
             <div
               onClick={() => onTitle(item.title)}
               className={clsx(
@@ -62,7 +63,8 @@ export const Select = ({
               {faqTitle === item.title &&
                 item.faqAll.map((obj) => (
                   <div
-                    className={`text-gray4 px-[40px] first-of-type:pt-[30px] flex flex-col items-start gap-y-[16px] leading-[1.5]`}
+                    key={uuidv4()}
+                    className="text-gray4 px-[40px] first-of-type:pt-[30px] flex flex-col items-start gap-y-[16px] leading-[1.5]"
                   >
                     <div className="flex items-start gap-x-[10px]">
                       {!item.wifi && (
