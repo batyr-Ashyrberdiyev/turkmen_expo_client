@@ -2,7 +2,6 @@ import React from "react";
 
 import { BidForm } from "@/components/ui/BidForm";
 
-import { Checkbox } from "@radix-ui/themes";
 import { Radio } from "@/components/ui/Radio";
 
 const Bid = () => {
@@ -18,7 +17,7 @@ const Bid = () => {
         <div className="">
           <form
             className="flex flex-col items-start gap-y-[18px] w-full"
-            action=""
+            action="/"
           >
             <select className="bid-input" name="" id="">
               <option
@@ -31,22 +30,12 @@ const Bid = () => {
                 Выстовочная деятельность
               </option>
             </select>
-            <BidForm star title="Название сайта" />
-            <BidForm title="Сайт" />
-            <BidForm star title="Телефон" />
-            <BidForm star title="E-mail" type="email" />
-            <BidForm title="Требуемая площадь, м2" />
-            <label htmlFor="area">
-              Демонстрируемая продукция / оборудование / услуги
-            </label>
-            <textarea
-              className="bid-input"
-              name="Демонстрируемая продукция / оборудование / услуги"
-              id="area"
-              cols={30}
-              rows={5}
-            />
-            <BidForm star title="Контактное лицо (Ф.И.О.)" />
+            <BidForm name="title" star text="Название сайта" />
+            <BidForm name="sitename" text="Сайт" />
+            <BidForm name="phone" star text="Телефон" />
+            <BidForm name="email" star text="E-mail" type="email" />
+            <BidForm name="space" text="Требуемая площадь, м2" />
+            <BidForm name="person" star text="Контактное лицо (Ф.И.О.)" />
             <select className="bid-input" name="" id="">
               <option className="bid-input bg-transparent" value="">
                 Выстовочная деятельность
@@ -59,7 +48,6 @@ const Bid = () => {
               <h4>Экспозицонная площадь*</h4>
               <div className="flex items-center gap-x-[10px] text-extraSm">
                 <label htmlFor="radio1">Оборудованная</label>
-                <input id="radio1" type="radio" />
               </div>
               <div className="flex items-center gap-x-[10px] text-extraSm">
                 <label htmlFor="radio2">Необорудованная</label>

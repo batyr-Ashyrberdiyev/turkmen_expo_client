@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import { Radio } from "../ui/Radio";
-import { selectFaq, setFaqStatus } from "@/redux/slices/faqSlice";
+import { selectFaq, setFaqStatus, setFaqTitle } from "@/redux/slices/faqSlice";
 import { Members } from "../faq/Members";
 import { All } from "../faq/All";
 import { Visitors } from "../faq/Visitors";
@@ -19,13 +19,16 @@ export const radio = [
 
 export const FaqSec = () => {
   const dispatch = useAppDispatch();
-  const { faqStatus } = useAppSelector(selectFaq);
+  const { faqStatus, faqTitle } = useAppSelector(selectFaq);
 
   const changeRadio = (name: string) => {
     dispatch(setFaqStatus(name));
   };
 
-  console.log(faqStatus);
+  const onTitle = (name: string) => {
+    if (faqTitle === name) dispatch(setFaqTitle(""));
+    else dispatch(setFaqTitle(name));
+  };
 
   return (
     <div className="container flex flex-col items-start pt-[20px] mb-[136px]">
