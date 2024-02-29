@@ -1,17 +1,14 @@
 import React from "react";
 
-import { useForm } from "react-hook-form";
-
 interface Props {
   text: string;
   name: "title" | "sitename" | "person" | "phone" | "email" | "space";
-
   star?: boolean;
   type?: string;
   area?: boolean;
 }
 
-type formProps = {
+type FormProps = {
   title: string;
   sitename: string;
   phone: string;
@@ -27,18 +24,12 @@ export const BidForm = ({
   name = "title",
   area = false,
 }: Props) => {
-  //
-  // const { register, handleSubmit } = useForm<formProps>();
-
   return (
     <div className="">
       {area ? (
         <>
           <label htmlFor="area">{text}</label>
           <textarea
-            // {...register(name, {
-            //   required: true,
-            // })}
             className="bid-input"
             name="Демонстрируемая продукция / оборудование / услуги"
             id="area"
@@ -53,10 +44,7 @@ export const BidForm = ({
             {star && <span className="text-lightRed">*</span>}
           </label>
           <input
-            // {...register(name, {
-            //   required: true,
-            //   // validate:()
-            // })}
+            defaultValue={"test"}
             type={type}
             id="name"
             className="bid-input"

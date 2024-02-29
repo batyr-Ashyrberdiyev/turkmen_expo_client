@@ -66,6 +66,6 @@ body {
   }
 
   .bid-option {
-    @apply bg-navyBlue3 py-[15px] px-[12px];
+    @apply bg-navyBlue3 py-[15px] px-[12px] w-full;
   }
 }
