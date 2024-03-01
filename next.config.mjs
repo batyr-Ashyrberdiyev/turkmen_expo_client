@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 // const nextConfig = {};
-const nextConfig = { images: { unoptimized: true }, distDir: 'build', output: 'export' };
+// const nextConfig = { distDir: 'build' };
+const nextConfig = {
+  images: { unoptimized: true },
+  output: 'export',
+};
 
 export default nextConfig;
