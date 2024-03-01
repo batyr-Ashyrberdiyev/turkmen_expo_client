@@ -2,34 +2,46 @@
 
 import React from "react";
 import Link from "next/link";
+import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
+import { usePathname } from "next/navigation";
 
-import { useAppSelector } from "@/redux/hooks";
-import { selectHome } from "@/redux/slices/homeSlice";
-
-import { aboutCompanyData } from "@/lib/database/pathnames";
+import { sidebarData } from "@/lib/database/pathnames";
 
 export const Sidebar = () => {
-  const { activeTitle } = useAppSelector(selectHome);
+  const pathname = usePathname();
 
   return (
     <div className="flex flex-col items-start gap-y-[12px]">
-      <p className="text-bgWhite mb-[12px] text-[16px] font-bold">
-        {activeTitle}
-      </p>
-      <ul className="flex flex-col items-start gap-y-[10px]">
-        {aboutCompanyData
-          .filter((name) => name.title !== activeTitle)
-          .map((item) => (
-            <Link
-              href={item.link}
-              className="cursor-pointer py-1 ml-[16px]"
-              key={uuidv4()}
-            >
-              {item.title}
-            </Link>
-          ))}
-      </ul>
+      {sidebarData
+        .filter(
+          (obj) =>
+            (pathname === "/company/aboutus" && obj.company) ||
+            (pathname === "/members" && obj.members) ||
+            (pathname === "/members/bid" && obj.members)
+        )
+        .map((item) => (
+          <>
+            <p className="text-bgWhite mb-[12px] text-[16px] font-bold">
+              {item.pathname}
+            </p>
+            <div className="flex flex-col items-start gap-y-[10px]">
+              <div className="flex flex-col gap-[10px]">
+                {item.info.map((obj) => (
+                  <Link
+                    href={obj.link}
+                    className={clsx("cursor-pointer py-1 ml-[16px]", {
+                      "text-green": obj.link === pathname,
+                    })}
+                    key={uuidv4()}
+                  >
+                    {obj.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </>
+        ))}
     </div>
   );
 };

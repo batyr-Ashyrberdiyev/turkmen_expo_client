@@ -8,6 +8,9 @@
   line-height: 1;
   color: #f2f9ff;
   height: 100vh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -63,6 +66,10 @@ body {
 
   .bid-input {
     @apply focus:outline-none bg-transparent border-[1px] border-navyBlue rounded-[2px] py-[8px] px-[15px];
+  }
+
+  .bid-drop {
+    @apply focus:outline-none bg-transparent border-[1px] border-navyBlue rounded-[2px] py-[15px] px-[15px];
   }
 
   .bid-option {
