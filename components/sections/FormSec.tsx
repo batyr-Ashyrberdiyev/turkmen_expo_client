@@ -1,14 +1,18 @@
+"use client";
+
 import React from "react";
 
 import { BidDrop } from "../ui/BidDrop";
+import clsx from "clsx";
 
 export const FormSec = () => {
-  return (
-    <form action="" className="w-full max-w-[538px]">
-      <div className="">
-        <BidDrop />
-      </div>
+  const [radioActive, setRadioActive] = React.useState(false);
+  const [radioActive2, setRadioActive2] = React.useState(false);
 
+  const onRadio = () => {};
+
+  return (
+    <form className="w-full max-w-[538px]">
       <div className="flex flex-col items-start gap-[24px]">
         <div className="flex flex-col w-full">
           <label htmlFor="name" className="mb-[15px]">
@@ -98,6 +102,52 @@ export const FormSec = () => {
             className="bid-input"
           />
         </div>
+
+        <div className="w-full">
+          <BidDrop />
+        </div>
+
+        <div className="w-full mb-[24px]">
+          <div className="flex flex-col gap-[15px]">
+            <h4>
+              Экспозицонная площадь<span className="text-lightRed">*</span>
+            </h4>
+            <div className="flex-centers gap-[10px]">
+              <div className="radio">
+                <div
+                  className={clsx("bg-green opacity-0 transition-all", {
+                    "opacity-100": radioActive,
+                  })}
+                ></div>
+              </div>
+              <p className="text-extraSm">Оборудованная</p>
+            </div>
+            <div className="flex-centers gap-[10px]">
+              <div className="radio">
+                <div
+                  className={clsx("bg-green opacity-0 transition-all", {
+                    "opacity-100": radioActive,
+                  })}
+                ></div>
+              </div>
+              <p className="text-extraSm">Необорудованная</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full">
+          <div className="flex-centers gap-[10px]">
+            <input type="checkbox" className=" bg-navyBlue"></input>
+            <p className="text-extraSm">Даю согласие на обработку своих</p>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          className="py-[17px] w-full bg-gray3 rounded-[2px]"
+        >
+          Отправить
+        </button>
       </div>
     </form>
   );

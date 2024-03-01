@@ -28,7 +28,7 @@ body {
 }
 
 .custom-shadow {
-  box-shadow: 10px 4px 0 5px rgba(black, black, black, 1);
+  box-shadow: 0 2px 0 12px rgba(black, black, black, 1);
 }
 
 @layer utilities {
@@ -65,14 +65,26 @@ body {
   }
 
   .bid-input {
-    @apply focus:outline-none bg-transparent border-[1px] border-navyBlue rounded-[2px] py-[8px] px-[15px];
+    @apply focus:outline-none bg-transparent border-[1px] border-navyBlue rounded-[2px] py-[12px] px-[15px];
   }
 
   .bid-drop {
-    @apply focus:outline-none bg-transparent border-[1px] border-navyBlue rounded-[2px] py-[15px] px-[15px];
+    @apply focus:outline-none bg-transparent border-[1px] border-navyBlue rounded-[2px] py-[12px] px-[15px];
   }
 
   .bid-option {
     @apply bg-navyBlue3 py-[15px] px-[12px] w-full;
+  }
+
+  .radio {
+    @apply w-[16px] h-[16px] p-[3px] border-[1px] border-navyBlue4 rounded-full;
+  }
+
+  .flex-centers {
+    @apply flex items-center;
+  }
+
+  .flex-cols {
+    @apply flex flex-col;
   }
 }

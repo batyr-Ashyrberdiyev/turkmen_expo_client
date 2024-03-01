@@ -1,7 +1,12 @@
 "use client";
 
-import clsx from "clsx";
 import React from "react";
+import Image from "next/image";
+import clsx from "clsx";
+
+import { v4 as uuidv4 } from "uuid";
+
+import drop from "@/public/assets/icons/form-drop-icon.svg";
 
 export const BidDrop = () => {
   const [title, setTitle] = React.useState("");
@@ -19,15 +24,24 @@ export const BidDrop = () => {
   return (
     <div className="">
       <div
+        key={uuidv4()}
         onClick={() => setActive(!active)}
-        className="bid-drop py-[15px] mb-[10px]"
+        className="flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]"
       >
-        {title}
+        <div>{title}</div>
+        <Image
+          src={drop}
+          alt="arrow"
+          className={clsx("transition-all", {
+            "rotate-180": active,
+          })}
+        />
       </div>
       {active && (
         <div className="bg-navyBlue3 rounded-none border-none">
           {phoneMail.map((item) => (
             <div
+              key={uuidv4()}
               onClick={() => onOption(item)}
               className={clsx("bid-drop py-[10px]", {
                 "hover:bg-green": item === item,
