@@ -25,17 +25,19 @@ export const BidDrop = () => {
         setActive(false);
       }
     };
-    
+
     document.addEventListener("click", handleClick);
 
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
   return (
-    <div className="">
+    <>
       <div
         key={uuidv4()}
-        onClick={() => setActive(!active)}
+        onClick={() => {
+          setActive(!active), console.log("first");
+        }}
         className="flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]"
       >
         <div>{title}</div>
@@ -48,10 +50,9 @@ export const BidDrop = () => {
         />
       </div>
       {active && (
-        <div className="bg-navyBlue3 rounded-sm flex flex-col">
+        <div ref={dropRef} className="bg-navyBlue3 rounded-sm flex flex-col">
           {phoneMail.map((item) => (
             <div
-              ref={dropRef}
               key={uuidv4()}
               onClick={() => onOption(item)}
               className={clsx("py-[15px] px-[12px] text-[14px] font-regular", {
@@ -63,6 +64,6 @@ export const BidDrop = () => {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };

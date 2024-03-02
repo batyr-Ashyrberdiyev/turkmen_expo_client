@@ -21,7 +21,7 @@ export const Sidebar = () => {
             (pathname === "/members/bid" && obj.members)
         )
         .map((item) => (
-          <>
+          <div key={uuidv4()}>
             <p className="text-bgWhite mb-[12px] text-[16px] font-bold">
               {item.pathname}
             </p>
@@ -40,7 +40,7 @@ export const Sidebar = () => {
                 ))}
               </div>
             </div>
-          </>
+          </div>
         ))}
     </div>
   );

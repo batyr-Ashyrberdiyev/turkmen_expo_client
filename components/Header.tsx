@@ -5,19 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { selectHeader } from "@/redux/slices/headerSlice";
-
 import logo from "@/public/assets/icons/logo.svg";
-import search from "@/public/assets/icons/search.svg";
 
 import { LangMenu } from "./ui/LangMenu";
 import { Input } from "./ui/Input";
+import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
 
 export const Header = () => {
-  const dispatch = useAppDispatch();
-  const { menu, menu2 } = useAppSelector(selectHeader);
-
   return (
     <header className="">
       <div className="flex items-center bg-darkBlue text-white py-[12px] font-regular text-extraSm">
@@ -25,7 +19,7 @@ export const Header = () => {
           <p className="extraSm">Справочный центр: 993 (12) 34-56-78</p>
           <div>
             <div className="flex items-center gap-x-[10px]">
-              {menu.map((item) => (
+              {headerMenu.map((item) => (
                 <Link key={uuidv4()} href={item.link} className="px-[5px]">
                   {item.title}
                 </Link>
@@ -42,7 +36,7 @@ export const Header = () => {
             <Image src={logo} alt="logo" height={38} width={235} />
           </Link>
           <div className="flex items-center gap-x-[20px]">
-            {menu2.map((item, id) => (
+            {headerMenu2.map((item, id) => (
               <Link key={uuidv4()} href={item.link} className="cursor-pointer">
                 {item.title}
               </Link>

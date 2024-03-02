@@ -33,3 +33,50 @@ export const sidebarData: MenuType[] = [
     ],
   },
 ];
+
+interface HeaderType {
+  title: string;
+  link: string;
+  id: number;
+}
+
+export const headerMenu: HeaderType[] = [
+  { title: "О компании", link: "/company/aboutus", id: 1 },
+  { title: "Новости", link: "/", id: 2 },
+  { title: "FAQ", link: "/faq", id: 3 },
+  { title: "Контакты", link: "/contacts", id: 4 },
+];
+
+export const headerMenu2: HeaderType[] = [
+  { title: "Календарь мероприятий", link: "/", id: 1 },
+  { title: "Участникам", link: "/members", id: 2 },
+  { title: "Посетителям", link: "/", id: 3 },
+  { title: "Услуги", link: "/", id: 4 },
+];
+
+interface FooterType {
+  title: string;
+  link: string;
+}
+
+export const footerMenu = [
+  { title: "Календарь мероприятий", link: "/" },
+  { title: "Участникам", link: "/" },
+  { title: "Посетителям", link: "/" },
+  { title: "Организаторам", link: "/" },
+];
+
+export const footerMenu2: FooterType[] = [
+  { title: "Территория комплекса", link: "/" },
+  { title: "О компании", link: "/company/aboutus" },
+  { title: "Пресс-центр", link: "/" },
+  { title: "FAQ", link: "/faq" },
+  { title: "Контакты", link: "/contacts" },
+  { title: "Справочный центр", link: "/" },
+];
+
+export const footerInfo: string[] = [
+  "123100, Москва, Краснопресненская наб., 14",
+  "Тел.: 8 (800) 707-37-99, +7 (499) 795-37-99",
+  "E-mail: centr@expocentr.ru",
+];
