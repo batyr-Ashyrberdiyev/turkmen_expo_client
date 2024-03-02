@@ -10,7 +10,7 @@ const CompanyLayout = ({ children }: { children: React.ReactNode }) => {
           <main className="pt-[20px] w-[25%]">
             <Sidebar />
           </main>
-          <div className="bg-navyBlueBg pt-[20px] pl-[20px] w-[75%] relative main-abs-bg h-full">
+          <div className="bg-navyBlueBg pt-[20px] pl-[56px] w-[75%] relative main-abs-bg h-full">
             {children}
           </div>
         </div>

@@ -22,15 +22,15 @@ export const Sidebar = () => {
         )
         .map((item) => (
           <div key={uuidv4()}>
-            <p className="text-bgWhite mb-[12px] text-[16px] font-bold">
+            <p className="text-bgWhite mb-[16px] text-[16px] font-bold leading-[1.5]">
               {item.pathname}
             </p>
-            <div className="flex flex-col items-start gap-y-[10px]">
-              <div className="flex flex-col gap-[10px]">
+            <div className="flex flex-col items-start gap-y-[8px]">
+              <div className="flex flex-col gap-[10px] px-[16px]">
                 {item.info.map((obj) => (
                   <Link
                     href={obj.link}
-                    className={clsx("cursor-pointer py-1 ml-[16px]", {
+                    className={clsx("cursor-pointer py-1", {
                       "text-green": obj.link === pathname,
                     })}
                     key={uuidv4()}

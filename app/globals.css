@@ -45,7 +45,7 @@ body {
   }
 
   .btn {
-    @apply bg-green text-bgWhite rounded-[2px] px-[43px] py-[17px] text-sm;
+    @apply font-medium text-bgWhite rounded-[2px] px-[43px] py-[17px] text-sm;
   }
 
   :disabled {

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import { BidDrop } from "../ui/BidDrop";
 import clsx from "clsx";
@@ -9,34 +10,45 @@ export const FormSec = () => {
   const [radioActive, setRadioActive] = React.useState(false);
   const [radioActive2, setRadioActive2] = React.useState(false);
 
-  const onRadio = () => {};
+  const [activeRadio, setActiveRadio] = React.useState("");
+
+  const onRadio = (str: string) => {
+    if (str === "Оборудованная") {
+      setRadioActive(true);
+      setRadioActive2(false);
+    } else {
+      setRadioActive2(true);
+      setRadioActive(false);
+    }
+  };
+
+  const phoneMail = ["телефон", "E-mail"];
+  const exhibiotns = [
+    "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
+    "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
+  ];
+
+  const radioText = ["Оборудованная", "Необорудованная"];
 
   return (
     <form className="w-full max-w-[538px]">
       <div className="flex flex-col items-start gap-[24px]">
         <div className="flex flex-col w-full">
+          <BidDrop dropInfo={exhibiotns} />
+        </div>
+        <div className="flex flex-col w-full">
           <label htmlFor="name" className="mb-[15px]">
             Название сайта
             <span className="text-lightRed">*</span>
           </label>
-          <input
-            defaultValue={""}
-            type="text"
-            id="name"
-            className="bid-input"
-          />
+          <input type="text" id="name" className="bid-input" />
         </div>
 
         <div className="flex flex-col w-full">
           <label htmlFor="siteUrl" className="mb-[15px]">
             Сайт
           </label>
-          <input
-            defaultValue={""}
-            type="text"
-            id="siteUrl"
-            className="bid-input"
-          />
+          <input type="text" id="siteUrl" className="bid-input" />
         </div>
 
         <div className="flex flex-col w-full">
@@ -44,12 +56,7 @@ export const FormSec = () => {
             Телефон
             <span className="text-lightRed">*</span>
           </label>
-          <input
-            defaultValue={""}
-            type="text"
-            id="phone"
-            className="bid-input"
-          />
+          <input type="text" id="phone" className="bid-input" />
         </div>
 
         <div className="flex flex-col w-full">
@@ -57,24 +64,14 @@ export const FormSec = () => {
             E-mail
             <span className="text-lightRed">*</span>
           </label>
-          <input
-            defaultValue={""}
-            type="email"
-            id="email"
-            className="bid-input"
-          />
+          <input type="email" id="email" className="bid-input" />
         </div>
 
         <div className="flex flex-col w-full">
           <label htmlFor="space" className="mb-[15px]">
             Требуемая площадь, м2
           </label>
-          <input
-            defaultValue={""}
-            type="text"
-            id="space"
-            className="bid-input"
-          />
+          <input type="text" id="space" className="bid-input" />
         </div>
 
         <div className="flex flex-col w-full">
@@ -95,16 +92,11 @@ export const FormSec = () => {
             Контактное лицо (Ф.И.О)
             <span className="text-lightRed">*</span>
           </label>
-          <input
-            defaultValue={""}
-            type="text"
-            id="person"
-            className="bid-input"
-          />
+          <input type="text" id="person" className="bid-input" />
         </div>
 
-        <div className="w-full">
-          <BidDrop />
+        <div className="w-full mb-[106px]">
+          <BidDrop dropInfo={phoneMail} />
         </div>
 
         <div className="w-full mb-[24px]">
@@ -112,25 +104,26 @@ export const FormSec = () => {
             <h4>
               Экспозицонная площадь<span className="text-lightRed">*</span>
             </h4>
-            <div className="flex-centers gap-[10px]">
-              <div className="radio">
+            <div className="flex-cols gap-[10px]">
+              {radioText.map((item) => (
                 <div
-                  className={clsx("bg-green opacity-0 transition-all", {
-                    "opacity-100": radioActive,
-                  })}
-                ></div>
-              </div>
-              <p className="text-extraSm">Оборудованная</p>
-            </div>
-            <div className="flex-centers gap-[10px]">
-              <div className="radio">
-                <div
-                  className={clsx("bg-green opacity-0 transition-all", {
-                    "opacity-100": radioActive,
-                  })}
-                ></div>
-              </div>
-              <p className="text-extraSm">Необорудованная</p>
+                  onClick={() => onRadio(item)}
+                  key={uuidv4()}
+                  className="flex-centers gap-[10px] cursor-pointer"
+                >
+                  <div className="radio">
+                    <div
+                      className={clsx(
+                        "bg-green opacity-0 w-full h-full rounded-full transition-all",
+                        {
+                          "opacity-100": item === item,
+                        }
+                      )}
+                    ></div>
+                  </div>
+                  <p className="text-extraSm">{item}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

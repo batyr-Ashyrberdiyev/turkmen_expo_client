@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export type EventCardProps = {
+  dark?: boolean;
   img: StaticImageData;
   title: string;
   text: string;

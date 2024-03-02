@@ -48,7 +48,7 @@ export const headerMenu: HeaderType[] = [
 ];
 
 export const headerMenu2: HeaderType[] = [
-  { title: "Календарь мероприятий", link: "/", id: 1 },
+  { title: "Календарь мероприятий", link: "/events", id: 1 },
   { title: "Участникам", link: "/members", id: 2 },
   { title: "Посетителям", link: "/", id: 3 },
   { title: "Услуги", link: "/", id: 4 },
@@ -60,7 +60,7 @@ interface FooterType {
 }
 
 export const footerMenu = [
-  { title: "Календарь мероприятий", link: "/" },
+  { title: "Календарь мероприятий", link: "/events" },
   { title: "Участникам", link: "/" },
   { title: "Посетителям", link: "/" },
   { title: "Организаторам", link: "/" },

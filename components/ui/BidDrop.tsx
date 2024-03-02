@@ -8,10 +8,13 @@ import { v4 as uuidv4 } from "uuid";
 
 import drop from "@/public/assets/icons/form-drop-icon.svg";
 
-export const BidDrop = () => {
+interface Props {
+  dropInfo: string[];
+}
+
+export const BidDrop = ({ dropInfo }: Props) => {
   const [title, setTitle] = React.useState("");
   const [active, setActive] = React.useState(false);
-  const phoneMail = ["телефон", "E-mail"];
   const dropRef = React.useRef<HTMLDivElement>(null);
 
   const onOption = (name: string) => {
@@ -36,7 +39,7 @@ export const BidDrop = () => {
       <div
         key={uuidv4()}
         onClick={() => {
-          setActive(!active), console.log("first");
+          setActive(!active);
         }}
         className="flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]"
       >
@@ -49,21 +52,26 @@ export const BidDrop = () => {
           })}
         />
       </div>
-      {active && (
-        <div ref={dropRef} className="bg-navyBlue3 rounded-sm flex flex-col">
-          {phoneMail.map((item) => (
-            <div
-              key={uuidv4()}
-              onClick={() => onOption(item)}
-              className={clsx("py-[15px] px-[12px] text-[14px] font-regular", {
-                "hover:bg-green rounded-sm": item === item,
-              })}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="relative">
+        {active && (
+          <div className="bg-navyBlue3 rounded-sm flex flex-col absolute w-full">
+            {dropInfo.map((item) => (
+              <div
+                key={uuidv4()}
+                onClick={() => onOption(item)}
+                className={clsx(
+                  "py-[15px] px-[12px] text-[14px] font-regular",
+                  {
+                    "hover:bg-green rounded-sm": item === item,
+                  }
+                )}
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };

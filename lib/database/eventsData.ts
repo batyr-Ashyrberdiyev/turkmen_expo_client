@@ -50,3 +50,46 @@ export const eventCardData = [
     id: 4,
   },
 ];
+
+export const eventPagination = [
+  {
+    img: eventImg,
+    suptitle: "Выставка-ярмарка",
+    title: "Всё для детей",
+    text: eventCardText,
+    organizer: "ОРГАНИЗАТОР:",
+    footerText: "ОАО «Рога и копыта»",
+    date: "16.02.2024–18.02.2024",
+    calendar: `Добавить в календарь (ics-файл)`,
+  },
+  {
+    img: eventImg,
+    suptitle: "Выставка-ярмарка",
+    title: "Всё для детей",
+    text: eventCardText,
+    organizer: "ОРГАНИЗАТОР:",
+    footerText: "ОАО «Рога и копыта»",
+    date: "16.02.2024–18.02.2024",
+    calendar: `Добавить в календарь (ics-файл)`,
+  },
+  {
+    img: eventImg,
+    suptitle: "Выставка-ярмарка",
+    title: "Всё для детей",
+    text: eventCardText,
+    organizer: "ОРГАНИЗАТОР:",
+    footerText: "ОАО «Рога и копыта»",
+    date: "16.02.2024–18.02.2024",
+    calendar: `Добавить в календарь (ics-файл)`,
+  },
+  {
+    img: eventImg,
+    suptitle: "Выставка-ярмарка",
+    title: "Всё для детей",
+    text: eventCardText,
+    organizer: "ОРГАНИЗАТОР:",
+    footerText: "ОАО «Рога и копыта»",
+    date: "16.02.2024–18.02.2024",
+    calendar: `Добавить в календарь (ics-файл)`,
+  },
+];
