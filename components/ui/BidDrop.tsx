@@ -19,7 +19,17 @@ export const BidDrop = () => {
     setTitle(name);
   };
 
-  React.useEffect(() => {}, []);
+  React.useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
+        setActive(false);
+      }
+    };
+    
+    document.addEventListener("click", handleClick);
+
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
 
   return (
     <div className="">
@@ -38,13 +48,14 @@ export const BidDrop = () => {
         />
       </div>
       {active && (
-        <div className="bg-navyBlue3 rounded-none border-none">
+        <div className="bg-navyBlue3 rounded-sm flex flex-col">
           {phoneMail.map((item) => (
             <div
+              ref={dropRef}
               key={uuidv4()}
               onClick={() => onOption(item)}
-              className={clsx("bid-drop py-[10px]", {
-                "hover:bg-green": item === item,
+              className={clsx("py-[15px] px-[12px] text-[14px] font-regular", {
+                "hover:bg-green rounded-sm": item === item,
               })}
             >
               {item}
