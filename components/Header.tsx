@@ -16,7 +16,7 @@ export const Header = () => {
     <header className="">
       <div className="flex items-center bg-darkBlue text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
-          <p className="extraSm">Справочный центр: 993 (12) 34-56-78</p>
+          <p className="text-extraSm">Справочный центр: 993 (12) 34-56-78</p>
           <div>
             <div className="flex items-center gap-x-[10px]">
               {headerMenu.map((item) => (
@@ -24,19 +24,22 @@ export const Header = () => {
                   {item.title}
                 </Link>
               ))}
-              <LangMenu />
+              <div className="">
+                <LangMenu />
+              </div>
               <Input />
             </div>
           </div>
         </div>
       </div>
+
       <div className="bg-bgWhite text-black">
         <div className="container py-[17px] flex items-center justify-between">
           <Link href="/">
             <Image src={logo} alt="logo" height={38} width={235} />
           </Link>
-          <div className="flex items-center gap-x-[20px]">
-            {headerMenu2.map((item, id) => (
+          <div className="flex items-center gap-x-[20px] font-medium">
+            {headerMenu2.map((item) => (
               <Link key={uuidv4()} href={item.link} className="cursor-pointer">
                 {item.title}
               </Link>

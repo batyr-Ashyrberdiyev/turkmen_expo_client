@@ -3,7 +3,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { BidDrop } from "../ui/BidDrop";
+import { BidDrop } from "../ui/Dropdown";
 import clsx from "clsx";
 
 export const FormSec = () => {
@@ -130,12 +130,13 @@ export const FormSec = () => {
 
         <div className="w-full">
           <div className="flex-centers gap-[10px]">
-            <input type="checkbox" className=" bg-navyBlue"></input>
+            <input type="checkbox" className="bg-navyBlue"></input>
             <p className="text-extraSm">Даю согласие на обработку своих</p>
           </div>
         </div>
 
         <button
+          disabled
           type="submit"
           className="py-[17px] w-full bg-gray3 rounded-[2px]"
         >

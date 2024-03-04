@@ -12,7 +12,7 @@ export const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col items-start gap-y-[12px]">
+    <div className="flex flex-col items-start gap-y-[12px] py-[20px] sticky top-0 left-0 overflow-hidden">
       {sidebarData
         .filter(
           (obj) =>
@@ -30,9 +30,12 @@ export const Sidebar = () => {
                 {item.info.map((obj) => (
                   <Link
                     href={obj.link}
-                    className={clsx("cursor-pointer py-1", {
-                      "text-green": obj.link === pathname,
-                    })}
+                    className={clsx(
+                      "cursor-pointer py-1 leading-[130%] px-[16px]",
+                      {
+                        "text-green": obj.link === pathname,
+                      }
+                    )}
                     key={uuidv4()}
                   >
                     {obj.title}

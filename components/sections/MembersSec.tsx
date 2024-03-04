@@ -9,7 +9,9 @@ export const MembersSec = () => {
       <p className="text-[12px] text-gray4">
         Главная / О компании / Коротко о нас
       </p>
-      <h2 className="text-extra font-semibold">Информация для участников</h2>
+      <h2 className="text-extra font-semibold leading-[100%]">
+        Информация для участников
+      </h2>
 
       <p className="text-p">
         В распоряжении компании имеются возможности размещения и застройки

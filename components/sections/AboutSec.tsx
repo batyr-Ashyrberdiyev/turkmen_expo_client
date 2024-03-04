@@ -11,7 +11,7 @@ export const AboutSec = () => {
       <p className="text-[12px] text-gray4">
         Главная / О компании / Коротко о нас
       </p>
-      <h2 className="text-extra font-semibold">Коротко о нас</h2>
+      <h2 className="text-extra font-semibold leading-[100%]">Коротко о нас</h2>
 
       <Image src={aboutImg} width={1000} height={500} alt="about image" />
       <div className="flex flex-col items-start gap-y-[24px] text-p">

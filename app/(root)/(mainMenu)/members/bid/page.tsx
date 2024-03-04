@@ -9,7 +9,7 @@ const Bid = () => {
         <p className="text-[12px] mb-[24px] text-gray4">
           Главная / Участникам / Онлайн заявка для участников
         </p>
-        <h2 className="text-extra font-semibold mb-[24px]">
+        <h2 className="text-extra font-semibold mb-[24px] leading-[100%]">
           Выстовочная деятельность
         </h2>
         <FormSec />

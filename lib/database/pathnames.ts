@@ -14,11 +14,11 @@ export const sidebarData: MenuType[] = [
     pathname: "О компании",
     info: [
       { title: "Коротко о нас", link: "/company/aboutus" },
-      { title: "Выставочная деятельность", link: "/" },
-      { title: "История и награды", link: "/" },
-      { title: "Партнеры", link: "/" },
-      { title: "Работы в компании", link: "/" },
-      { title: "Наши издания", link: "/" },
+      { title: "Выставочная деятельность", link: "" },
+      { title: "История и награды", link: "" },
+      { title: "Партнеры", link: "" },
+      { title: "Работы в компании", link: "" },
+      { title: "Наши издания", link: "" },
     ],
   },
   {
@@ -27,9 +27,9 @@ export const sidebarData: MenuType[] = [
     info: [
       { title: "Информация для участников", link: "/members" },
       { title: "Онлайн заявка для участников", link: "/members/bid" },
-      { title: "Меню 3 (при необходимости)", link: "/" },
-      { title: "Меню 4 (при необходимости)", link: "/" },
-      { title: "Меню 5 (при необходимости)", link: "/" },
+      { title: "Меню 3 (при необходимости)", link: "" },
+      { title: "Меню 4 (при необходимости)", link: "" },
+      { title: "Меню 5 (при необходимости)", link: "" },
     ],
   },
 ];
@@ -42,16 +42,16 @@ interface HeaderType {
 
 export const headerMenu: HeaderType[] = [
   { title: "О компании", link: "/company/aboutus", id: 1 },
-  { title: "Новости", link: "/", id: 2 },
+  { title: "Новости", link: "", id: 2 },
   { title: "FAQ", link: "/faq", id: 3 },
   { title: "Контакты", link: "/contacts", id: 4 },
 ];
 
 export const headerMenu2: HeaderType[] = [
-  { title: "Календарь мероприятий", link: "/events", id: 1 },
+  { title: "Календарь мероприятий", link: "/calendar", id: 1 },
   { title: "Участникам", link: "/members", id: 2 },
-  { title: "Посетителям", link: "/", id: 3 },
-  { title: "Услуги", link: "/", id: 4 },
+  { title: "Посетителям", link: "", id: 3 },
+  { title: "Услуги", link: "", id: 4 },
 ];
 
 interface FooterType {
@@ -60,8 +60,8 @@ interface FooterType {
 }
 
 export const footerMenu = [
-  { title: "Календарь мероприятий", link: "/events" },
-  { title: "Участникам", link: "/" },
+  { title: "Календарь мероприятий", link: "/calendar" },
+  { title: "Участникам", link: "/members" },
   { title: "Посетителям", link: "/" },
   { title: "Организаторам", link: "/" },
 ];

@@ -1,18 +1,16 @@
 "use client";
 
 import React from "react";
-import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 import { useSearchParams, useRouter } from "next/navigation";
 
 import { EventCard } from "../cards/EventCard";
-import { Button } from "../ui/Button";
+import { BorderBtn } from "../ui/Buttons";
 
 import { eventPagination } from "@/lib/database/eventsData";
+import Link from "next/link";
 
-export const EventsSec = ({}: {}) => {
-  const [btnStatus, setBtnStatus] = React.useState(true);
-
+export const CalendarSec = ({}: {}) => {
   const [showCards, setShowCards] = React.useState(false);
 
   const showEventCards = () => {
@@ -46,16 +44,13 @@ export const EventsSec = ({}: {}) => {
           {entries
             .filter((item, index) => index < 3 || (showCards && item))
             .map((item) => (
-              <EventCard key={uuidv4()} dark {...item} />
+              <Link href="/calendar/event">
+                <EventCard key={uuidv4()} dark {...item} />
+              </Link>
             ))}
         </div>
         <div className="w-full flex flex-col gap-6 items-center justify-center">
-          <Button
-            onEventBtn={showEventCards}
-            border
-            text={showCards ? "Скрыть" : "Показать ещё"}
-            mt="24px"
-          />
+          <BorderBtn text={showCards ? "Скрыть" : "Показать ещё"} mt="24" />
           <div className="flex items-center gap-5">
             <button
               onClick={() =>

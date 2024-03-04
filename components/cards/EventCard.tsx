@@ -25,10 +25,10 @@ export const EventCard = ({
     >
       <div className="flex items-start gap-x-[33px]">
         <Image src={img} width={150} height={150} alt="Event Image" />
-        <div className="flex flex-col items-start gap-x-[25px] max-w-[650px]">
+        <div className="flex flex-col items-start gap-x-[25px] max-w-[683px]">
           <p className="text-[12px] text-gray mb-[25px]">{suptitle}</p>
           <h3
-            className={clsx("text-[21px] mb-[15px]", {
+            className={clsx("text-[21px] mb-[15px] font-bold", {
               "text-bgWhite": dark,
               "text-green": !dark,
             })}
@@ -36,7 +36,7 @@ export const EventCard = ({
             {title}
           </h3>
           <p
-            className={clsx("text-[16px] mb-[25px] leading-snug", {
+            className={clsx("text-[16px] mb-[25px] leading-[150%]", {
               "text-gray2": !dark,
               "text-gray4": dark,
             })}
@@ -46,11 +46,11 @@ export const EventCard = ({
           <p className="uppercase text-gray mb-[10px] text-[10px]">
             {organizer}
           </p>
-          <p className="text-gray text-extraSm">{footerText}</p>
+          <p className="text-gray text-extraSm leading-[125%]">{footerText}</p>
         </div>
         <div className="flex flex-col items-start gap-y-[20px]">
           <p
-            className={clsx("text-lg font-bold", {
+            className={clsx("text-lg font-semibold", {
               "text-red": !dark,
               "text-lightYellow": dark,
             })}

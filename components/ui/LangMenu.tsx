@@ -2,12 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
+import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
-import triangle from "@/public/assets/icons/arrow-menu.svg";
+import triangle from "@/public/assets/icons/drop-icon.svg";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { selectHeader } from "@/redux/slices/headerSlice";
-import { setActiveLang } from "@/redux/slices/headerSlice";
+import { setActiveLang, setActiveMenu } from "@/redux/slices/headerSlice";
 
 export const lang = ["Ру", "Tu", "En"];
 
@@ -39,33 +40,37 @@ export const LangMenu = () => {
   return (
     <div
       ref={menuRef}
-      className="cursor-pointer flex items-center gap-x-[20px]"
+      className="relative cursor-pointer flex items-center gap-x-[20px]"
       onClick={() => {
         setActive(!active);
         setRotate(!rotate);
       }}
     >
-      <div className="flex gap-x-[5px]">
+      <div className="flex items-center px-[12px]">
         <p>{activeLang}</p>
         <Image
           src={triangle}
           alt="arrow"
           className={`${
-            rotate && "rotate-180 "
-          }transition-rotate duration-300 img-auto`}
+            rotate && "rotate-180"
+          } transition-rotate duration-300 img-auto`}
         />
       </div>
       {active && (
-        <div className="absolute z-10 flex flex-col top-10 rounded-[2px] bg-gray2 text-bgWhite transition-all duration-300">
-          {lang.map((item, id) => (
-            <div
-              onClick={() => setLang(item)}
-              className={`${activeLang === item && "bg-darkBlue"} px-5 py-2`}
-              key={uuidv4()}
-            >
-              {item}
-            </div>
-          ))}
+        <div className="absolute overflow-hidden z-10 flex flex-col top-[26px] bg-darkBlue transition-all duration-300">
+          {lang
+            .filter((item) => item !== activeLang)
+            .map((item) => (
+              <div
+                onClick={() => setLang(item)}
+                className={clsx("p-3 pr-[22px] text-extraSm transition-all", {
+                  "hover:bg-navyBlue2": item === item,
+                })}
+                key={uuidv4()}
+              >
+                {item}
+              </div>
+            ))}
         </div>
       )}
     </div>

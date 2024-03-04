@@ -3,7 +3,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { EventCard } from "../cards/EventCard";
-import { Button } from "../ui/Button";
+import { GreenBtn } from "../ui/Buttons";
 import { eventCardData } from "@/lib/database/eventsData";
 
 export const Events = () => {
@@ -15,7 +15,9 @@ export const Events = () => {
 
   return (
     <div className="container">
-      <h2 className="text-extra mb-[40px]">Ближайшие выставки и мероприятия</h2>
+      <h2 className="text-extra mb-[40px] font-semibold">
+        Ближайшие выставки и мероприятия
+      </h2>
       <div className="mb-[158px] flex flex-col items-center gap-y-[10px]">
         {openCards
           ? eventCardData
@@ -23,7 +25,7 @@ export const Events = () => {
               .map((item) => <EventCard key={item.id} {...item} />)
           : eventCardData.map((item) => <EventCard key={item.id} {...item} />)}
 
-        <Button
+        <GreenBtn
           onEventBtn={onEventBtn}
           text={openCards ? "Показать ещё" : "Скрыть"}
           mt="mt-[25px]"

@@ -5,7 +5,7 @@
 :root {
   font-size: 14px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 100%;
   color: #f2f9ff;
   height: 100vh;
   padding: 0;
@@ -28,7 +28,11 @@ body {
 }
 
 .custom-shadow {
-  box-shadow: 0 2px 0 12px rgba(black, black, black, 1);
+  box-shadow: 0 2px 0 12px rgba(black, black, black, 20%);
+}
+
+.service-shadow {
+  box-shadow: 0 3px 0 4px rgba(black, black, black, 20%);
 }
 
 @layer utilities {
