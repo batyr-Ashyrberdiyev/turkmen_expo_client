@@ -3,7 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
+import { usePathname } from "next/navigation";
 
 import logo from "@/public/assets/icons/logo.svg";
 
@@ -12,21 +14,32 @@ import { Input } from "./ui/Input";
 import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
 
 export const Header = () => {
+  const pathname = usePathname();
+
   return (
     <header className="">
       <div className="flex items-center bg-darkBlue text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
           <p className="text-extraSm">Справочный центр: 993 (12) 34-56-78</p>
-          <div>
-            <div className="flex items-center gap-x-[10px]">
+          <div className="flex items-center gap-[6px]">
+            <div className="flex items-center gap-x-[20px]">
               {headerMenu.map((item) => (
-                <Link key={uuidv4()} href={item.link} className="px-[5px]">
+                <Link
+                  key={uuidv4()}
+                  href={item.link}
+                  className={clsx("leading-[130%] relative", {
+                    "link-border-bottom cursor-default hover:after:bg-green":
+                      item.link === pathname,
+                    "hover:link-border-bottom hover:after:bg-[#738799]":
+                      item.link === item.link,
+                  })}
+                >
                   {item.title}
                 </Link>
               ))}
-              <div className="">
-                <LangMenu />
-              </div>
+            </div>
+            <div className="flex gap-[10px]">
+              <LangMenu />
               <Input />
             </div>
           </div>

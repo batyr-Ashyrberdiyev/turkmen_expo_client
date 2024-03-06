@@ -33,7 +33,8 @@ export const FaqSec = () => {
   return (
     <div className="container flex flex-col items-start pt-[20px] mb-[100px]">
       <p className="text-[12px] mb-[24px] text-gray4">Главная / FAQ</p>
-      <h2 className="text-extra font-semibold mb-[48px]">«Вопросы и ответы»</h2>
+      <h2 className="text-extra font-semibold mb-[48px]">«Вопросы-ответы»</h2>
+
       <div className="flex items-center gap-[20px] mb-[48px]">
         {radio.map((item) => (
           <div key={item.id}>

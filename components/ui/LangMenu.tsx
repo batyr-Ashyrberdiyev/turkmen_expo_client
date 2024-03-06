@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import triangle from "@/public/assets/icons/drop-icon.svg";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { selectHeader } from "@/redux/slices/headerSlice";
-import { setActiveLang, setActiveMenu } from "@/redux/slices/headerSlice";
+import { setActiveLang } from "@/redux/slices/headerSlice";
 
 export const lang = ["Ру", "Tu", "En"];
 
@@ -57,7 +57,7 @@ export const LangMenu = () => {
         />
       </div>
       {active && (
-        <div className="absolute overflow-hidden z-10 flex flex-col top-[26px] bg-darkBlue transition-all duration-300">
+        <div className="absolute overflow-hidden z-10 flex flex-col top-[27px] bg-darkBlue transition-all duration-300">
           {lang
             .filter((item) => item !== activeLang)
             .map((item) => (

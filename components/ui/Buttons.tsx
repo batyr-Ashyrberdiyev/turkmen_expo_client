@@ -30,10 +30,7 @@ interface BorderProps {
 
 export const BorderBtn = ({ onEventBtn, text, mt }: BorderProps) => {
   return (
-    <button
-      className={`mt-[${mt}]px btn bg-transparent border-[1px] border-navyBlue4 rounded-sm`}
-      onClick={onEventBtn}
-    >
+    <button className={`mt-[${mt} border-btn`} onClick={onEventBtn}>
       {text}
     </button>
   );

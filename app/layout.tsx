@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html>
       <StoreProvider>
-        <body className={roboto.className}>{children}</body>
+        <body className={`${roboto.className}`}>{children}</body>
       </StoreProvider>
     </html>
   );

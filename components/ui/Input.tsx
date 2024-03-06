@@ -1,81 +1,47 @@
-'use client';
+import React from "react";
+import Image from "next/image";
 
-import React, { Suspense } from 'react';
-import Image from 'next/image';
-
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
-
-import search from '@/public/assets/icons/search.svg';
-
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import { selectHeader, setShowInput } from '@/redux/slices/headerSlice';
-
-const Search = () => {
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams);
-  const pathname = usePathname();
-  const { replace } = useRouter();
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const dispatch = useAppDispatch();
-
-  const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value) {
-      params.set('query', e.target.value);
-    } else {
-      params.delete('query');
-    }
-
-    replace(pathname + '?' + params.toString());
-  };
-
-  React.useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
-        dispatch(setShowInput(false));
-      }
-    };
-    document.body.addEventListener('click', handleClick);
-
-    return () => document.body.removeEventListener('click', handleClick);
-  }, []);
-
-  return (
-    <input
-      onChange={updateValue}
-      defaultValue={searchParams.get('query')?.toString()}
-      ref={inputRef}
-      type="text"
-      placeholder="Поиск..."
-      className="rounded-[2px] py-[5px] px-[10px] focus:outline-none text-black placeholder:text-black"
-    />
-  );
-};
+import search from "@/public/assets/icons/search.svg";
+import close from "@/public/assets/icons/close-input.svg";
 
 export const Input = () => {
-  const { showInput } = useAppSelector(selectHeader);
-  const dispatch = useAppDispatch();
+  const [active, setActive] = React.useState(false);
 
   return (
-    <div className="cursor-pointer">
-      <div className="">
-        {!showInput && (
-          <Image
-            src={search}
-            alt="search"
-            width={25}
-            height={25}
-            className="px-[5px]"
-            onClick={() => {
-              dispatch(setShowInput(true));
-            }}
-          />
-        )}
+    <>
+      <div className="cursor-pointer">
+        <Image
+          src={search}
+          alt="search"
+          width={25}
+          height={25}
+          className="px-[5px]"
+          onClick={() => setActive(true)}
+        />
       </div>
-      {showInput && (
-        <Suspense>
-          <Search />
-        </Suspense>
+      {active && (
+        <div className="absolute top-0 left-0 w-full h-svh z-[100] overflow-y-hidden bg-blueBg">
+          <div className="container relative">
+            <div className="w-full flex justify-end mt-[40px]">
+              <Image
+                alt="close"
+                className="cursor-pointer"
+                onClick={() => setActive(false)}
+                src={close}
+              />
+            </div>
+            <div className="flex flex-col mt-[112px] items-center w-full max-w-[566px] mx-auto">
+              <form className="w-full">
+                <input
+                  type="search"
+                  placeholder="Что найти?"
+                  className="p-3 w-full leading-[150%] placeholder:leading-[150%] placeholder:text-gray focus:outline-none rounded-sm bg-transparent border-[1px] border-[#BCC4CC]"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 };

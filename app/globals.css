@@ -51,6 +51,9 @@ body {
   .btn {
     @apply font-medium text-bgWhite rounded-[2px] px-[43px] py-[17px] text-sm;
   }
+  .border-btn {
+    @apply font-medium text-bgWhite rounded-[2px] px-[16px] py-[17px] text-sm border-[1px] border-navyBlue4 hover:border-bgWhite hover:bg-bgWhite hover:text-blueBg transition-all;
+  }
 
   :disabled {
     @apply opacity-50;
@@ -90,5 +93,13 @@ body {
 
   .flex-cols {
     @apply flex flex-col;
+  }
+
+  .link-border-bottom {
+    @apply after:content-[''] after:absolute after:top-[20px] after:left-0 after:h-[2px] after:bg-green after:w-full hover:text-bgWhite;
+  }
+
+  .radio-btn:hover + .radio-hover {
+    @apply text-black;
   }
 }

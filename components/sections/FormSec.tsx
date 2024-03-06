@@ -3,30 +3,17 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import { Checkbox, Radio } from "../ui/InputTypes";
 import { BidDrop } from "../ui/Dropdown";
-import clsx from "clsx";
 
 export const FormSec = () => {
-  const [radioActive, setRadioActive] = React.useState(false);
-  const [radioActive2, setRadioActive2] = React.useState(false);
-
-  const [activeRadio, setActiveRadio] = React.useState("");
-
-  const onRadio = (str: string) => {
-    if (str === "Оборудованная") {
-      setRadioActive(true);
-      setRadioActive2(false);
-    } else {
-      setRadioActive2(true);
-      setRadioActive(false);
-    }
-  };
-
   const phoneMail = ["телефон", "E-mail"];
   const exhibiotns = [
     "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
     "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
   ];
+
+  const [hover, setHover] = React.useState(false);
 
   const radioText = ["Оборудованная", "Необорудованная"];
 
@@ -37,7 +24,7 @@ export const FormSec = () => {
           <BidDrop dropInfo={exhibiotns} />
         </div>
         <div className="flex flex-col w-full">
-          <label htmlFor="name" className="mb-[15px]">
+          <label htmlFor="name" className="mb-[15px] leading-[130%]">
             Название сайта
             <span className="text-lightRed">*</span>
           </label>
@@ -45,14 +32,14 @@ export const FormSec = () => {
         </div>
 
         <div className="flex flex-col w-full">
-          <label htmlFor="siteUrl" className="mb-[15px]">
+          <label htmlFor="siteUrl" className="mb-[15px] leading-[130%]">
             Сайт
           </label>
           <input type="text" id="siteUrl" className="bid-input" />
         </div>
 
         <div className="flex flex-col w-full">
-          <label htmlFor="phone" className="mb-[15px]">
+          <label htmlFor="phone" className="mb-[15px] leading-[130%]">
             Телефон
             <span className="text-lightRed">*</span>
           </label>
@@ -60,7 +47,7 @@ export const FormSec = () => {
         </div>
 
         <div className="flex flex-col w-full">
-          <label htmlFor="email" className="mb-[15px]">
+          <label htmlFor="email" className="mb-[15px] leading-[130%]">
             E-mail
             <span className="text-lightRed">*</span>
           </label>
@@ -68,14 +55,14 @@ export const FormSec = () => {
         </div>
 
         <div className="flex flex-col w-full">
-          <label htmlFor="space" className="mb-[15px]">
+          <label htmlFor="space" className="mb-[15px] leading-[130%]">
             Требуемая площадь, м2
           </label>
           <input type="text" id="space" className="bid-input" />
         </div>
 
         <div className="flex flex-col w-full">
-          <label htmlFor="area" className="mb-[15px]">
+          <label htmlFor="area" className="mb-[15px] leading-[130%]">
             Демонстрируемая продукция / оборудование / услуги
           </label>
           <textarea
@@ -88,7 +75,7 @@ export const FormSec = () => {
         </div>
 
         <div className="flex flex-col w-full">
-          <label htmlFor="person" className="mb-[15px]">
+          <label htmlFor="person" className="mb-[15px] leading-[130%]">
             Контактное лицо (Ф.И.О)
             <span className="text-lightRed">*</span>
           </label>
@@ -99,39 +86,22 @@ export const FormSec = () => {
           <BidDrop dropInfo={phoneMail} />
         </div>
 
-        <div className="w-full mb-[24px]">
-          <div className="flex flex-col gap-[15px]">
-            <h4>
-              Экспозицонная площадь<span className="text-lightRed">*</span>
-            </h4>
-            <div className="flex-cols gap-[10px]">
-              {radioText.map((item) => (
-                <div
-                  onClick={() => onRadio(item)}
-                  key={uuidv4()}
-                  className="flex-centers gap-[10px] cursor-pointer"
-                >
-                  <div className="radio">
-                    <div
-                      className={clsx(
-                        "bg-green opacity-0 w-full h-full rounded-full transition-all",
-                        {
-                          "opacity-100": item === item,
-                        }
-                      )}
-                    ></div>
-                  </div>
-                  <p className="text-extraSm">{item}</p>
-                </div>
-              ))}
+        <div className="flex flex-col mb-[24px] gap-4">
+          <h4 className="leading-[130%]">
+            Экспозиционная площадь<span className="text-lightRed">*</span>
+          </h4>
+          {radioText.map((item) => (
+            <div className="flex radio-btn cursor-pointer items-center gap-[10px]">
+              <Radio hover={hover} />
+              <p className="leading-[125%] radio-hover text-extraSm">{item}</p>
             </div>
-          </div>
+          ))}
         </div>
 
-        <div className="w-full">
-          <div className="flex-centers gap-[10px]">
-            <input type="checkbox" className="bg-navyBlue"></input>
-            <p className="text-extraSm">Даю согласие на обработку своих</p>
+        <div className="">
+          <div className="flex cursor-pointer items-center gap-[10px]">
+            <Checkbox />
+            <p>Даю согласие на обработку своих</p>
           </div>
         </div>
 

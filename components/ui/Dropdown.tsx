@@ -41,7 +41,7 @@ export const BidDrop = ({ dropInfo }: Props) => {
         onClick={() => {
           setActive(!active);
         }}
-        className="flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]"
+        className="h-[43px] flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]"
       >
         <div>{title}</div>
         <Image
@@ -54,13 +54,13 @@ export const BidDrop = ({ dropInfo }: Props) => {
       </div>
       <div className="relative">
         {active && (
-          <div className="bg-navyBlue3 rounded-sm flex flex-col absolute w-full">
+          <div className="bg-navyBlue3 rounded-sm flex flex-col absolute w-full shadow-sm">
             {dropInfo.map((item) => (
               <div
                 key={uuidv4()}
                 onClick={() => onOption(item)}
                 className={clsx(
-                  "py-[15px] px-[12px] text-[14px] font-regular",
+                  "py-[15px] px-[12px] text-[14px] font-regular leading-[125%]",
                   {
                     "hover:bg-green rounded-sm": item === item,
                   }
