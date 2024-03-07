@@ -102,4 +102,12 @@ body {
   .radio-btn:hover + .radio-hover {
     @apply text-black;
   }
+
+  .list-decor {
+    @apply before:content-['•'] before:text-green absolute top-[7px] left-0;
+  }
+
+  .text-21 {
+    @apply text-[21px] font-semibold leading-[150%];
+  }
 }
