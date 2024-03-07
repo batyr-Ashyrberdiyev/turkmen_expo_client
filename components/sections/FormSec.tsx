@@ -1,21 +1,23 @@
-"use client";
+'use client';
 
+<<<<<<< HEAD
 import React from "react";
 import { useForm } from "react-hook-form";
+=======
+import React from 'react';
+import { v4 } from 'uuid';
+>>>>>>> ff131e6d426b2b16a27459be53c5725c0d56e47c
 
-import { Checkbox, Radio } from "../ui/InputTypes";
-import { BidDrop } from "../ui/Dropdown";
+import { Checkbox, Radio } from '../ui/InputTypes';
+import { BidDrop } from '../ui/Dropdown';
 
 export const FormSec = () => {
-  const phoneMail = ["телефон", "E-mail"];
-  const exhibiotns = [
-    "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
-    "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
-  ];
+  const phoneMail = ['телефон', 'E-mail'];
+  const exhibiotns = ['ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»', 'ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»'];
 
   const [hover, setHover] = React.useState(false);
 
-  const radioText = ["Оборудованная", "Необорудованная"];
+  const radioText = ['Оборудованная', 'Необорудованная'];
 
   return (
     <form className="w-full max-w-[538px]">
@@ -65,13 +67,7 @@ export const FormSec = () => {
           <label htmlFor="area" className="mb-[15px] leading-[130%]">
             Демонстрируемая продукция / оборудование / услуги
           </label>
-          <textarea
-            className="bid-input"
-            name="area"
-            id="area"
-            cols={30}
-            rows={5}
-          />
+          <textarea className="bid-input" name="area" id="area" cols={30} rows={5} />
         </div>
 
         <div className="flex flex-col w-full">
@@ -91,7 +87,7 @@ export const FormSec = () => {
             Экспозиционная площадь<span className="text-lightRed">*</span>
           </h4>
           {radioText.map((item) => (
-            <div className="flex radio-btn cursor-pointer items-center gap-[10px]">
+            <div className="flex radio-btn cursor-pointer items-center gap-[10px]" key={v4()}>
               <Radio hover={hover} />
               <p className="leading-[125%] radio-hover text-extraSm">{item}</p>
             </div>
@@ -105,11 +101,7 @@ export const FormSec = () => {
           </div>
         </div>
 
-        <button
-          disabled
-          type="submit"
-          className="py-[17px] w-full bg-gray3 rounded-[2px]"
-        >
+        <button disabled type="submit" className="py-[17px] w-full bg-gray3 rounded-[2px]">
           Отправить
         </button>
       </div>

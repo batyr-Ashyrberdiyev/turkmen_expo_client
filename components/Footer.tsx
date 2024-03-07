@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import clsx from "clsx";
-import { v4 as uuidv4 } from "uuid";
-import { usePathname } from "next/navigation";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
-import vk from "@/public/assets/icons/vk.svg";
-import rss from "@/public/assets/icons/rss.svg";
-import telegram from "@/public/assets/icons/telegram.svg";
+import vk from '@/public/assets/icons/vk.svg';
+import rss from '@/public/assets/icons/rss.svg';
+import telegram from '@/public/assets/icons/telegram.svg';
 
-import { footerInfo, footerMenu, footerMenu2 } from "@/lib/database/pathnames";
+import { footerInfo, footerMenu, footerMenu2 } from '@/lib/database/pathnames';
+import { v4 } from 'uuid';
 
 export const icons = [
-  { title: telegram, link: "" },
-  { title: vk, link: "" },
-  { title: rss, link: "" },
+  { title: telegram, link: '' },
+  { title: vk, link: '' },
+  { title: rss, link: '' },
 ];
 
 export const Footer = () => {
@@ -30,14 +30,12 @@ export const Footer = () => {
             <div className="w-full max-w-[290px] flex flex-col items-start gap-y-[10px]">
               {footerMenu.map((item) => (
                 <Link
-                  key={uuidv4()}
+                  key={v4()}
                   href={item.link}
-                  className={clsx("transition-all", {
-                    "text-green hover:text-green hover:cursor-default":
-                      item.link === pathname,
-                    "hover:text-[#A3CCC7]": item.link === item.link,
-                  })}
-                >
+                  className={clsx('transition-all', {
+                    'text-green hover:text-green hover:cursor-default': item.link === pathname,
+                    'hover:text-[#A3CCC7]': item.link === item.link,
+                  })}>
                   {item.title}
                 </Link>
               ))}
@@ -46,14 +44,12 @@ export const Footer = () => {
             <div className="w-full max-w-[290px] flex flex-col items-start gap-y-[10px]">
               {footerMenu2.map((item) => (
                 <Link
-                  key={uuidv4()}
+                  key={v4()}
                   href={item.link}
-                  className={clsx("transition-all", {
-                    "text-green hover:text-green hover:cursor-default":
-                      item.link === pathname,
-                    "hover:text-[#A3CCC7]": item.link === item.link,
-                  })}
-                >
+                  className={clsx('transition-all', {
+                    'text-green hover:text-green hover:cursor-default': item.link === pathname,
+                    'hover:text-[#A3CCC7]': item.link === item.link,
+                  })}>
                   {item.title}
                 </Link>
               ))}
@@ -63,7 +59,7 @@ export const Footer = () => {
           <div className="flex flex-col">
             <div className="mb-[39px] flex flex-col gap-y-[10px]">
               {footerInfo.map((item) => (
-                <p key={uuidv4()}>{item}</p>
+                <p key={v4()}>{item}</p>
               ))}
             </div>
             <form className="flex flex-col items-start gap-x-[10px]">
@@ -77,10 +73,7 @@ export const Footer = () => {
                   placeholder="Ваш e-mail адрес"
                   className="focus:outline-none placeholder:text-bgWhite placeholder:text-[12px] px-[15px] py-[10px] bg-navyBlue2 border-bgWhite border-1 text-[12px] text-bgWhite"
                 />
-                <button
-                  type="submit"
-                  className="bg-navyBlue px-[15px] text-[12px] py-[10px]"
-                >
+                <button type="submit" className="bg-navyBlue px-[15px] text-[12px] py-[10px]">
                   Подписаться
                 </button>
               </div>
@@ -93,7 +86,7 @@ export const Footer = () => {
           </p>
           <div className="flex items-center gap-x-[10px]">
             {icons.map((item) => (
-              <Link key={uuidv4()} href={item.link}>
+              <Link key={v4()} href={item.link}>
                 <Image src={item.title} alt={item.title} />
               </Link>
             ))}
