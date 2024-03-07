@@ -1,8 +1,13 @@
 import React from "react";
 import Image from "next/image";
 
+import { Radio } from "./InputTypes";
+
 import search from "@/public/assets/icons/search.svg";
 import close from "@/public/assets/icons/close-input.svg";
+import { GreenBtn } from "./Buttons";
+
+export const inputRadio = ["Везде", "В событиях", "В новостях"];
 
 export const Input = () => {
   const [active, setActive] = React.useState(false);
@@ -31,13 +36,24 @@ export const Input = () => {
               />
             </div>
             <div className="flex flex-col mt-[112px] items-center w-full max-w-[566px] mx-auto">
-              <form className="w-full">
+              <form className="w-full mb-[24px]">
                 <input
                   type="search"
                   placeholder="Что найти?"
                   className="p-3 w-full leading-[150%] placeholder:leading-[150%] placeholder:text-gray focus:outline-none rounded-sm bg-transparent border-[1px] border-[#BCC4CC]"
                 />
               </form>
+
+              <div className="flex items-center gap-[48px] mb-[48px]">
+                {inputRadio.map((item) => (
+                  <div className="flex items-center gap-[10px]">
+                    <Radio hover />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+
+              <GreenBtn text={"Найти"} px />
             </div>
           </div>
         </div>
