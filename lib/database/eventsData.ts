@@ -93,3 +93,89 @@ export const eventPagination = [
     calendar: `Добавить в календарь (ics-файл)`,
   },
 ];
+
+type EventInfo = {
+  title: string;
+  date?: string;
+  time?: string;
+  date2?: string;
+  time2?: string;
+  list?: string;
+  list2?: string;
+  list3?: string;
+  list4?: string;
+};
+
+type FullEventDataItem = {
+  arrangement?: boolean;
+  theme?: boolean;
+  address?: boolean;
+  title: string;
+  info?: EventInfo[];
+  company?: string;
+  place?: string;
+  phone?: string;
+  phone2?: string;
+  faks?: string;
+  email?: string;
+  url?: string;
+};
+
+export const fullEventData: FullEventDataItem[] = [
+  {
+    arrangement: true,
+    title: "Сроки проведения",
+    info: [
+      {
+        title: "Даты проведения:",
+        date: "27—29 февраля 2024",
+        time: "с 10:00 до 18:00",
+        date2: "1 марта 2024",
+        time2: "с 10:00 до 16:00",
+      },
+      {
+        title: "Монтаж:",
+        date: "24—26 февраля 2024",
+      },
+      {
+        title: "Демонтаж:",
+        date: "2 марта 2024",
+      },
+      {
+        title: "Место проведения:",
+        date: "*место*",
+      },
+    ],
+  },
+  {
+    theme: true,
+    title: "Тематика мероприятия",
+    info: [
+      {
+        title: "Производство стекла",
+        list: "Сырье для производства стекла",
+        list2: "Технологии варки стекла",
+        list3: "Системы загрузки и удаления шихты",
+        list4: "Печи отжига (леры)",
+      },
+      {
+        title: "Оборудование и технологии для обработки стекла",
+        list: "Резка и раскрой листового стекла",
+        list2: "Сверление стекла",
+        list3: "Шлифование и полирование стекла",
+        list4: "Производство стеклопакетов",
+      },
+    ],
+  },
+  {
+    address: true,
+    title: "Организатор",
+    company: "АО «ЭКСПОЦЕНТР»",
+    place: "123100 Москва, Краснопресненская наб., 14",
+    phone: "Тел.: 8 (800) 707-37-99 (звонок по России бесплатный),",
+    phone2: "+7 (499) 795-37-99",
+    faks: "Факс: +7 (495) 605-60-75",
+    email: "E-mail: centr@expocentr.ru",
+    url: "https://www.expocentr.ru",
+  },
+];

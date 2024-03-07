@@ -62,17 +62,17 @@ interface FooterType {
 export const footerMenu = [
   { title: "Календарь мероприятий", link: "/calendar" },
   { title: "Участникам", link: "/members" },
-  { title: "Посетителям", link: "/" },
-  { title: "Организаторам", link: "/" },
+  { title: "Посетителям", link: "" },
+  { title: "Организаторам", link: "" },
 ];
 
 export const footerMenu2: FooterType[] = [
-  { title: "Территория комплекса", link: "/" },
+  { title: "Территория комплекса", link: "" },
   { title: "О компании", link: "/company/aboutus" },
-  { title: "Пресс-центр", link: "/" },
+  { title: "Пресс-центр", link: "" },
   { title: "FAQ", link: "/faq" },
   { title: "Контакты", link: "/contacts" },
-  { title: "Справочный центр", link: "/" },
+  { title: "Справочный центр", link: "" },
 ];
 
 export const footerInfo: string[] = [
