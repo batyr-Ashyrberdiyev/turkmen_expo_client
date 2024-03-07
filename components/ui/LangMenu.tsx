@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import clsx from "clsx";
-import { v4 as uuidv4 } from "uuid";
+import React from 'react';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { v4 } from 'uuid';
 
-import triangle from "@/public/assets/icons/drop-icon.svg";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { selectHeader } from "@/redux/slices/headerSlice";
-import { setActiveLang } from "@/redux/slices/headerSlice";
+import triangle from '@/public/assets/icons/drop-icon.svg';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { selectHeader } from '@/redux/slices/headerSlice';
+import { setActiveLang } from '@/redux/slices/headerSlice';
 
-export const lang = ["Ру", "Tu", "En"];
+export const lang = ['Ру', 'Tu', 'En'];
 
 export const LangMenu = () => {
   const dispatch = useAppDispatch();
@@ -32,9 +32,9 @@ export const LangMenu = () => {
       }
     };
 
-    document.addEventListener("click", handleClick);
+    document.addEventListener('click', handleClick);
 
-    return () => document.removeEventListener("click", handleClick);
+    return () => document.removeEventListener('click', handleClick);
   }, []);
 
   return (
@@ -44,16 +44,13 @@ export const LangMenu = () => {
       onClick={() => {
         setActive(!active);
         setRotate(!rotate);
-      }}
-    >
+      }}>
       <div className="flex items-center px-[12px]">
         <p>{activeLang}</p>
         <Image
           src={triangle}
           alt="arrow"
-          className={`${
-            rotate && "rotate-180"
-          } transition-rotate duration-300 img-auto`}
+          className={`${rotate && 'rotate-180'} transition-rotate duration-300 img-auto`}
         />
       </div>
       {active && (
@@ -62,12 +59,11 @@ export const LangMenu = () => {
             .filter((item) => item !== activeLang)
             .map((item) => (
               <div
+                key={v4()}
                 onClick={() => setLang(item)}
-                className={clsx("p-3 pr-[22px] text-extraSm transition-all", {
-                  "hover:bg-navyBlue2": item === item,
-                })}
-                key={uuidv4()}
-              >
+                className={clsx('p-3 pr-[22px] text-extraSm transition-all', {
+                  'hover:bg-navyBlue2': item === item,
+                })}>
                 {item}
               </div>
             ))}
