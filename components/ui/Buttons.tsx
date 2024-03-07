@@ -1,21 +1,30 @@
 "use client";
 
 import React from "react";
+import clsx from "clsx";
 
 export const GreenBtn = ({
   text,
   mt,
   onEventBtn,
+  px,
 }: {
   text: string;
   mt?: string;
-  onEventBtn: () => void;
+  onEventBtn?: () => void;
   border?: boolean;
+  px?: boolean;
 }) => {
   return (
     <button
       onClick={onEventBtn}
-      className={`btn ${mt} drop-shadow-md rounded-sm bg-green hover:bg-lightGreen transition-all`}
+      className={clsx(
+        `${mt} drop-shadow-md py-[17px] text-[14px] rounded-sm bg-green text-bgWhite hover:bg-lightGreen font-medium transition-all`,
+        {
+          "px-[43px]": !px,
+          "px-[70px]": px,
+        }
+      )}
     >
       {text}
     </button>
