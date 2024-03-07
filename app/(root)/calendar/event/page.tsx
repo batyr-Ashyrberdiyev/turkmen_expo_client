@@ -36,7 +36,7 @@ const Event = () => {
                 <div className="flex flex-col justify-between">
                   <div className="flex items-center h-full">
                     <div className="flex w-full h-full justify-between">
-                      <div className="w-[220px] h-[180px] bg-gray mr-[15px] py-[10px] px-[33px]">
+                      <div className="bg-gray mr-[15px] py-[10px] px-[33px]">
                         <Image src={glassIcon} alt="Иконка" className="" />
                       </div>
                       <div className="flex justify-between w-full h-full">
