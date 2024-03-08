@@ -2,41 +2,73 @@
 
 import React from "react";
 import { v4 } from "uuid";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import { Checkbox, Radio } from "../ui/InputTypes";
 import { BidDrop } from "../ui/Dropdown";
 
+interface FormFields {
+  siteName: string;
+  siteUrl: string;
+  phone: number;
+  email: string;
+  space: string;
+  area: string;
+  bio: string;
+}
+
 export const FormSec = () => {
   const phoneMail = ["телефон", "E-mail"];
-  const exhibiotns = [
+  const exhibitions = [
     "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
     "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
   ];
 
-  const [hover, setHover] = React.useState(false);
-
   const radioText = ["Оборудованная", "Необорудованная"];
 
+  const { register, handleSubmit } = useForm<FormFields>();
+
+  const submitData: SubmitHandler<FormFields> = (data) => {
+    console.log(data);
+  };
+
+  console.log(v4());
+
   return (
-    <form className="w-full max-w-[538px]">
+    <form className="w-full max-w-[538px]" onSubmit={handleSubmit(submitData)}>
       <div className="flex flex-col items-start gap-[24px]">
         <div className="flex flex-col w-full">
-          <BidDrop dropInfo={exhibiotns} />
+          <BidDrop dropInfo={exhibitions} />
         </div>
         <div className="flex flex-col w-full">
           <label htmlFor="name" className="mb-[15px] leading-[130%]">
             Название сайта
             <span className="text-lightRed">*</span>
           </label>
-          <input type="text" id="name" className="bid-input" />
+          <input
+            {...(register("siteName"),
+            {
+              required: true,
+            })}
+            type="text"
+            id="name"
+            className="bid-input"
+          />
         </div>
 
         <div className="flex flex-col w-full">
           <label htmlFor="siteUrl" className="mb-[15px] leading-[130%]">
             Сайт
           </label>
-          <input type="text" id="siteUrl" className="bid-input" />
+          <input
+            {...(register("siteUrl"),
+            {
+              required: true,
+            })}
+            type="text"
+            id="siteUrl"
+            className="bid-input"
+          />
         </div>
 
         <div className="flex flex-col w-full">
@@ -44,11 +76,26 @@ export const FormSec = () => {
             Телефон
             <span className="text-lightRed">*</span>
           </label>
-          <input type="text" id="phone" className="bid-input" />
+          <input
+            {...(register("phone"),
+            {
+              required: true,
+            })}
+            type="text"
+            id="phone"
+            className="bid-input"
+          />
         </div>
 
         <div className="flex flex-col w-full">
-          <label htmlFor="email" className="mb-[15px] leading-[130%]">
+          <label
+            {...(register("email"),
+            {
+              required: true,
+            })}
+            htmlFor="email"
+            className="mb-[15px] leading-[130%]"
+          >
             E-mail
             <span className="text-lightRed">*</span>
           </label>
@@ -59,7 +106,15 @@ export const FormSec = () => {
           <label htmlFor="space" className="mb-[15px] leading-[130%]">
             Требуемая площадь, м2
           </label>
-          <input type="text" id="space" className="bid-input" />
+          <input
+            {...(register("space"),
+            {
+              required: true,
+            })}
+            type="text"
+            id="space"
+            className="bid-input"
+          />
         </div>
 
         <div className="flex flex-col w-full">
@@ -67,6 +122,10 @@ export const FormSec = () => {
             Демонстрируемая продукция / оборудование / услуги
           </label>
           <textarea
+            {...(register("area"),
+            {
+              required: true,
+            })}
             className="bid-input"
             name="area"
             id="area"
@@ -80,7 +139,15 @@ export const FormSec = () => {
             Контактное лицо (Ф.И.О)
             <span className="text-lightRed">*</span>
           </label>
-          <input type="text" id="person" className="bid-input" />
+          <input
+            {...(register("bio"),
+            {
+              required: true,
+            })}
+            type="text"
+            id="person"
+            className="bid-input"
+          />
         </div>
 
         <div className="w-full mb-[106px]">
@@ -96,7 +163,7 @@ export const FormSec = () => {
               className="flex radio-btn cursor-pointer items-center gap-[10px]"
               key={v4()}
             >
-              <Radio hover={hover} />
+              <Radio />
               <p className="leading-[125%] radio-hover text-extraSm">{item}</p>
             </div>
           ))}
@@ -110,7 +177,6 @@ export const FormSec = () => {
         </div>
 
         <button
-          disabled
           type="submit"
           className="py-[17px] w-full bg-gray3 rounded-[2px]"
         >
