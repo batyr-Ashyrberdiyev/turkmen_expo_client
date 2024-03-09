@@ -2,6 +2,9 @@
 
 import clsx from "clsx";
 import React from "react";
+import Image from "next/image";
+
+import check from "@/public/assets/icons/check.svg";
 
 interface Props {
   fill?: boolean;
@@ -24,15 +27,20 @@ export const Radio = ({ fill }: Props) => {
 
 export const Checkbox = ({ fill }: Props) => {
   return (
-    <div className="w-[16px] h-[16px] rounded-sm border-[1px] border-navyBlue">
+    <div className="w-[16px] h-[16px] rounded-sm p-[4px] border-[1px] border-navyBlue">
       <div
         className={clsx(
-          "w-full h-full rounded-sm opacity-0 bg-navyBlue  transition-all",
-          {
-            "opacity-100": fill,
-          }
+          "w-full h-full rounded-sm opacity-0 bg-navyBlue  transition-all"
         )}
-      ></div>
+      >
+        <Image
+          src={check}
+          alt="checked"
+          width={8}
+          height={7}
+          className={clsx("opacity-100", {})}
+        />
+      </div>
     </div>
   );
 };

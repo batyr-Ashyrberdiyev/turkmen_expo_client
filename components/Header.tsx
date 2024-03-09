@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
-import logo from '@/public/assets/icons/logo.svg';
+import logo from "@/public/assets/icons/logo.svg";
 
-import { LangMenu } from './ui/LangMenu';
-import { Input } from './ui/Input';
-import { headerMenu, headerMenu2 } from '@/lib/database/pathnames';
-import { v4 } from 'uuid';
+import { LangMenu } from "./ui/LangMenu";
+import { Input } from "./ui/Input";
+import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
+import { v4 } from "uuid";
 
 export const Header = () => {
   const pathname = usePathname();
@@ -27,11 +27,13 @@ export const Header = () => {
                 <Link
                   key={v4()}
                   href={item.link}
-                  className={clsx('leading-[130%] relative', {
-                    'link-border-bottom cursor-default hover:after:bg-green':
+                  className={clsx("leading-[130%] relative transition-al", {
+                    "link-border-bottom cursor-default hover:after:bg-green":
                       item.link === pathname,
-                    'hover:link-border-bottom hover:after:bg-[#738799]': item.link === item.link,
-                  })}>
+                    "hover:link-border-bottom hover:after:bg-[#738799]":
+                      item.link === item.link,
+                  })}
+                >
                   {item.title}
                 </Link>
               ))}
