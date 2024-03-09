@@ -1,16 +1,29 @@
 import React from "react";
 import Image from "next/image";
 
-import { Radio } from "./InputTypes";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import search from "@/public/assets/icons/search.svg";
 import close from "@/public/assets/icons/close-input.svg";
-import { GreenBtn } from "./Buttons";
 
-export const inputRadio = ["Везде", "В событиях", "В новостях"];
+import { Radio } from "./InputTypes";
+import { GreenBtn } from "./Buttons";
+import { selectInput, setInputStatus } from "@/redux/slices/inputSlice";
+
+export const inputRadio = [
+  { name: "Везде", id: "all" },
+  { name: "В событиях", id: "events" },
+  { name: "В новостях", id: "news" },
+];
 
 export const Input = () => {
+  const dispatch = useAppDispatch();
+  const { inputStatus } = useAppSelector(selectInput);
   const [active, setActive] = React.useState(false);
+
+  const setStatus = (name: string) => {
+    dispatch(setInputStatus(name));
+  };
 
   return (
     <>
@@ -46,9 +59,12 @@ export const Input = () => {
 
               <div className="flex items-center gap-[48px] mb-[48px]">
                 {inputRadio.map((item) => (
-                  <div className="flex items-center gap-[10px]">
-                    <Radio hover />
-                    <p>{item}</p>
+                  <div
+                    onClick={() => setStatus(item.id)}
+                    className="flex cursor-pointer items-center gap-[10px]"
+                  >
+                    <Radio fill={inputStatus === item.id} />
+                    <p>{item.name}</p>
                   </div>
                 ))}
               </div>

@@ -4,8 +4,20 @@ import React from "react";
 import { v4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
 
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+
 import { Checkbox, Radio } from "../ui/InputTypes";
 import { BidDrop } from "../ui/Dropdown";
+import {
+  selectBid,
+  setBidStatus,
+  setRadioStatus,
+} from "@/redux/slices/bidSlice";
+
+export const formRadio = [
+  { name: "Оборудованная", id: "equipped" },
+  { name: "Необорудованная", id: "unequipped" },
+];
 
 interface FormFields {
   siteName: string;
@@ -18,21 +30,24 @@ interface FormFields {
 }
 
 export const FormSec = () => {
+  const dispatch = useAppDispatch();
+  const { radioStatus, bidStatus } = useAppSelector(selectBid);
+
   const phoneMail = ["телефон", "E-mail"];
   const exhibitions = [
     "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
     "ВЫСТАВКА-ЯРМАРКА «ВСЕ ДЛЯ ДЕТЕЙ»",
   ];
 
-  const radioText = ["Оборудованная", "Необорудованная"];
+  const setStatus = (name: string) => {
+    dispatch(setRadioStatus(name));
+  };
 
   const { register, handleSubmit } = useForm<FormFields>();
 
   const submitData: SubmitHandler<FormFields> = (data) => {
     console.log(data);
   };
-
-  console.log(v4());
 
   return (
     <form className="w-full max-w-[538px]" onSubmit={handleSubmit(submitData)}>
@@ -158,20 +173,26 @@ export const FormSec = () => {
           <h4 className="leading-[130%]">
             Экспозиционная площадь<span className="text-lightRed">*</span>
           </h4>
-          {radioText.map((item) => (
+          {formRadio.map((item) => (
             <div
+              onClick={() => setStatus(item.id)}
               className="flex radio-btn cursor-pointer items-center gap-[10px]"
               key={v4()}
             >
-              <Radio />
-              <p className="leading-[125%] radio-hover text-extraSm">{item}</p>
+              <Radio fill={item.id === radioStatus} />
+              <p className="leading-[125%] radio-hover text-extraSm">
+                {item.name}
+              </p>
             </div>
           ))}
         </div>
 
         <div className="">
-          <div className="flex cursor-pointer items-center gap-[10px]">
-            <Checkbox />
+          <div
+            onClick={() => dispatch(setBidStatus(!bidStatus))}
+            className="flex cursor-pointer items-center gap-[10px]"
+          >
+            <Checkbox fill={bidStatus} />
             <p>Даю согласие на обработку своих</p>
           </div>
         </div>
