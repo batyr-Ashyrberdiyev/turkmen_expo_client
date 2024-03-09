@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import { z } from "zod";
 import { v4 } from "uuid";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
@@ -19,15 +21,17 @@ export const formRadio = [
   { name: "Необорудованная", id: "unequipped" },
 ];
 
-interface FormFields {
-  siteName: string;
-  siteUrl: string;
-  phone: number;
-  email: string;
-  space: string;
-  area: string;
-  bio: string;
-}
+const schema = z.object({
+  company: z.string().nonempty(),
+  site: z.string().optional(),
+  phone: z.string().min(8),
+  email: z.string().email(),
+  space: z.string().optional(),
+  area: z.string().optional(),
+  bio: z.string().nonempty(),
+});
+
+type FormFields = z.infer<typeof schema>;
 
 export const FormSec = () => {
   const dispatch = useAppDispatch();
@@ -43,7 +47,11 @@ export const FormSec = () => {
     dispatch(setRadioStatus(name));
   };
 
-  const { register, handleSubmit } = useForm<FormFields>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm<FormFields>({});
 
   const submitData: SubmitHandler<FormFields> = (data) => {
     console.log(data);
@@ -57,11 +65,11 @@ export const FormSec = () => {
         </div>
         <div className="flex flex-col w-full">
           <label htmlFor="name" className="mb-[15px] leading-[130%]">
-            Название сайта
+            Название компании
             <span className="text-lightRed">*</span>
           </label>
           <input
-            {...(register("siteName"),
+            {...(register("company"),
             {
               required: true,
             })}
@@ -76,10 +84,7 @@ export const FormSec = () => {
             Сайт
           </label>
           <input
-            {...(register("siteUrl"),
-            {
-              required: true,
-            })}
+            {...(register("site"), {})}
             type="text"
             id="siteUrl"
             className="bid-input"
@@ -122,10 +127,7 @@ export const FormSec = () => {
             Требуемая площадь, м2
           </label>
           <input
-            {...(register("space"),
-            {
-              required: true,
-            })}
+            {...(register("space"), {})}
             type="text"
             id="space"
             className="bid-input"
@@ -137,10 +139,7 @@ export const FormSec = () => {
             Демонстрируемая продукция / оборудование / услуги
           </label>
           <textarea
-            {...(register("area"),
-            {
-              required: true,
-            })}
+            {...(register("area"), {})}
             className="bid-input"
             name="area"
             id="area"
@@ -198,10 +197,11 @@ export const FormSec = () => {
         </div>
 
         <button
+          disabled={!isValid || isSubmitting}
           type="submit"
-          className="py-[17px] w-full bg-gray3 rounded-[2px]"
+          className="py-[17px] w-full bg-green hover:bg-lightGreen transition-all rounded-[2px]"
         >
-          Отправить
+          {isSubmitting ? "Оправка" : "Отправить"}
         </button>
       </div>
     </form>

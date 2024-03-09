@@ -110,4 +110,8 @@ body {
   .text-21 {
     @apply text-[21px] font-semibold leading-[150%];
   }
+
+  :disabled {
+    @apply bg-gray3 pointer-events-none;
+  }
 }

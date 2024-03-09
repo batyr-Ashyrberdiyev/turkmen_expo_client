@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const BidDrop = ({ dropInfo }: Props) => {
-  const [title, setTitle] = React.useState("");
+  const [title, setTitle] = React.useState("Выберите мероприятие из списка");
   const [active, setActive] = React.useState(false);
   const dropRef = React.useRef<HTMLDivElement>(null);
 
