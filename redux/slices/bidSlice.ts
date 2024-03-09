@@ -7,6 +7,7 @@ interface Props {
 
 const initialState = {
   radioStatus: "",
+  bidStatus: false,
 };
 
 const bidSlice = createSlice({
@@ -16,11 +17,14 @@ const bidSlice = createSlice({
     setRadioStatus(state, action) {
       state.radioStatus = action.payload;
     },
+    setBidStatus(state, action) {
+      state.bidStatus = action.payload;
+    },
   },
 });
 
 export const selectBid = (state: RootState) => state.bidSlice;
 
-export const { setRadioStatus } = bidSlice.actions;
+export const { setRadioStatus, setBidStatus } = bidSlice.actions;
 
 export default bidSlice.reducer;

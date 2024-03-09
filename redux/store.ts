@@ -5,10 +5,18 @@ import homeSlice from "./slices/homeSlice";
 import contactsSlice from "./slices/contactsSlice";
 import faqSlice from "./slices/faqSlice";
 import bidSlice from "./slices/bidSlice";
+import inputSlice from "./slices/inputSlice";
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { headerSlice, homeSlice, contactsSlice, faqSlice, bidSlice },
+    reducer: {
+      headerSlice,
+      homeSlice,
+      contactsSlice,
+      faqSlice,
+      bidSlice,
+      inputSlice,
+    },
   });
 };
 
