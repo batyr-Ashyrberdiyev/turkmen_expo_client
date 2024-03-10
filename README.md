@@ -37,10 +37,32 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ===========================================================
 
+## Sending to backend
+
+git commit
+
+```bash
+
+npm run build
+
+npm run out
+
+```
+
+check build version on http://localhost:3000
+
+git commit build
+
+git push
+
+=======================================
+
 ## Serve on ubuntu
 
 ```bash
+
 npm install serve@14.2.1
 
 npm run out
+
 ```
