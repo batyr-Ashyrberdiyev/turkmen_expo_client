@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import StoreProvider from "./StoreProvider";
+
 import "./globals.css";
 
 const roboto = Roboto({
@@ -11,6 +12,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "TurkmenExpo",
   description: "",
+  icons: "",
 };
 
 export default function RootLayout({
