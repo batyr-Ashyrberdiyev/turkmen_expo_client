@@ -112,6 +112,6 @@ body {
   }
 
   :disabled {
-    @apply bg-gray3 pointer-events-none;
+    @apply pointer-events-none;
   }
 }
