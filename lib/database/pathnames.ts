@@ -130,8 +130,8 @@ export const topMenu = [
     path: "calendar",
     links: [
       {
-        active: "Главная ",
-        default: "/ Календарь мероприятий",
+        active: "Главная",
+        default: " / Календарь мероприятий",
       },
     ],
   },
