@@ -35,11 +35,15 @@ interface BorderProps {
   onEventBtn?: () => void;
   text: string;
   mt?: string;
+  px?: boolean;
 }
 
-export const BorderBtn = ({ onEventBtn, text, mt }: BorderProps) => {
+export const BorderBtn = ({ onEventBtn, text, mt, px }: BorderProps) => {
   return (
-    <button className={`mt-[${mt} border-btn`} onClick={onEventBtn}>
+    <button
+      className={`mt-[${mt} border-btn ${px && "px-[43px]"}`}
+      onClick={onEventBtn}
+    >
       {text}
     </button>
   );

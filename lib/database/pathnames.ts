@@ -84,7 +84,7 @@ export const footerInfo: string[] = [
 export const topMenu = [
   {
     path: "about",
-    links: [{ active: "Главная", default: "/ О компании / Коротко нас" }],
+    links: [{ active: "Главная ", default: " / О компании / Коротко нас" }],
   },
   {
     path: "members",
@@ -123,6 +123,15 @@ export const topMenu = [
       {
         active: "Главная ",
         default: "/ Контакты",
+      },
+    ],
+  },
+  {
+    path: "calendar",
+    links: [
+      {
+        active: "Главная ",
+        default: "/ Календарь мероприятий",
       },
     ],
   },

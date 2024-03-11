@@ -29,6 +29,7 @@ const schema = z.object({
   space: z.string().optional(),
   area: z.string().optional(),
   bio: z.string().nonempty(),
+  radio: z.string().nonempty(),
 });
 
 type FormFields = z.infer<typeof schema>;
@@ -181,7 +182,7 @@ export const FormSec = () => {
               className="flex radio-btn cursor-pointer items-center gap-[10px]"
               key={v4()}
             >
-              <Radio fill={item.id === radioStatus} />
+              <Radio {...register("radio")} fill={item.id === radioStatus} />
               <p className="leading-[125%] radio-hover text-extraSm">
                 {item.name}
               </p>

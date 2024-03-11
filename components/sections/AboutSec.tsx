@@ -4,13 +4,12 @@ import React from "react";
 import Image from "next/image";
 
 import aboutImg from "@/public/assets/images/about.png";
+import { Pathnames } from "../page/Pathnames";
 
 export const AboutSec = () => {
   return (
     <div className="flex flex-col items-start gap-y-[24px] mb-[100px] w-full">
-      <p className="text-[12px] text-gray4">
-        Главная / О компании / Коротко о нас
-      </p>
+      <Pathnames sort="about" />
       <h2 className="text-extra font-semibold leading-[100%]">Коротко о нас</h2>
 
       <Image src={aboutImg} width={1000} height={500} alt="about image" />

@@ -50,3 +50,22 @@ export const innerContactData = [
     email: "E-mail: katalog@expocentr.ru",
   },
 ];
+
+export const contacBottomData = [
+  {
+    title: "Услуги на стенде:",
+    phone: "Тел.: +7 (499) 795-37-79",
+    email: "E-mail: usluga@expocentr.ru",
+    site: "Cайт: services.expocentr.ru",
+  },
+  {
+    title: "Рекламные услуги:",
+    phone: "Тел.: +7 (499) 795-25-97",
+    email: "E-mail: expo-adv@expocentr.ru",
+  },
+  {
+    title:
+      "Взаимодействие с международными и российскими ассоциациями и союзами:",
+    phone: "Тел.: +7 (499) 795-39-66; +7 (499)795-39-45",
+  },
+];
