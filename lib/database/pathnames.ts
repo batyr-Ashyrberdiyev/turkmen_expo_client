@@ -80,3 +80,50 @@ export const footerInfo: string[] = [
   "Тел.: 8 (800) 707-37-99, +7 (499) 795-37-99",
   "E-mail: centr@expocentr.ru",
 ];
+
+export const topMenu = [
+  {
+    path: "about",
+    links: [{ active: "Главная", default: "/ О компании / Коротко нас" }],
+  },
+  {
+    path: "members",
+    links: [
+      {
+        active: "Главная ",
+        default: "/ Участникам / Информация для участников",
+      },
+      {
+        active: "Главная ",
+        default: "/ Участникам / Онлайн заявка для участников",
+      },
+    ],
+  },
+  {
+    path: "events",
+    links: [
+      {
+        active: "Главная ",
+        default: "/ Календарь мероприятий",
+      },
+    ],
+  },
+  {
+    path: "faq",
+    links: [
+      {
+        active: "Главная ",
+        default: "/ FAQ",
+      },
+    ],
+  },
+  {
+    path: "contacts",
+    links: [
+      {
+        active: "Главная ",
+        default: "/ Контакты",
+      },
+    ],
+  },
+];

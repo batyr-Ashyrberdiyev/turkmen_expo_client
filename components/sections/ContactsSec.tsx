@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { v4 } from 'uuid';
+import React from "react";
+import { v4 } from "uuid";
 
-import { innerContactData, menuData } from '@/lib/database/contactsData';
-import { ContactsDropDown } from '../ContactsDropDown';
+import { innerContactData, menuData } from "@/lib/database/contactsData";
+import { ContactsDropDown } from "../ContactsDropDown";
 
-import { useAppDispatch } from '@/redux/hooks';
-import { setActiveMenu, setContactTitle } from '@/redux/slices/contactsSlice';
+import { useAppDispatch } from "@/redux/hooks";
+import { setActiveMenu, setContactTitle } from "@/redux/slices/contactsSlice";
 
 export const ContactsSec = () => {
   const dispatch = useAppDispatch();
@@ -24,8 +24,13 @@ export const ContactsSec = () => {
       ))}
       <div className="flex flex-col items-start mt-[20px] w-full">
         {innerContactData.map((item) => (
-          <div className="py-[30px] border-t-[1px] border-navyBlue5 w-full" key={v4()}>
-            <h4 className="font-medium text-[18px] mb-[30px]">{item.subtitle}</h4>
+          <div
+            className="py-[30px] border-t-[1px] border-navyBlue5 w-full"
+            key={v4()}
+          >
+            <h4 className="font-medium text-[18px] mb-[30px]">
+              {item.subtitle}
+            </h4>
             <div className="flex flex-col items-start gap-y-[6px] text-[16px]">
               <p>Тел: {item.phone}</p>
               <p>Email: {item.email}</p>

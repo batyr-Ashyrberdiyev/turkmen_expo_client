@@ -61,7 +61,10 @@ export const FormSec = () => {
     <form className="w-full max-w-[538px]" onSubmit={handleSubmit(submitData)}>
       <div className="flex flex-col items-start gap-[24px]">
         <div className="flex flex-col w-full">
-          <BidDrop dropInfo={exhibitions} />
+          <BidDrop
+            dropInfo={exhibitions}
+            value="Выберите мероприятие из списка"
+          />
         </div>
         <div className="flex flex-col w-full">
           <label htmlFor="name" className="mb-[15px] leading-[130%]">

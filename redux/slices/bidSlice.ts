@@ -3,10 +3,11 @@ import { RootState } from "../store";
 
 interface Props {
   radioStatus: string;
+  bidStatus: boolean;
 }
 
-const initialState = {
-  radioStatus: "",
+const initialState: Props = {
+  radioStatus: "equipped",
   bidStatus: false,
 };
 

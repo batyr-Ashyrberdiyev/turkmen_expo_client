@@ -10,10 +10,11 @@ import drop from "@/public/assets/icons/form-drop-icon.svg";
 
 interface Props {
   dropInfo: string[];
+  value?: string;
 }
 
-export const BidDrop = ({ dropInfo }: Props) => {
-  const [title, setTitle] = React.useState("Выберите мероприятие из списка");
+export const BidDrop = ({ dropInfo, value }: Props) => {
+  const [title, setTitle] = React.useState(value);
   const [active, setActive] = React.useState(false);
   const dropRef = React.useRef<HTMLDivElement>(null);
 

@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-import { useAppSelector } from '@/redux/hooks';
+import { useAppSelector } from "@/redux/hooks";
 
-import minus from '@/public/assets/icons/minus-btn.svg';
-import openIcon from '@/public/assets/icons/contact-arrow.svg';
+import minus from "@/public/assets/icons/minus-btn.svg";
+import openIcon from "@/public/assets/icons/contact-arrow.svg";
 
-import { faqData } from '@/lib/database/faqData';
-import { selectFaq, setFaqTitle } from '@/redux/slices/faqSlice';
-import clsx from 'clsx';
-import { v4 } from 'uuid';
+import { faqData } from "@/lib/database/faqData";
+import { selectFaq, setFaqTitle } from "@/redux/slices/faqSlice";
+import clsx from "clsx";
+import { v4 } from "uuid";
 
 interface Props {
   visitors?: boolean;
@@ -20,29 +20,42 @@ interface Props {
   onTitle: (name: string) => void;
 }
 
-export const Select = ({ onTitle, visitors = false, members = false, all = false }: Props) => {
+export const Select = ({
+  onTitle,
+  visitors = false,
+  members = false,
+  all = false,
+}: Props) => {
   const { faqTitle } = useAppSelector(selectFaq);
 
   return (
     <div className="w-full">
       {faqData
-        .filter((item) => (visitors && item.visitors) || (members && item.members) || (all && item))
+        .filter(
+          (item) =>
+            (visitors && item.visitors) ||
+            (members && item.members) ||
+            (all && item)
+        )
         .map((item) => (
           <div key={v4()} className="w-full">
             <div
               onClick={() => onTitle(item.title)}
               className={clsx(
-                'w-full flex items-center justify-between border-y-[1px] border-y-navyBlue cursor-pointer',
+                "w-full flex items-center justify-between border-y-[1px] border-y-navyBlue cursor-pointer",
                 {
-                  'border-t-navyBlue5': faqTitle === item.title,
-                },
-              )}>
-              <h2 className="text-[21px] font-semibold py-[20px]">{item.title}</h2>
+                  "border-t-navyBlue5": faqTitle === item.title,
+                }
+              )}
+            >
+              <h2 className="text-[21px] font-semibold py-[20px]">
+                {item.title}
+              </h2>
               <Image
                 src={openIcon}
                 alt="arrow"
-                className={clsx('rotate-180 transition-all', {
-                  'rotate-[360deg]': faqTitle === item.title,
+                className={clsx("rotate-[180deg] transition-all", {
+                  "rotate-[360deg]": faqTitle === item.title,
                 })}
               />
             </div>
@@ -51,15 +64,23 @@ export const Select = ({ onTitle, visitors = false, members = false, all = false
                 item.faqAll.map((obj) => (
                   <div
                     key={v4()}
-                    className="text-gray4 px-[40px] first-of-type:pt-[30px] flex flex-col items-start gap-y-[16px] leading-[1.5]">
+                    className="text-gray4 px-[40px] first-of-type:pt-[30px] flex flex-col items-start gap-y-[16px] leading-[1.5]"
+                  >
                     <div className="flex items-start gap-x-[10px]">
-                      {!item.wifi && <Image src={minus} alt="button" className="cursor-pointer" />}
+                      {!item.wifi && (
+                        <Image
+                          src={minus}
+                          alt="button"
+                          className="cursor-pointer"
+                        />
+                      )}
                       <h4 className="text-[16px] text-bgWhite">{obj.title}</h4>
                     </div>
                     <h4
                       className={clsx({
-                        'text-[16px] text-bgWhite ': item.wifi,
-                      })}>
+                        "text-[16px] text-bgWhite ": item.wifi,
+                      })}
+                    >
                       {obj.text}
                     </h4>
                     <div>
