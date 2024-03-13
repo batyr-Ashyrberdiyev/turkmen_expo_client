@@ -1,19 +1,20 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
-import search from "@/public/assets/icons/search.svg";
-import close from "@/public/assets/icons/close-input.svg";
+import search from '@/public/assets/icons/search.svg';
+import close from '@/public/assets/icons/close-input.svg';
 
-import { Radio } from "./InputTypes";
-import { GreenBtn } from "./Buttons";
-import { selectInput, setInputStatus } from "@/redux/slices/inputSlice";
+import { Radio } from './InputTypes';
+import { GreenBtn } from './Buttons';
+import { selectInput, setInputStatus } from '@/redux/slices/inputSlice';
+import { v4 } from 'uuid';
 
 export const inputRadio = [
-  { name: "Везде", id: "all" },
-  { name: "В событиях", id: "events" },
-  { name: "В новостях", id: "news" },
+  { name: 'Везде', id: 'all' },
+  { name: 'В событиях', id: 'events' },
+  { name: 'В новостях', id: 'news' },
 ];
 
 export const Input = () => {
@@ -62,14 +63,14 @@ export const Input = () => {
                   <div
                     onClick={() => setStatus(item.id)}
                     className="flex cursor-pointer items-center gap-[10px]"
-                  >
+                    key={v4()}>
                     <Radio fill={inputStatus === item.id} />
                     <p>{item.name}</p>
                   </div>
                 ))}
               </div>
 
-              <GreenBtn text={"Найти"} px />
+              <GreenBtn text={'Найти'} px />
             </div>
           </div>
         </div>
