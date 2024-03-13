@@ -158,10 +158,7 @@ export const FormSec = () => {
             <span className="text-lightRed">*</span>
           </label>
           <input
-            {...(register("bio"),
-            {
-              required: true,
-            })}
+            {...register("bio")}
             type="text"
             id="person"
             className="bid-input"
@@ -176,32 +173,38 @@ export const FormSec = () => {
           <h4 className="leading-[130%]">
             Экспозиционная площадь<span className="text-lightRed">*</span>
           </h4>
-          {formRadio.map((item) => (
-            <div
-              onClick={() => setStatus(item.id)}
-              className="flex radio-btn cursor-pointer items-center gap-[10px]"
+          {formRadio.map((item, id) => (
+            <label
               key={v4()}
+              className="leading-[125%] text-extraSm cursor-pointer flex gap-[10px]"
             >
-              <Radio {...register("radio")} fill={item.id === radioStatus} />
-              <p className="leading-[125%] radio-hover text-extraSm">
-                {item.name}
-              </p>
-            </div>
+              <input
+                type="radio"
+                name={item.name}
+                className="cursor-pointer radio-input"
+              />
+              <span className="radio-span"></span>
+              {item.name}
+            </label>
           ))}
         </div>
 
-        <div className="">
+        <div>
           <div
             onClick={() => dispatch(setBidStatus(!bidStatus))}
-            className="flex cursor-pointer items-center gap-[10px]"
+            className="flex items-center gap-[10px]"
           >
-            <Checkbox fill={bidStatus} />
-            <p>Даю согласие на обработку своих</p>
+            {/* <Checkbox fill={bidStatus} /> */}
+            <label className="cursor-pointer flex gap-[10px]">
+              <input type="checkbox" name="agree" className="input-check" />
+              <span className="span-check"></span>
+              Даю согласие на обработку своих
+            </label>
           </div>
         </div>
 
         <button
-          disabled={!isValid || isSubmitting}
+          disabled={isSubmitting}
           type="submit"
           className="py-[17px] w-full bg-green hover:bg-lightGreen transition-all rounded-[2px]"
         >
