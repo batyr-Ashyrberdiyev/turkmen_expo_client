@@ -35,6 +35,65 @@ body {
   box-shadow: 0 3px 0 4px rgba(black, black, black, 20%);
 }
 
+.input-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  padding-left: 20px;
+}
+
+.span-check {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #5d6a77;
+  /* margin-right: -20px; */
+  border-radius: 2px;
+}
+
+.input-check:checked + .span-check::before {
+  content: "";
+  background-image: url("/public/assets/icons/check.svg");
+  background-size: cover;
+  background-size: 8px 8px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  padding-left: 20px;
+}
+
+.radio-span {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #5d6a77;
+  border-radius: 100%;
+}
+
+.radio-input:checked + .radio-span::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #059784;
+  border-radius: 100%;
+  width: 8px;
+  height: 8px;
+}
+
 @layer utilities {
   .container {
     @apply w-full mx-auto max-w-[1260px] px-[20px];
@@ -51,8 +110,9 @@ body {
   .btn {
     @apply font-medium text-bgWhite rounded-[2px] px-[43px] py-[17px] text-sm;
   }
+
   .border-btn {
-    @apply font-medium text-bgWhite rounded-[2px] px-[16px] py-[17px] text-sm border-[1px] border-navyBlue4 hover:border-bgWhite hover:bg-bgWhite hover:text-blueBg transition-all;
+    @apply font-medium text-bgWhite rounded-[2px] text-sm border-[1px] border-navyBlue4 hover:border-bgWhite hover:bg-bgWhite hover:text-blueBg transition-all;
   }
 
   :disabled {
