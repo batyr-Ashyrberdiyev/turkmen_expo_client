@@ -3,8 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import clsx from "clsx";
-import { usePathname } from "next/navigation";
 
 import vk from "@/public/assets/icons/vk.svg";
 import rss from "@/public/assets/icons/rss.svg";
@@ -20,8 +18,6 @@ export const icons = [
 ];
 
 export const Footer = () => {
-  const pathname = usePathname();
-
   return (
     <div className="bg-darkBlue py-[40px]">
       <div className="container">
@@ -29,15 +25,7 @@ export const Footer = () => {
           <div className="w-full max-w-[600px] flex items-start justify-between gap-x-[20px]">
             <div className="w-full max-w-[290px] flex flex-col items-start gap-y-[10px]">
               {footerMenu.map((item) => (
-                <Link
-                  key={v4()}
-                  href={item.link}
-                  className={clsx("transition-all", {
-                    "text-green hover:text-green hover:cursor-default":
-                      item.link === pathname,
-                    "hover:text-[#A3CCC7]": item.link === item.link,
-                  })}
-                >
+                <Link key={v4()} href={item.link} className="cursor-pointer">
                   {item.title}
                 </Link>
               ))}
@@ -45,15 +33,7 @@ export const Footer = () => {
 
             <div className="w-full max-w-[290px] flex flex-col items-start gap-y-[10px]">
               {footerMenu2.map((item) => (
-                <Link
-                  key={v4()}
-                  href={item.link}
-                  className={clsx("transition-all", {
-                    "text-green hover:text-green hover:cursor-default":
-                      item.link === pathname,
-                    "hover:text-[#A3CCC7]": item.link === item.link,
-                  })}
-                >
+                <Link key={v4()} href={item.link} className="cursor-pointer">
                   {item.title}
                 </Link>
               ))}
