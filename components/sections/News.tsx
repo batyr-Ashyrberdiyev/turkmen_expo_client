@@ -19,7 +19,7 @@ export const News = () => {
   return (
     <div className="container">
       <header className="flex items-center mb-[43px] justify-between">
-        <h2 className="text-extra font-semibold">Новости</h2>
+        <h2 className="text-extra font-semibold leading-[100%]">Новости</h2>
         <div className="flex items-center gap-x-[20px]">
           <NavBtn left />
           <NavBtn />
