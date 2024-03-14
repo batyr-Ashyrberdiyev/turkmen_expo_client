@@ -30,7 +30,7 @@ export const Checkbox = ({ fill }: Props) => {
     <div className="w-[16px] h-[16px] rounded-sm p-[4px] border-[1px] border-navyBlue">
       <div
         className={clsx(
-          "w-full h-full rounded-sm opacity-0 bg-navyBlue  transition-all"
+          "w-full h-full rounded-sm opacity-0 bg-navyBlue transition-all"
         )}
       >
         <Image

@@ -3,10 +3,11 @@
 import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
-
 import { v4 } from "uuid";
+import { useFormContext } from "react-hook-form";
 
 import drop from "@/public/assets/icons/form-drop-icon.svg";
+import { exhibitions } from "../sections/FormSec";
 
 interface Props {
   dropInfo: string[];
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export const BidDrop = ({ dropInfo, value }: Props) => {
+  const { setValue, handleSubmit, register } = useFormContext();
   const [title, setTitle] = React.useState(value);
   const [active, setActive] = React.useState(false);
   const dropRef = React.useRef<HTMLDivElement>(null);
@@ -21,6 +23,7 @@ export const BidDrop = ({ dropInfo, value }: Props) => {
   const onOption = (name: string) => {
     setActive(false);
     setTitle(name);
+    setValue(dropInfo === exhibitions ? "event" : "contact", name);
   };
 
   React.useEffect(() => {
