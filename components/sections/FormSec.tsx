@@ -31,7 +31,7 @@ export const exhibitions = [
 const schema = z.object({
   company: z.string().nonempty(),
   site: z.string().optional(),
-  phone: z.string().min(8),
+  phone: z.number(),
   email: z.string().email(),
   space: z.string().optional(),
   area: z.string().optional(),
@@ -107,7 +107,7 @@ export const FormSec = () => {
             </label>
             <input
               {...methods.register("phone")}
-              type="number"
+              type="text"
               id="phone"
               className="bid-input"
             />
