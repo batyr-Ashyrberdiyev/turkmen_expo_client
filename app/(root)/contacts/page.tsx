@@ -11,10 +11,10 @@ const Contacts = () => {
         <p className="text-[12px] mb-[24px] text-gray4">
           Главная / Календарь мероприятий
         </p>
-        <h2 className="text-extra font-semibold mb-[48px]">
+        <h2 className="text-extra font-semibold mb-[48px] leading-[100%]">
           Календарь мероприятий
         </h2>
-        <p className="text-[21px] mb-[24px]">Адрес:</p>
+        <p className="text-[21px] mb-[24px] leading-[100%]">Адрес:</p>
         <p className="leading-[1.7] mb-[48px]">
           123100, Москва, Краснопресненская наб., 14 <br />
           Тел.: 8 (800) 707-37-99 (звонок по России бесплатный), <br />

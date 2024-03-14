@@ -39,7 +39,9 @@ export const CalendarSec = ({}: {}) => {
           <div className="mb-[24px]">
             <Pathnames sort="calendar" />
           </div>
-          <h2 className="text-extra font-semibold">Календарь мероприятий</h2>
+          <h2 className="text-extra font-semibold leading-[100%]">
+            Календарь мероприятий
+          </h2>
         </div>
         <div className="flex flex-col gap-6">
           {entries

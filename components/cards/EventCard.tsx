@@ -28,7 +28,7 @@ export const EventCard = ({
         <div className="flex flex-col items-start gap-x-[25px] max-w-[683px]">
           <p className="text-[12px] text-gray mb-[25px]">{suptitle}</p>
           <h3
-            className={clsx("text-[21px] mb-[15px] font-bold", {
+            className={clsx("text-[21px] mb-[15px] font-bold leading-[100%]", {
               "text-bgWhite": dark,
               "text-green": !dark,
             })}

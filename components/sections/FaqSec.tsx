@@ -37,7 +37,9 @@ export const FaqSec = () => {
       <div className="mb-[24px]">
         <Pathnames sort="faq" />
       </div>
-      <h2 className="text-extra font-semibold mb-[48px]">«Вопросы-ответы»</h2>
+      <h2 className="text-extra font-semibold mb-[48px] leading-[100%]">
+        «Вопросы-ответы»
+      </h2>
 
       <div className="flex items-center gap-[20px] mb-[48px]">
         {radio.map((item) => (

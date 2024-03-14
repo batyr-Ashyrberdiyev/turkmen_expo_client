@@ -47,7 +47,7 @@ export const ContactsDropDown = ({
         onClick={openMenu} // Change to openMenu instead of openContacts
         className="cursor-pointer flex items-center justify-between py-[20px] mb-[30px] border-t-navyBlue5 border-b-navyBlue border-y-[1px]"
       >
-        <h3 className="text-[21px] font-semibold">{title}</h3>
+        <h3 className="text-[21px] font-semibold leading-[100%]">{title}</h3>
         <Image
           src={arrow}
           alt="arrow"
