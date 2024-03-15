@@ -18,7 +18,7 @@ body {
 }
 
 .main-abs-bg::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 100%;
   width: 100vw;
@@ -49,13 +49,12 @@ body {
   width: 16px;
   height: 16px;
   border: 1px solid #5d6a77;
-  /* margin-right: -20px; */
   border-radius: 2px;
 }
 
 .input-check:checked + .span-check::before {
-  content: "";
-  background-image: url("/public/assets/icons/check.svg");
+  content: '';
+  background-image: url('/public/assets/icons/check.svg');
   background-size: cover;
   background-size: 8px 8px;
   position: absolute;
@@ -83,7 +82,7 @@ body {
 }
 
 .radio-input:checked + .radio-span::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   top: 50%;
@@ -173,5 +172,14 @@ body {
 
   :disabled {
     @apply pointer-events-none;
+  }
+
+  .swiper-horizontal > .swiper-scrollbar,
+  .swiper-scrollbar.swiper-scrollbar-horizontal {
+    @apply bg-bgWhite h-[1px];
+  }
+
+  .swiper-scrollbar-drag {
+    @apply bg-green;
   }
 }

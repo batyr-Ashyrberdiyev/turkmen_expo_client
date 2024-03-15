@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../store';
 
 interface Props {
   faqStatus: string;
@@ -8,13 +8,13 @@ interface Props {
 }
 
 const initialState: Props = {
-  faqStatus: "all",
-  faqTitle: "",
-  faqInfo: "",
+  faqStatus: 'all',
+  faqTitle: '',
+  faqInfo: '',
 };
 
 const faqSlice = createSlice({
-  name: "faq",
+  name: 'faq',
   initialState,
   reducers: {
     setFaqStatus(state, action: PayloadAction<string>) {
