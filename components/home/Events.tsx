@@ -10,7 +10,7 @@ export const Events = () => {
   const [openCards, setOpenCards] = React.useState<boolean>(true);
 
   const onEventBtn = () => {
-    setOpenCards(!openCards);
+    setOpenCards(false);
   };
 
   return (
