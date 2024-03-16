@@ -24,7 +24,7 @@ export default () => {
       onSwiper={(swiper) => console.log(swiper)}>
       {images.map((item) => (
         <SwiperSlide key={v4()}>
-          <Image src={item} alt="Главная фотография" width={1920} height={1080} />
+          <Image src={item} alt="Главная фотография" width={3920} height={2080} />
         </SwiperSlide>
       ))}
       <div className="swiper-pagination bg-green"></div>
