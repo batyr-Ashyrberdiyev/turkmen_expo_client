@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
-import search from '@/public/assets/icons/search.svg';
-import close from '@/public/assets/icons/close-input.svg';
+import search from '@/public/assets/icons/header/search.svg';
+import close from '@/public/assets/icons/home/close-input.svg';
 
 import { Radio } from '../bid/InputTypes';
 import { GreenBtn } from '../ui/Buttons';

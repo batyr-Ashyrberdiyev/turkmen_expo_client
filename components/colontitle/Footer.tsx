@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import vk from "@/public/assets/icons/vk.svg";
-import rss from "@/public/assets/icons/rss.svg";
-import telegram from "@/public/assets/icons/telegram.svg";
+import vk from '@/public/assets/icons/footer/vk.svg';
+import rss from '@/public/assets/icons/footer/rss.svg';
+import telegram from '@/public/assets/icons/footer/telegram.svg';
 
-import { footerInfo, footerMenu, footerMenu2 } from "@/lib/database/pathnames";
-import { v4 } from "uuid";
+import { footerInfo, footerMenu, footerMenu2 } from '@/lib/database/pathnames';
+import { v4 } from 'uuid';
 
 export const icons = [
-  { title: telegram, link: "" },
-  { title: vk, link: "" },
-  { title: rss, link: "" },
+  { title: telegram, link: '' },
+  { title: vk, link: '' },
+  { title: rss, link: '' },
 ];
 
 export const Footer = () => {
@@ -57,10 +57,7 @@ export const Footer = () => {
                   placeholder="Ваш e-mail адрес"
                   className="focus:outline-none border-[1px] border-gray3 placeholder:text-bgWhite placeholder:text-[12px] px-[15px] py-[10px] bg-navyBlue2 text-[12px] text-bgWhite"
                 />
-                <button
-                  type="submit"
-                  className="bg-navyBlue px-[15px] text-[12px] py-[10px]"
-                >
+                <button type="submit" className="bg-navyBlue px-[15px] text-[12px] py-[10px]">
                   Подписаться
                 </button>
               </div>

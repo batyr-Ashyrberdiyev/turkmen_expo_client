@@ -6,7 +6,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 
-import logo from '@/public/assets/icons/logo.svg';
+import logo from '@/public/assets/icons/header/logo.svg';
 
 import { LangMenu } from '../ui/LangMenu';
 import { Input } from '../home/Input';
