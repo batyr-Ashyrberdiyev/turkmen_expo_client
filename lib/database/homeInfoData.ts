@@ -1,50 +1,44 @@
-import car from "@/public/assets/icons/service/car.svg";
-import bus from "@/public/assets/icons/service/bus.svg";
-import track from "@/public/assets/icons/service/track.svg";
+import car from '@/public/assets/icons/service/car.svg';
+import bus from '@/public/assets/icons/service/bus.svg';
+import track from '@/public/assets/icons/service/track.svg';
 
-import { RoadCardProps } from "../types";
+import { RoadCardProps } from '../types';
 
 export const roadCardData: RoadCardProps[] = [
   {
     icon: car,
-    text: "На машине",
+    text: 'На машине',
   },
   {
     icon: bus,
-    text: "На автобусе",
+    text: 'На автобусе',
   },
   {
     icon: track,
-    text: "Проезд грузового транспорта",
+    text: 'Проезд грузового транспорта',
   },
 ];
 
-import call from "@/public/assets/icons/service/call.svg";
-import megaphone from "@/public/assets/icons/service/megaphone.svg";
-import bag from "@/public/assets/icons/service/bag.svg";
+import call from '@/public/assets/icons/service/call.svg';
+import megaphone from '@/public/assets/icons/service/megaphone.svg';
+import bag from '@/public/assets/icons/service/bag.svg';
 
 export const contactCardData: RoadCardProps[] = [
   {
     icon: call,
-    text: "Справочный центр",
+    text: 'Справочный центр',
   },
   {
     icon: bag,
-    text: "Услуги",
+    text: 'Услуги',
   },
   {
     icon: megaphone,
-    text: "Реклама",
+    text: 'Реклама',
   },
 ];
 
-import partner from "@/public/assets/icons/partner.svg";
-import { StaticImageData } from "next/image";
+import partner from '@/public/assets/icons/home/partner.svg';
+import { StaticImageData } from 'next/image';
 
-export const partnersData: StaticImageData[] = [
-  partner,
-  partner,
-  partner,
-  partner,
-  partner,
-];
+export const partnersData: StaticImageData[] = [partner, partner, partner, partner, partner];
