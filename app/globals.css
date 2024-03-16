@@ -28,15 +28,15 @@ body {
 }
 
 .custom-shadow {
-  box-shadow: 0 2px 0 12px rgba(black, black, black, 20%);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
 }
 
 .greenBtnShadow {
-  box-shadow: 0 3px 0 4px rgba(black, black, black, 20%);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .service-shadow {
-  box-shadow: 0 3px 0 4px rgba(black, black, black, 20%);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .input-check {
@@ -178,12 +178,7 @@ body {
     @apply pointer-events-none;
   }
 
-  .swiper-horizontal > .swiper-scrollbar,
-  .swiper-scrollbar.swiper-scrollbar-horizontal {
-    @apply bg-bgWhite h-[1px];
-  }
-
-  .swiper-scrollbar-drag {
-    @apply bg-green;
+  .hover-shadow {
+    box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.35);
   }
 }
