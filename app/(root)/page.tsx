@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import heroImg from '@/public/assets/images/hero.png';
 import videoImg from '@/public/assets/images/video.png';
 
 import { Events } from '@/components/home/Events';
