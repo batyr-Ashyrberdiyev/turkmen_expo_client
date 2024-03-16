@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import clsx from 'clsx';
+import '@/app/styles/hover.css';
 
 import calendarImg from '@/public/assets/icons/calendar.svg';
 import { EventCardProps } from '@/lib/types';
@@ -18,9 +19,12 @@ export const EventCard = ({
 }: EventCardProps) => {
   return (
     <div
-      className={clsx('bg-bgWhite p-[60px] rounded-[2px] w-full greenBtnShadow', {
-        'bg-navyBlue text-gray': dark,
-      })}>
+      className={clsx(
+        'bg-bgWhite p-[60px] rounded-[2px] cursor-pointer transition-all w-full greenBtnShadow hover:hover-shadow',
+        {
+          'bg-navyBlue text-gray': dark,
+        },
+      )}>
       <div className="flex items-start gap-x-[33px]">
         <Image src={img} width={150} height={150} alt="Event Image" />
         <div className="flex flex-col items-start gap-x-[25px] max-w-[683px]">
