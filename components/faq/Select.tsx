@@ -25,6 +25,8 @@ export const Select = ({ onTitle, visitors = false, members = false, all = false
   const dispatch = useAppDispatch();
   const { faqTitle, faqInfo } = useAppSelector(selectFaq);
 
+  const [value, setValue] = React.useState([]);
+
   const setText = (name: string) => {
     if (name === faqInfo) {
       dispatch(setFaqInfo(''));
