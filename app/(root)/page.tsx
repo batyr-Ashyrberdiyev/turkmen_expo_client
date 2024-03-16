@@ -3,11 +3,11 @@ import Image from 'next/image';
 import heroImg from '@/public/assets/images/hero.png';
 import videoImg from '@/public/assets/images/video.png';
 
-import { Events } from '@/components/sections/Events';
-import { News } from '@/components/sections/News';
-import { Services } from '@/components/sections/Services';
-import { Partners } from '@/components/sections/Partners';
-import Slider from '@/components/sections/home/Slider';
+import { Events } from '@/components/home/Events';
+import { News } from '@/components/news/News';
+import { Services } from '@/components/home/Services';
+import { Partners } from '@/components/home/Partners';
+import Slider from '@/components/home/Slider';
 
 const Home = () => {
   return (

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { FaqSec } from "@/components/sections/FaqSec";
+import { FaqSec } from '@/components/faq/FaqSec';
 
 const Faq = () => {
   return <FaqSec />;

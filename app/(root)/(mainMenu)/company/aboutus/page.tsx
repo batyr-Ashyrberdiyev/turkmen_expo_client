@@ -1,4 +1,4 @@
-import { AboutSec } from "@/components/sections/AboutSec";
+import { AboutSec } from '@/components/about/AboutSec';
 
 const About = () => {
   return <AboutSec />;

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { MembersSec } from "@/components/sections/MembersSec";
+import { MembersSec } from '@/components/members/MembersSec';
 
 const Members = () => {
   return <MembersSec />;

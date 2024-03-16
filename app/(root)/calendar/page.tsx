@@ -1,7 +1,7 @@
-import React from "react";
-import { Suspense } from "react";
+import React from 'react';
+import { Suspense } from 'react';
 
-import { CalendarSec } from "@/components/sections/CalendarSec";
+import { CalendarSec } from '@/components/calendar/CalendarSec';
 
 const Calendar = () => {
   return (
