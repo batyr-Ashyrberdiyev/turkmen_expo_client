@@ -4,7 +4,7 @@ import heroImg from '@/public/assets/images/hero.png';
 import videoImg from '@/public/assets/images/video.png';
 
 import { Events } from '@/components/home/Events';
-import { News } from '@/components/news/News';
+import { News } from '@/components/home/News';
 import { Services } from '@/components/home/Services';
 import { Partners } from '@/components/home/Partners';
 import Slider from '@/components/home/Slider';
