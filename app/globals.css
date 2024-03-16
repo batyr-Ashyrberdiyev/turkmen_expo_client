@@ -31,6 +31,10 @@ body {
   box-shadow: 0 2px 0 12px rgba(black, black, black, 20%);
 }
 
+.greenBtnShadow {
+  box-shadow: 0 3px 0 4px rgba(black, black, black, 20%);
+}
+
 .service-shadow {
   box-shadow: 0 3px 0 4px rgba(black, black, black, 20%);
 }
