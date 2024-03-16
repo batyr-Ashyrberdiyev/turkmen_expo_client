@@ -1,7 +1,7 @@
-import { contactCardData, roadCardData } from "@/lib/database/homeInfoData";
-import React from "react";
-import Image from "next/image";
-import { v4 } from "uuid";
+import { contactCardData, roadCardData } from '@/lib/database/homeInfoData';
+import React from 'react';
+import Image from 'next/image';
+import { v4 } from 'uuid';
 
 export const Services = () => {
   return (
@@ -13,9 +13,8 @@ export const Services = () => {
         <div className="flex flex-col gap-y-[20px] w-full">
           {roadCardData.map((item) => (
             <div
-              className="bg-white service-shadow px-[40px] py-[20px] text-black rounded-[2px] custom-shadow"
-              key={v4()}
-            >
+              className="bg-white service-shadow px-[40px] py-[20px] text-black greenBtnShadow rounded-[2px] custom-shadow"
+              key={v4()}>
               <div className="flex items-center gap-x-[40px]">
                 <Image className="img-auto" src={item.icon} alt="icon" />
                 <p className="text-[16px]">{item.text}</p>
@@ -31,9 +30,8 @@ export const Services = () => {
         <div className="flex flex-col gap-y-[20px] w-full">
           {contactCardData.map((item) => (
             <div
-              className="bg-white service-shadow px-[40px] py-[20px] text-black drop-shadow-md rounded-[2px] "
-              key={v4()}
-            >
+              className="bg-white service-shadow px-[40px] py-[20px] text-black greenBtnShadow rounded-[2px] "
+              key={v4()}>
               <div className="flex items-center gap-x-[40px]">
                 <Image src={item.icon} alt="icon" />
                 <p className="text-[16px]">{item.text}</p>
