@@ -8,13 +8,5 @@ import { selectFaq, setFaqTitle } from "@/redux/slices/faqSlice";
 import { Select } from "./Select";
 
 export const Members = () => {
-  const dispatch = useAppDispatch();
-  const { faqTitle } = useAppSelector(selectFaq);
-
-  const onTitle = (name: string) => {
-    if (faqTitle === name) dispatch(setFaqTitle(""));
-    else dispatch(setFaqTitle(name));
-  };
-
-  return <Select onTitle={onTitle} members />;
+  return <Select members />;
 };
