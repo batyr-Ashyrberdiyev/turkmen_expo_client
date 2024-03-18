@@ -1,33 +1,60 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { v4 } from 'uuid';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Manipulation, Pagination, Parallax, Scrollbar } from 'swiper/modules';
+import React from "react";
+import Image from "next/image";
+import { v4 } from "uuid";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import SwiperCore from "swiper";
 
-import img from '@/public/assets/images/hero.png';
+import img from "@/public/assets/images/hero.png";
 
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
 
 export const images = [img, img, img];
 
 export default () => {
+  const progressCircle = React.useRef<SVGSVGElement>(null);
+  const progressContent = React.useRef<HTMLSpanElement>(null);
+
+  const onAutoplayTimeLeft = (
+    s: SwiperCore,
+    time: number,
+    progress: number
+  ) => {
+    if (progressCircle.current && progressContent.current) {
+      progressCircle.current.style.setProperty(
+        "--progress",
+        String(1 - progress)
+      );
+      progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    }
+  };
+
   return (
     <Swiper
-      modules={[Pagination, Autoplay]}
+      modules={[Pagination, Autoplay, Navigation]}
       slidesPerView={1}
-      pagination={{ type: 'progressbar', el: '.swiper-pagination' }}
+      pagination={{ type: "fraction" }}
+      onAutoplayTimeLeft={onAutoplayTimeLeft}
       parallax
+      loop
       speed={1500}
-      autoplay={{ delay: 10000 }}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}>
+      autoplay={{ delay: 2000 }}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
       {images.map((item) => (
         <SwiperSlide key={v4()}>
-          <Image src={item} alt="Главная фотография" width={3920} height={2080} />
+          <Image
+            src={item}
+            alt="Главная фотография"
+            width={3920}
+            height={2080}
+          />
         </SwiperSlide>
       ))}
-      <div className="swiper-pagination bg-green"></div>
+      <div className="w-[63px] h-[3px] rounded-3xl bg-green" slot=""></div>
     </Swiper>
   );
 };
