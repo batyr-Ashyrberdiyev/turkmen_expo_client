@@ -33,21 +33,17 @@ export const Select = ({
   const [openTitles, setOpenTitles] = React.useState<string[]>([]);
 
   const onTitle = (name: string) => {
-    if (openItems.includes(name)) {
-      // Если текущий элемент уже открыт, закрываем его
+    if (openTitles.includes(name)) {
       setOpenTitles(openTitles.filter((item) => item !== name));
     } else {
-      // Иначе, открываем текущий элемент
       setOpenTitles((prev) => [...prev, name]);
     }
   };
 
   const onText = (name: string) => {
     if (openItems.includes(name)) {
-      // Если текущий элемент уже открыт, закрываем его
       setOpenItems(openItems.filter((item) => item !== name));
     } else {
-      // Иначе, открываем текущий элемент
       setOpenItems((prev) => [...prev, name]);
     }
   };
@@ -79,7 +75,7 @@ export const Select = ({
                 src={openIcon}
                 alt="arrow"
                 className={clsx("rotate-[180deg] transition-all", {
-                  "rotate-[360deg]": faqTitle === item.title,
+                  "rotate-[360deg]": openTitles.includes(item.title || ""),
                 })}
               />
             </div>
@@ -96,7 +92,9 @@ export const Select = ({
                     >
                       {!item.wifi && (
                         <Image
-                          src={faqInfo === item.title ? minus : add}
+                          src={
+                            openItems.includes(obj.title || "") ? minus : add
+                          }
                           width={20}
                           height={20}
                           alt="button"
