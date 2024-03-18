@@ -1,4 +1,4 @@
-interface FAQItem {
+export interface FAQItem {
   title?: string;
   text: string;
   list?: string;
