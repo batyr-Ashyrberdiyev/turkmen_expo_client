@@ -29,9 +29,27 @@ export const Select = ({
   const dispatch = useAppDispatch();
   const { faqTitle, faqInfo } = useAppSelector(selectFaq);
 
+  const [openItems, setOpenItems] = React.useState<string[]>([]);
+  const [openTitles, setOpenTitles] = React.useState<string[]>([]);
+
   const onTitle = (name: string) => {
-    if (faqTitle === name) dispatch(setFaqTitle(""));
-    else dispatch(setFaqTitle(name));
+    if (openItems.includes(name)) {
+      // Если текущий элемент уже открыт, закрываем его
+      setOpenTitles(openTitles.filter((item) => item !== name));
+    } else {
+      // Иначе, открываем текущий элемент
+      setOpenTitles((prev) => [...prev, name]);
+    }
+  };
+
+  const onText = (name: string) => {
+    if (openItems.includes(name)) {
+      // Если текущий элемент уже открыт, закрываем его
+      setOpenItems(openItems.filter((item) => item !== name));
+    } else {
+      // Иначе, открываем текущий элемент
+      setOpenItems((prev) => [...prev, name]);
+    }
   };
 
   return (
@@ -66,7 +84,7 @@ export const Select = ({
               />
             </div>
             <div className="flex flex-col gap-y-[20px] pb-[40px] w-full max-w-[1000px]">
-              {faqTitle === item.title &&
+              {openTitles.includes(item.title || "") &&
                 item.faqAll.map((obj) => (
                   <div
                     key={v4()}
@@ -84,9 +102,18 @@ export const Select = ({
                           alt="button"
                         />
                       )}
-                      <h4 className="text-[16px] text-bgWhite">{obj.title}</h4>
+                      <h4
+                        onClick={() => {
+                          obj.title && onText(obj.title), console.log(obj);
+                        }}
+                        className="text-[16px] text-bgWhite"
+                      >
+                        {obj.title}
+                      </h4>
                     </div>
-                    <PlusDrop {...obj} />
+                    {openItems.includes(obj.title || "") && (
+                      <PlusDrop {...obj} />
+                    )}
                   </div>
                 ))}
             </div>
