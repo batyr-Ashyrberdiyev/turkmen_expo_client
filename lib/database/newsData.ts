@@ -1,67 +1,120 @@
-import news1 from "@/public/assets/images/news1.png";
-import news2 from "@/public/assets/images/news2.png";
-import news3 from "@/public/assets/images/news3.png";
-import news4 from "@/public/assets/images/news4.png";
+import news1 from '@/public/assets/images/news1.png';
+import news2 from '@/public/assets/images/news2.png';
+import news3 from '@/public/assets/images/news3.png';
+import news4 from '@/public/assets/images/news4.png';
+import { text } from 'stream/consumers';
 
 export const newsCardData = [
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news1,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news2,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news3,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news4,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news1,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news2,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news3,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news4,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news1,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news2,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news3,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
   },
   {
-    date: "06.02.2024",
+    date: '06.02.2024',
     img: news4,
     text: `В своём стремлении повысить качество жизни, они забывают, что глубокий уровень погружения.`,
+  },
+];
+
+import img1 from '@/public/assets/images/news/1.png';
+import img2 from '@/public/assets/images/news/2.png';
+import img3 from '@/public/assets/images/news/3.png';
+import img4 from '@/public/assets/images/news/4.png';
+import img5 from '@/public/assets/images/news/5.png';
+import img6 from '@/public/assets/images/news/6.png';
+import img7 from '@/public/assets/images/news/7.png';
+import img8 from '@/public/assets/images/news/8.png';
+
+export const newsPageData = [
+  {
+    date: '06.02.2024',
+    text: 'Специалис ты поделились опытом мотивации сотрудников магазинов детских товаров',
+    img: img1,
+  },
+  {
+    date: '06.02.2024',
+    text: 'Выставка «Интерлакокраска-2024» представит достижения отрасли',
+    img: img2,
+  },
+  {
+    date: '06.02.2024',
+    text: 'Возможности онлайн-торговли детскими товарами',
+    img: img3,
+  },
+  {
+    date: '06.02.2024',
+    text: 'Советы профессионалов для создания идеального детского бутика',
+    img: img4,
+  },
+  {
+    date: '06.02.2024',
+    text: 'Эксперты рассказали, как избежать ошибок при закупке одежды',
+    img: img5,
+  },
+  {
+    date: '06.02.2024',
+    text: 'Актуальные вопросы отрасли обсудят на «Российской строительной неделе-2024»',
+    img: img6,
+  },
+  {
+    date: '06.02.2024',
+    text: 'Эксперт поделилась опытом эффективной работы на выставке',
+    img: img7,
+  },
+  {
+    date: '06.02.2024',
+    text: 'Как противостоять манипуляциям покупателей',
+    img: img8,
   },
 ];
