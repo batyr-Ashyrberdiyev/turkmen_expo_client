@@ -18,7 +18,8 @@ export const Sidebar = () => {
           (obj) =>
             (pathname === '/company/aboutus' && obj.company) ||
             (pathname === '/members' && obj.members) ||
-            (pathname === '/members/bid' && obj.members),
+            (pathname === '/members/bid' && obj.members) ||
+            (pathname === '/news' && obj.news),
         )
         .map((item) => (
           <div key={v4()}>
