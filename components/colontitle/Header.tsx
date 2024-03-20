@@ -7,14 +7,20 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
 import logo from "@/public/assets/icons/header/logo.svg";
+import search from "@/public/assets/icons/header/mob-search.svg";
+import burger from "@/public/assets/icons/header/burger.svg";
 
 import { LangMenu } from "../ui/LangMenu";
-import { Input } from "../home/Input";
+import { Input, InputMob } from "../home/Input";
 import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
 import { v4 } from "uuid";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectInput, setInputStatus } from "@/redux/slices/inputSlice";
 
 export const Header = () => {
   const pathname = usePathname();
+  const dispatch = useAppDispatch();
+  const [active, setActive] = React.useState(false);
 
   return (
     <>
@@ -25,15 +31,18 @@ export const Header = () => {
           width={32}
           alt="поиск"
           className="cursor-pointer"
+          onClick={() => setActive(true)}
         />
 
-        <Image
-          src={logo}
-          height={24}
-          width={160}
-          alt="лого"
-          className="cursor-pointer"
-        />
+        <Link href={"/"}>
+          <Image
+            src={logo}
+            height={24}
+            width={160}
+            alt="лого"
+            className="cursor-pointer"
+          />
+        </Link>
 
         <Image
           src={burger}
@@ -89,40 +98,5 @@ export const Header = () => {
         </div>
       </div>
     </>
-  );
-};
-
-import search from "@/public/assets/icons/header/mob-search.svg";
-import burger from "@/public/assets/icons/header/burger.svg";
-
-export const MobHeader = ({ mob = false }: { mob: boolean }) => {
-  const pathname = usePathname();
-
-  return (
-    <header className=" bg-bgWhite flex items-center justify-between px-4 py-6">
-      <Image
-        src={search}
-        height={32}
-        width={32}
-        alt="поиск"
-        className="cursor-pointer"
-      />
-
-      <Image
-        src={logo}
-        height={24}
-        width={160}
-        alt="лого"
-        className="cursor-pointer"
-      />
-
-      <Image
-        src={burger}
-        height={32}
-        width={32}
-        alt="меню"
-        className="cursor-pointer"
-      />
-    </header>
   );
 };
