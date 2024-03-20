@@ -18,39 +18,28 @@ interface Props {
 }
 
 const PlusDrop = ({ ...item }: Props) => {
-  const {
-    title,
-    text,
-    text2,
-    text3,
-    text4,
-    text5,
-    list,
-    list2,
-    list3,
-    list4,
-    wifi,
-  } = item;
+  const { text, text2, text3, text4, text5, list, list2, list3, list4, wifi } =
+    item;
 
   return (
     <div className="ml-[30px]">
       <h4
         className={clsx({
-          "text-[16px] text-bgWhite ": item.wifi,
+          "text-[16px] text-bgWhite ": wifi,
         })}
       >
-        {item.text}
+        {text}
       </h4>
 
       <div>
-        {item.text2 && <h4>{item.text2}</h4>}
-        {item.text3 && <h4>{item.text3}</h4>}
-        {item.text4 && <h4>{item.text4}</h4>}
-        {item.list && <p className="faq-list">{item.list}</p>}
-        {item.list2 && <p className="faq-list">{item.list2}</p>}
-        {item.list3 && <p className="faq-list">{item.list3}</p>}
-        {item.list4 && <p className="faq-list">{item.list4}</p>}
-        {item.text5 && <h4>{item.text5}</h4>}
+        {text2 && <h4>{text2}</h4>}
+        {text3 && <h4>{text3}</h4>}
+        {text4 && <h4>{text4}</h4>}
+        {list && <p className="faq-list">{list}</p>}
+        {list2 && <p className="faq-list">{list2}</p>}
+        {list3 && <p className="faq-list">{list3}</p>}
+        {list4 && <p className="faq-list">{list4}</p>}
+        {text5 && <h4>{text5}</h4>}
       </div>
     </div>
   );
