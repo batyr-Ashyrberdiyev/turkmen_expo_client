@@ -102,7 +102,7 @@ export const Select = ({
                       )}
                       <h4
                         onClick={() => {
-                          obj.title && onText(obj.title), console.log(obj);
+                          obj.title && onText(obj.title);
                         }}
                         className="text-[16px] text-bgWhite"
                       >
