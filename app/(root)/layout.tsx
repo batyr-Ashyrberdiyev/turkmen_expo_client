@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { Header } from '@/components/colontitle/Header';
-import { Footer } from '@/components/colontitle/Footer';
+import { Header } from "@/components/colontitle/Header";
+import { Footer } from "@/components/colontitle/Footer";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
