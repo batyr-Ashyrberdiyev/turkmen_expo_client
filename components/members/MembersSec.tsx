@@ -7,7 +7,7 @@ import { PageLayout } from '../page/PageLayout';
 export const MembersSec = () => {
   return (
     <div className="flex flex-col gap-y-[24px]">
-      <PageLayout title="Информация для участников" pathname="Главная / Информация для участников">
+      <PageLayout title="Информация для участников" path="members">
         <p className="text-p">
           В распоряжении компании имеются возможности размещения и застройки полностью оборудованных
           павильонов общей площадью 1200 кв.м. которые соответствуют современным стандартам. В

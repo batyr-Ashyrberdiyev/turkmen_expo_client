@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
+import { Pathnames } from './Pathnames';
 
 interface Props {
   children: React.ReactNode;
-  pathname: string;
   title: string;
+  path: string;
 }
 
-export const PageLayout = ({ children, title, pathname }: Props) => {
+export const PageLayout = ({ children, path, title }: Props) => {
   return (
     <div className="flex flex-col gap-y-[24px] mb-[100px]">
-      <p className="text-[12px] text-gray4">{pathname}</p>
+      <Pathnames sort={path} />
       <h2 className="text-extra font-semibold leading-[100%]">{title}</h2>
       {children}
     </div>

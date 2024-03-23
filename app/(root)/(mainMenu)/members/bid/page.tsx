@@ -6,9 +6,7 @@ import { PageLayout } from '@/components/page/PageLayout';
 const Bid = () => {
   return (
     <div className="h-full w-full">
-      <PageLayout
-        title="Выставочная деятельность"
-        pathname="Главная / Участникам / Онлайн заявка для участников">
+      <PageLayout title="Выставочная деятельность" path="members/bid">
         <FormSec />
       </PageLayout>
     </div>
