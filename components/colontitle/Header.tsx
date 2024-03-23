@@ -7,34 +7,25 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 
 import logo from '@/public/assets/icons/header/logo.svg';
-import search from '@/public/assets/icons/header/mob-search.svg';
 import burger from '@/public/assets/icons/header/burger.svg';
 
 import { LangMenu } from '../ui/LangMenu';
 import { Input, InputMob } from '../home/Input';
 import { headerMenu, headerMenu2 } from '@/lib/database/pathnames';
 import { v4 } from 'uuid';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { selectInput, setInputStatus } from '@/redux/slices/inputSlice';
 
 export const Header = () => {
   const pathname = usePathname();
-  const dispatch = useAppDispatch();
-  const [active, setActive] = React.useState(false);
+  const [mobSearchModal, setSearchModal] = React.useState(false);
 
   return (
     <>
       {/* Mobile */}
 
       <header className="bg-bgWhite md:hidden flex items-center justify-between px-4 py-6">
-        <Image
-          src={search}
-          height={32}
-          width={32}
-          alt="поиск"
-          className="cursor-pointer"
-          onClick={() => setActive(true)}
-        />
+        {mobSearchModal && <InputMob mobSearchModal={mobSearchModal} />}
+
+        <Input mob />
 
         <Link href={'/'}>
           <Image src={logo} height={24} width={160} alt="лого" className="cursor-pointer" />

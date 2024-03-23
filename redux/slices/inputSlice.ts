@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
+import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../store';
 
 interface Types {
-  inputStatus: "all" | "events" | "news";
+  inputStatus: 'all' | 'events' | 'news';
 }
 
 const initialState: Types = {
-  inputStatus: "all",
+  inputStatus: 'all',
 };
 
 const inputSlice = createSlice({
-  name: "input",
+  name: 'input',
   initialState,
   reducers: {
     setInputStatus(state, action) {

@@ -1,23 +1,24 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
-import search from "@/public/assets/icons/header/search.svg";
-import close from "@/public/assets/icons/home/close-input.svg";
+import search from '@/public/assets/icons/header/search.svg';
+import searchMob from '@/public/assets/icons/header/mob-search.svg';
+import close from '@/public/assets/icons/home/close-input.svg';
 
-import { Radio } from "../bid/InputTypes";
-import { GreenBtn } from "../ui/Buttons";
-import { selectInput, setInputStatus } from "@/redux/slices/inputSlice";
-import { v4 } from "uuid";
+import { Radio } from '../bid/InputTypes';
+import { GreenBtn } from '../ui/Buttons';
+import { selectInput, setInputStatus } from '@/redux/slices/inputSlice';
+import { v4 } from 'uuid';
 
 export const inputRadio = [
-  { name: "Везде", id: "all" },
-  { name: "В событиях", id: "events" },
-  { name: "В новостях", id: "news" },
+  { name: 'Везде', id: 'all' },
+  { name: 'В событиях', id: 'events' },
+  { name: 'В новостях', id: 'news' },
 ];
 
-export const Input = () => {
+export const Input = ({ mob = false }: { mob?: boolean }) => {
   const dispatch = useAppDispatch();
   const { inputStatus } = useAppSelector(selectInput);
   const [active, setActive] = React.useState(false);
@@ -30,11 +31,11 @@ export const Input = () => {
     <>
       <div className="cursor-pointer">
         <Image
-          src={search}
-          alt="search"
-          width={25}
-          height={25}
-          className="px-[5px]"
+          src={mob ? searchMob : search}
+          height={mob ? 32 : 16}
+          width={mob ? 32 : 16}
+          alt="поиск"
+          className="cursor-pointer"
           onClick={() => setActive(true)}
         />
       </div>
@@ -63,15 +64,14 @@ export const Input = () => {
                   <div
                     onClick={() => setStatus(item.id)}
                     className="flex cursor-pointer items-center gap-[10px]"
-                    key={v4()}
-                  >
+                    key={v4()}>
                     <Radio fill={inputStatus === item.id} />
                     <p>{item.name}</p>
                   </div>
                 ))}
               </div>
 
-              <GreenBtn text={"Найти"} px />
+              <GreenBtn text={'Найти'} px />
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@ export const Input = () => {
   );
 };
 
-export const InputMob = () => {
+export const InputMob = ({ mobSearchModal }: { mobSearchModal: boolean }) => {
   const dispatch = useAppDispatch();
   const { inputStatus } = useAppSelector(selectInput);
   const [active, setActive] = React.useState(false);
@@ -116,15 +116,14 @@ export const InputMob = () => {
               <div
                 onClick={() => setStatus(item.id)}
                 className="flex cursor-pointer items-center gap-[10px]"
-                key={v4()}
-              >
+                key={v4()}>
                 <Radio fill={inputStatus === item.id} />
                 <p>{item.name}</p>
               </div>
             ))}
           </div>
 
-          <GreenBtn text={"Найти"} px />
+          <GreenBtn text={'Найти'} px />
         </div>
       </div>
     </div>
