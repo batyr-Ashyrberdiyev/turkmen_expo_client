@@ -60,7 +60,12 @@ export const FormSec = () => {
       <form className="w-full max-w-[538px]" onSubmit={methods.handleSubmit(submitData)}>
         <div className="flex flex-col items-start gap-[24px]">
           <div className="flex flex-col w-full">
-            <BidDrop dropInfo={exhibitions} value="Выберите мероприятие из списка" />
+            <BidDrop
+              name="Название выставки"
+              required
+              dropInfo={exhibitions}
+              value="Выберите мероприятие из списка"
+            />
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="name" className="mb-[15px] leading-[130%]">
@@ -126,7 +131,7 @@ export const FormSec = () => {
           </div>
 
           <div className="w-full mb-[106px]">
-            <BidDrop dropInfo={phoneMail} />
+            <BidDrop name="Предпочтительный способ ответа" dropInfo={phoneMail} />
           </div>
 
           <div className="flex flex-col gap-4">
@@ -144,8 +149,7 @@ export const FormSec = () => {
             <div
               onClick={() => dispatch(setBidStatus(!bidStatus))}
               className="flex items-center gap-[10px]">
-              {/* <Checkbox fill={bidStatus} /> */}
-              <label className="cursor-pointer flex gap-[10px] leading-[125%] text-extraSm">
+              <label className="cursor-pointer flex gap-[10px] leading-[125%] text-extraSm hover:">
                 <input
                   {...methods.register('checkbox')}
                   type="checkbox"
