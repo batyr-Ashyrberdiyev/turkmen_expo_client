@@ -102,9 +102,14 @@ export const topMenu = [
         active: 'Главная',
         default: 'Участникам / Информация для участников',
       },
+    ],
+  },
+  {
+    path: 'members/bid',
+    links: [
       {
         active: 'Главная',
-        default: 'Участникам / Онлайн заявка для участников',
+        default: ' / Участникам / Онлайн заявка для участников',
       },
     ],
   },
@@ -113,7 +118,7 @@ export const topMenu = [
     links: [
       {
         active: 'Главная ',
-        default: ' Календарь мероприятий',
+        default: '/ Календарь мероприятий',
       },
     ],
   },
@@ -122,7 +127,7 @@ export const topMenu = [
     links: [
       {
         active: 'Главная',
-        default: 'FAQ',
+        default: ' / FAQ',
       },
     ],
   },
@@ -141,6 +146,15 @@ export const topMenu = [
       {
         active: 'Главная',
         default: ' / Календарь мероприятий',
+      },
+    ],
+  },
+  {
+    path: 'news',
+    links: [
+      {
+        active: 'Главная',
+        default: ' / Новости',
       },
     ],
   },
