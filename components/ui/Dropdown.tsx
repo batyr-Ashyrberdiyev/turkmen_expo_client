@@ -12,10 +12,12 @@ import { exhibitions } from '../bid/FormSec';
 interface Props {
   dropInfo: string[];
   value?: string;
+  required?: boolean;
+  name: string;
 }
 
-export const BidDrop = ({ dropInfo, value }: Props) => {
-  const { setValue, handleSubmit, register } = useFormContext();
+export const BidDrop = ({ dropInfo, value, name, required = false }: Props) => {
+  const { setValue } = useFormContext();
   const [title, setTitle] = React.useState(value);
   const [active, setActive] = React.useState(false);
   const dropRef = React.useRef<HTMLDivElement>(null);
@@ -40,13 +42,19 @@ export const BidDrop = ({ dropInfo, value }: Props) => {
 
   return (
     <>
+      <div className="mb-[15px] leading-[130%]">
+        {name}
+        {required && <span className="text-lightRed">*</span>}
+      </div>
       <div
         key={v4()}
         onClick={() => {
           setActive(!active);
         }}
         className="h-[43px] flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]">
-        <div>{title}</div>
+        <div>
+          <div>{title}</div>
+        </div>
         <Image
           src={drop}
           alt="arrow"
