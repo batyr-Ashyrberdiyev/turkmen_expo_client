@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { v4 } from 'uuid';
+import React from "react";
+import { v4 } from "uuid";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { NewsCard } from "../cards/NewsCard";
+import { NavBtn } from "./ui/NavBtn";
+import { GreenBtn } from "../ui/Buttons";
 
-import { NewsCard } from '../cards/NewsCard';
-import { NavBtn } from './ui/NavBtn';
-import { newsCardData } from '@/lib/database/newsData';
+import { newsCardData } from "@/lib/database/newsData";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import { GreenBtn } from '../ui/Buttons';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export const News = () => {
   return (
@@ -33,9 +33,10 @@ export const News = () => {
           spaceBetween={20}
           slidesPerView={4}
           navigation={{
-            nextEl: '.next-btn',
-            prevEl: '.prev-btn',
-          }}>
+            nextEl: ".next-btn",
+            prevEl: ".prev-btn",
+          }}
+        >
           {newsCardData &&
             newsCardData.map((item) => (
               <SwiperSlide key={v4()}>

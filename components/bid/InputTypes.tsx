@@ -12,7 +12,7 @@ interface Props {
 
 export const Radio = ({ fill }: Props) => {
   return (
-    <div className="w-[16px] h-[16px] p-[3px] rounded-full border-[1px] border-navyBlue">
+    <div className="sm:w-[16px] w-[12px] sm:h-[16px] h-[12px] p-[2px] sm:p-[3px] rounded-full border-[1px] border-navyBlue">
       <div
         className={clsx(
           "w-full h-full rounded-full opacity-0 bg-green transition-all",
