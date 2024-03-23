@@ -18,7 +18,7 @@ body {
 }
 
 .main-abs-bg::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 100%;
   width: 100vw;
@@ -52,19 +52,20 @@ body {
   position: relative;
   width: 16px;
   height: 16px;
-  border: 1px solid #5d6a77;
+  border: 1px solid #738799;
   border-radius: 2px;
 }
 
 .input-check:checked + .span-check::before {
-  content: "";
-  background-image: url("/public/assets/icons/check.svg");
-  background-size: cover;
+  content: '';
+  background-image: url('../public/assets/icons/check.svg');
   background-size: 8px 8px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 8px;
+  height: 7px;
 }
 
 .radio-input {
@@ -86,7 +87,7 @@ body {
 }
 
 .radio-input:checked + .radio-span::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   top: 50%;
