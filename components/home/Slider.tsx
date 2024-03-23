@@ -32,9 +32,7 @@ export default () => {
       onAutoplayTimeLeft={onAutoplayTimeLeft}
       loop
       speed={1500}
-      autoplay={{ delay: 10000 }}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}>
+      autoplay={{ delay: 10000 }}>
       {images.map((item) => (
         <SwiperSlide key={v4()}>
           <Image src={item} alt="Главная фотография" width={3920} height={2080} />
