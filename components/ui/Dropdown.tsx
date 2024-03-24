@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import clsx from 'clsx';
-import { v4 } from 'uuid';
-import { useFormContext } from 'react-hook-form';
+import React from "react";
+import Image from "next/image";
+import clsx from "clsx";
+import { v4 } from "uuid";
+import { useFormContext } from "react-hook-form";
 
-import drop from '@/public/assets/icons/form-drop-icon.svg';
-import { exhibitions } from '../bid/FormSec';
+import drop from "@/public/assets/icons/form-drop-icon.svg";
+import { exhibitions } from "../bid/FormSec";
 
 interface Props {
   dropInfo: string[];
@@ -25,7 +25,7 @@ export const BidDrop = ({ dropInfo, value, name, required = false }: Props) => {
   const onOption = (name: string) => {
     setActive(false);
     setTitle(name);
-    setValue(dropInfo === exhibitions ? 'event' : 'contact', name);
+    setValue(dropInfo === exhibitions ? "event" : "contact", name);
   };
 
   React.useEffect(() => {
@@ -35,9 +35,9 @@ export const BidDrop = ({ dropInfo, value, name, required = false }: Props) => {
       }
     };
 
-    document.addEventListener('click', handleClick);
+    document.addEventListener("click", handleClick);
 
-    return () => document.removeEventListener('click', handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, []);
 
   return (
@@ -51,15 +51,16 @@ export const BidDrop = ({ dropInfo, value, name, required = false }: Props) => {
         onClick={() => {
           setActive(!active);
         }}
-        className="h-[43px] flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]">
+        className="h-[43px] flex cursor-pointer items-center justify-between bid-drop py-[15px] mb-[10px]"
+      >
         <div>
           <div>{title}</div>
         </div>
         <Image
           src={drop}
           alt="arrow"
-          className={clsx('transition-all', {
-            'rotate-180': active,
+          className={clsx("transition-all", {
+            "rotate-180": active,
           })}
         />
       </div>
@@ -71,11 +72,12 @@ export const BidDrop = ({ dropInfo, value, name, required = false }: Props) => {
                 key={v4()}
                 onClick={() => onOption(item)}
                 className={clsx(
-                  'py-[15px] px-[12px] text-[14px] font-regular leading-[125%] transition-all',
+                  "cursor-pointer py-[15px] px-[12px] text-[14px] font-regular leading-[125%] transition-all",
                   {
-                    'hover:bg-green rounded-sm': item === item,
-                  },
-                )}>
+                    "hover:bg-green rounded-sm": item === item,
+                  }
+                )}
+              >
                 {item}
               </div>
             ))}
