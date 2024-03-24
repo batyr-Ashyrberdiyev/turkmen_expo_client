@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
+import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import clsx from "clsx";
+import { v4 } from "uuid";
 import { usePathname } from "next/navigation";
 
 import logo from "@/public/assets/icons/header/logo.svg";
@@ -12,12 +13,14 @@ import burger from "@/public/assets/icons/header/burger.svg";
 import { LangMenu } from "../ui/LangMenu";
 import { Input } from "../home/Input";
 import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
-import { v4 } from "uuid";
 import { BurgerMenu } from "../ui/BurgerMenu";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectHeader, setBurgerMenu } from "@/redux/slices/headerSlice";
 
 export const Header = () => {
   const pathname = usePathname();
-  const [menu, setMenu] = React.useState(false);
+  const dispatch = useAppDispatch();
+  const { burgerMenu } = useAppSelector(selectHeader);
 
   return (
     <>
@@ -42,10 +45,10 @@ export const Header = () => {
           width={32}
           alt="меню"
           className="cursor-pointer"
-          onClick={() => setMenu(!menu)}
+          onClick={() => dispatch(setBurgerMenu(!burgerMenu))}
         />
 
-        {menu && <BurgerMenu />}
+        {burgerMenu && <BurgerMenu />}
       </header>
 
       {/* Desktop */}
