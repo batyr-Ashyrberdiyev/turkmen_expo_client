@@ -15,13 +15,21 @@ import { Input } from "../home/Input";
 import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
 import { BurgerMenu } from "../ui/BurgerMenu";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { selectHeader, setBurgerMenu } from "@/redux/slices/headerSlice";
+import {
+  selectHeader,
+  setBurgerMenu,
+  setShowInput,
+} from "@/redux/slices/headerSlice";
 
 export const Header = () => {
   const pathname = usePathname();
   const dispatch = useAppDispatch();
   const { burgerMenu } = useAppSelector(selectHeader);
 
+  const onBurger = () => {
+    dispatch(setBurgerMenu(!burgerMenu));
+    dispatch(setShowInput(false));
+  };
   return (
     <>
       {/* Mobile */}
@@ -45,7 +53,7 @@ export const Header = () => {
           width={32}
           alt="меню"
           className="cursor-pointer"
-          onClick={() => dispatch(setBurgerMenu(!burgerMenu))}
+          onClick={onBurger}
         />
 
         {burgerMenu && <BurgerMenu />}
