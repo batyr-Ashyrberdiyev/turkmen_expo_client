@@ -11,7 +11,11 @@ import { Radio } from "../bid/InputTypes";
 import { GreenBtn } from "../ui/Buttons";
 import { selectInput, setInputStatus } from "@/redux/slices/inputSlice";
 import { v4 } from "uuid";
-import { selectHeader, setShowInput } from "@/redux/slices/headerSlice";
+import {
+  selectHeader,
+  setBurgerMenu,
+  setShowInput,
+} from "@/redux/slices/headerSlice";
 
 export const inputRadio = [
   { name: "Везде", id: "all" },
@@ -22,11 +26,15 @@ export const inputRadio = [
 export const Input = ({ mob = false }: { mob?: boolean }) => {
   const dispatch = useAppDispatch();
   const { inputStatus } = useAppSelector(selectInput);
-  const { showInput, burgerMenu } = useAppSelector(selectHeader);
-  const [active, setActive] = React.useState(false);
+  const { showInput } = useAppSelector(selectHeader);
 
   const setStatus = (name: string) => {
     dispatch(setInputStatus(name));
+  };
+
+  const onSearch = () => {
+    dispatch(setShowInput(!showInput));
+    dispatch(setBurgerMenu(false));
   };
 
   return (
@@ -38,7 +46,7 @@ export const Input = ({ mob = false }: { mob?: boolean }) => {
           width={mob ? 32 : 16}
           alt="поиск"
           className="cursor-pointer"
-          onClick={() => dispatch(setShowInput(!showInput))}
+          onClick={onSearch}
         />
       </div>
       {showInput && (
