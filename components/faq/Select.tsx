@@ -11,7 +11,7 @@ import add from "@/public/assets/icons/faq/add.svg";
 import minus from "@/public/assets/icons/faq/minus.svg";
 import openIcon from "@/public/assets/icons/contact-arrow.svg";
 
-import { FAQItem, faqData } from "@/lib/database/faqData";
+import { faqData } from "@/lib/database/faqData";
 import { selectFaq, setFaqInfo, setFaqTitle } from "@/redux/slices/faqSlice";
 import PlusDrop from "./PlusDrop";
 
@@ -68,7 +68,7 @@ export const Select = ({
                 }
               )}
             >
-              <h2 className="text-[21px] font-semibold py-[20px]">
+              <h2 className="text-[21px] leading-[100%] font-semibold py-[20px]">
                 {item.title}
               </h2>
               <Image
