@@ -1,8 +1,20 @@
-import React from "react";
+"use client";
 
-import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
-import { v4 } from "uuid";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { v4 } from "uuid";
+
+import ru from "@/public/assets/icons/header/ru.svg";
+import en from "@/public/assets/icons/header/en.svg";
+import tm from "@/public/assets/icons/header/tm.svg";
+import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
+
+export const flags = [
+  { name: "Tm", flag: tm },
+  { name: "Ру", flag: ru },
+  { name: "En", flag: en },
+];
 
 export const BurgerMenu = () => {
   return (
@@ -15,11 +27,22 @@ export const BurgerMenu = () => {
         ))}
       </div>
 
-      <hr className=" border-bgWhite" />
+      <hr className="border-bgWhite" />
 
-      <div className="flex flex-col gap-5 cursor-pointer">
+      <div className="flex flex-col gap-5">
         {headerMenu.map((item) => (
-          <p>{item.title}</p>
+          <Link className="cursor-pointer" href={item.link}>
+            {item.title}
+          </Link>
+        ))}
+      </div>
+
+      <div className="flex mx-auto items-center gap-10">
+        {flags.map((item) => (
+          <div className="flex items-center gap-[10px] cursor-pointer">
+            <p className="leading-[140%]">{item.name}</p>
+            <Image src={item.flag} alt="флаг" />
+          </div>
         ))}
       </div>
     </div>
