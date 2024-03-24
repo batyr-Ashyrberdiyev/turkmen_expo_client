@@ -11,7 +11,7 @@ import { Radio } from "../bid/InputTypes";
 import { GreenBtn } from "../ui/Buttons";
 import { selectInput, setInputStatus } from "@/redux/slices/inputSlice";
 import { v4 } from "uuid";
-import { Header } from "../colontitle/Header";
+import { selectHeader, setShowInput } from "@/redux/slices/headerSlice";
 
 export const inputRadio = [
   { name: "Везде", id: "all" },
@@ -22,6 +22,7 @@ export const inputRadio = [
 export const Input = ({ mob = false }: { mob?: boolean }) => {
   const dispatch = useAppDispatch();
   const { inputStatus } = useAppSelector(selectInput);
+  const { showInput, burgerMenu } = useAppSelector(selectHeader);
   const [active, setActive] = React.useState(false);
 
   const setStatus = (name: string) => {
@@ -37,10 +38,10 @@ export const Input = ({ mob = false }: { mob?: boolean }) => {
           width={mob ? 32 : 16}
           alt="поиск"
           className="cursor-pointer"
-          onClick={() => setActive(!active)}
+          onClick={() => dispatch(setShowInput(!showInput))}
         />
       </div>
-      {active && (
+      {showInput && (
         <div
           className={`absolute ${
             mob && "top-[74px]"
@@ -51,7 +52,7 @@ export const Input = ({ mob = false }: { mob?: boolean }) => {
               <Image
                 alt="close"
                 className="cursor-pointer"
-                onClick={() => setActive(false)}
+                onClick={() => dispatch(setShowInput(false))}
                 src={close}
               />
             </div>
