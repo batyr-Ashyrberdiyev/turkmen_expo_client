@@ -1,20 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../store';
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 interface HeaderState {
-  activeLang: 'Ру' | 'Tu' | 'En';
+  activeLang: "Ру" | "Tu" | "En";
   showInput: boolean;
-  activeMenu: boolean;
+  burgerMenu: boolean;
 }
 
 const initialState: HeaderState = {
-  activeLang: 'Ру',
+  activeLang: "Ру",
   showInput: false,
-  activeMenu: false,
+  burgerMenu: false,
 };
 
 const headerSlice = createSlice({
-  name: 'header',
+  name: "header",
   initialState,
   reducers: {
     setActiveLang(state, action) {
@@ -23,14 +23,15 @@ const headerSlice = createSlice({
     setShowInput(state, action) {
       state.showInput = action.payload;
     },
-    setActiveMenu(state, action) {
-      state.showInput = action.payload;
+    setBurgerMenu(state, action) {
+      state.burgerMenu = action.payload;
     },
   },
 });
 
 export const selectHeader = (state: RootState) => state.headerSlice;
 
-export const { setActiveLang, setShowInput, setActiveMenu } = headerSlice.actions;
+export const { setActiveLang, setShowInput, setBurgerMenu } =
+  headerSlice.actions;
 
 export default headerSlice.reducer;
