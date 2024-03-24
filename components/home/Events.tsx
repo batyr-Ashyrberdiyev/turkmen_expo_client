@@ -16,7 +16,7 @@ export const Events = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container hidden min-[375px]:block">
         <h2 className="text-extra mb-[40px] font-semibold leading-[100%]">
           Ближайшие выставки и мероприятия
         </h2>
@@ -37,7 +37,7 @@ export const Events = () => {
 
       {/* //Mobile */}
 
-      {/* <div className="md:hidden container">
+      <div className="md:hidden container">
         <h2 className="text-[26px] mb-[40px] font-semibold leading-[115%]">
           Ближайшие выставки и мероприятия
         </h2>
@@ -59,7 +59,7 @@ export const Events = () => {
           </div>
           <GreenBtnMob text={"Все мероприятия"} />
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

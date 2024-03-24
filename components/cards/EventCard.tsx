@@ -23,7 +23,7 @@ export const EventCard = ({
       <Link href={"/calendar/event"}>
         <div
           className={clsx(
-            "bg-bgWhite p-[5%] rounded-[2px] cursor-pointer transition-all w-full greenBtnShadow hover:hover-shadow",
+            "bg-bgWhite hidden min-[375px]:block p-[5%] rounded-[2px] cursor-pointer transition-all w-full greenBtnShadow hover:hover-shadow",
             {
               "bg-navyBlue text-gray": dark,
             }

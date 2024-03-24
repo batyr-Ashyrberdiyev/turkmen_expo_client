@@ -10,6 +10,8 @@ import en from "@/public/assets/icons/header/en.svg";
 import tm from "@/public/assets/icons/header/tm.svg";
 import arrow from "@/public/assets/icons/header/burger-arrow.svg";
 import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
+import { useAppDispatch } from "@/redux/hooks";
+import { setBurgerMenu } from "@/redux/slices/headerSlice";
 
 export const flags = [
   { name: "Tm", flag: tm },
