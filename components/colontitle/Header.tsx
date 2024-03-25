@@ -26,6 +26,19 @@ export const Header = () => {
   const dispatch = useAppDispatch();
   const { burgerMenu } = useAppSelector(selectHeader);
 
+  const [isOpen, setIsOpen] = React.useState(true); // Используем состояние для открытия/закрытия меню
+
+  const toggleMenu = () => {
+    dispatch(setBurgerMenu(!burgerMenu));
+    dispatch(setShowInput(false));
+
+    if (!burgerMenu) {
+      document.body.classList.add("body-scroll-lock");
+    } else {
+      document.body.classList.remove("body-scroll-lock");
+    }
+  };
+
   const onBurger = () => {
     dispatch(setBurgerMenu(!burgerMenu));
     dispatch(setShowInput(false));
@@ -53,7 +66,7 @@ export const Header = () => {
           width={32}
           alt="меню"
           className="cursor-pointer"
-          onClick={onBurger}
+          onClick={toggleMenu}
         />
 
         {burgerMenu && <BurgerMenu />}

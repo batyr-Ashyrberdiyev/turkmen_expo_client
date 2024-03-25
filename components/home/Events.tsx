@@ -7,6 +7,10 @@ import { EventCard } from "../cards/EventCard";
 import { GreenBtn, GreenBtnMob } from "../ui/Buttons";
 import { eventCardData } from "@/lib/database/eventsData";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import { Title } from "./Title";
+
 export const Events = () => {
   const [openCards, setOpenCards] = React.useState<boolean>(true);
 
@@ -16,11 +20,11 @@ export const Events = () => {
 
   return (
     <>
-      <div className="container hidden min-[375px]:block">
-        <h2 className="text-extra mb-[40px] font-semibold leading-[100%]">
-          Ближайшие выставки и мероприятия
-        </h2>
-        <div className="mb-[158px] flex flex-col items-center gap-y-[10px]">
+      <div className="container hidden min-[380px]:block">
+        <div className="mb-10">
+          <Title text="Ближайшие выставки и мероприятия" />
+        </div>
+        <div className="mb-[158px] w-full flex flex-col items-center gap-y-[10px]">
           {openCards
             ? eventCardData
                 .filter((item) => item.id === 1 || item.id === 2)
@@ -37,7 +41,7 @@ export const Events = () => {
 
       {/* //Mobile */}
 
-      <div className="md:hidden container">
+      <div className="min-[380px]:hidden container">
         <h2 className="text-[26px] mb-[40px] font-semibold leading-[115%]">
           Ближайшие выставки и мероприятия
         </h2>
@@ -54,8 +58,8 @@ export const Events = () => {
                     <EventCard {...item} />
                   </SwiperSlide>
                 ))}
-              <div className="swiper-pagination"></div>
             </Swiper>
+            <div className="swiper-pagination swiper-pagination-horizontal"></div>
           </div>
           <GreenBtnMob text={"Все мероприятия"} />
         </div>

@@ -11,7 +11,7 @@ import Slider from "@/components/home/Slider";
 const Home = () => {
   return (
     <div className="bg-blueBg">
-      <section className="h-full mx-auto mb-[160px]">
+      <section className="h-full mx-auto mb-[60px] min-[380px]:mb-[160px]">
         <Slider />
       </section>
 
@@ -19,7 +19,7 @@ const Home = () => {
         <Events />
       </section>
 
-      <section className="mb-[221px]">
+      <section className="min-[380px]:mb-[221px] mb-[60px]">
         <News />
       </section>
 
