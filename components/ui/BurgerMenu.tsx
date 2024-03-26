@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { v4 } from "uuid";
@@ -10,8 +9,9 @@ import en from "@/public/assets/icons/header/en.svg";
 import tm from "@/public/assets/icons/header/tm.svg";
 import arrow from "@/public/assets/icons/header/burger-arrow.svg";
 import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
-import { useAppDispatch } from "@/redux/hooks";
-import { setBurgerMenu } from "@/redux/slices/headerSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectHeader, setBurgerMenu } from "@/redux/slices/headerSlice";
+import { useEffect } from "react";
 
 export const flags = [
   { name: "Tm", flag: tm },
@@ -20,8 +20,25 @@ export const flags = [
 ];
 
 export const BurgerMenu = () => {
+  const dispatch = useAppDispatch();
+  const { burgerMenu } = useAppSelector(selectHeader);
+
+  const onLink = (single: boolean) => {
+    if (single) {
+      setBurgerMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    if (burgerMenu) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "unset";
+    }
+  }, [burgerMenu]);
+
   return (
-    <div className="bg-green absolute w-full z-[150] top-[74px] left-0 h-svh px-4 py-10 flex flex-col gap-10">
+    <div className="bg-green absolute w-full z-[150] top-[74px] left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col gap-10 overflow-y-auto">
       <div className="flex flex-col gap-5">
         {headerMenu2.map((item) => (
           <Link

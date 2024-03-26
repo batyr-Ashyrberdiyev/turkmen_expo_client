@@ -37,7 +37,7 @@ const Home = () => {
         <Services />
       </section>
 
-      <section className="pb-[160px]">
+      <section className="mob:pb-[160px] pb-[60px]">
         <Partners />
       </section>
     </div>

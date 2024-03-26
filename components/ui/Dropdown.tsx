@@ -42,7 +42,7 @@ export const BidDrop = ({ dropInfo, value, name, required = false }: Props) => {
 
   return (
     <>
-      <div className="mb-[15px] leading-[130%]">
+      <div className="mb-[12px] leading-[130%]">
         {name}
         {required && <span className="text-lightRed">*</span>}
       </div>

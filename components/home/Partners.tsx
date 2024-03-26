@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { partnersData } from "@/lib/database/homeInfoData";
 
 import { Title } from "./Title";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 export const Partners = () => {
   return (
@@ -20,12 +20,12 @@ export const Partners = () => {
 
         <div className="flex items-center flex-wrap">
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             loop
             slidesPerView={4}
-            autoplay={{ delay: 1000 }}
+            autoplay={{ delay: 0 }}
             spaceBetween={30}
-            speed={1000}
+            speed={10000}
             pagination={{ type: "bullets", el: ".swiper-pagination" }}
           >
             {partnersData.map((logo) => (

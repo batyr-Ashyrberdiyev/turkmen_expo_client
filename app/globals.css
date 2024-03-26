@@ -100,7 +100,7 @@ body {
 
 @layer utilities {
   .container {
-    @apply w-full mx-auto max-w-[1260px] px-[20px];
+    @apply w-full mx-auto max-w-[1260px] px-[16px];
   }
 
   .page-container {

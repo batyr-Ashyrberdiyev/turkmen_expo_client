@@ -3,7 +3,7 @@
 import React from "react";
 import { v4 } from "uuid";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 import { NewsCard } from "../cards/NewsCard";
 import { NavBtn } from "./ui/NavBtn";
@@ -16,7 +16,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import Pagination from "../ui/Pagination";
 
 export const News = () => {
   return (

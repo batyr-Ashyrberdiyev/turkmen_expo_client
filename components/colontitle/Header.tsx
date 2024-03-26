@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,8 +26,6 @@ export const Header = () => {
   const dispatch = useAppDispatch();
   const { burgerMenu } = useAppSelector(selectHeader);
 
-  const [isOpen, setIsOpen] = React.useState(true); // Используем состояние для открытия/закрытия меню
-
   const toggleMenu = () => {
     dispatch(setBurgerMenu(!burgerMenu));
     dispatch(setShowInput(false));
@@ -39,10 +37,6 @@ export const Header = () => {
     }
   };
 
-  const onBurger = () => {
-    dispatch(setBurgerMenu(!burgerMenu));
-    dispatch(setShowInput(false));
-  };
   return (
     <>
       {/* Mobile */}

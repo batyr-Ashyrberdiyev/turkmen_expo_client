@@ -29,8 +29,8 @@ export const Services = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-start gap-x-[20px] w-full">
-        <h3 className="text-[21px] leading-[100%] md:mt-0 mt-5 text-[#FFD288] uppercase mb-[20px] font-bold">
+      <div className="flex flex-col items-start md:mt-0 mt-10 gap-x-[20px] w-full">
+        <h3 className="text-[21px] leading-[100%] text-[#FFD288] uppercase mb-[20px] font-bold">
           контакты
         </h3>
         <div className="flex flex-col gap-y-[20px] w-full">
