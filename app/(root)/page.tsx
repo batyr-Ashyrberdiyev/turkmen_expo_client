@@ -11,15 +11,15 @@ import Slider from "@/components/home/Slider";
 const Home = () => {
   return (
     <div className="bg-blueBg">
-      <section className="h-full mx-auto mb-[60px] min-[380px]:mb-[160px]">
+      <section className="h-full mx-auto mb-[60px] mob:mb-[160px]">
         <Slider />
       </section>
 
-      <section className="md:mb-[60px] section-mb w-full">
+      <section className="mob:mb-[60px] section-mb w-full">
         <Events />
       </section>
 
-      <section className="min-[380px]:mb-[221px] mb-[60px]">
+      <section className="mob:mb-[221px] mb-[60px]">
         <News />
       </section>
 

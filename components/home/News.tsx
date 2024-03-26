@@ -16,11 +16,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import Pagination from "../ui/Pagination";
 
 export const News = () => {
   return (
     <>
-      <div className="container hidden min-[380px]:block w-full">
+      <div className="container hidden mob:block w-full">
         <header className="flex items-center mb-[43px] justify-between">
           <Title text="Новости" />
           <div className="flex items-center gap-x-[20px]">
@@ -55,19 +56,16 @@ export const News = () => {
 
       {/* Mobile */}
 
-      <div className="container min-[380px]:hidden w-full">
-        <header className="flex items-center min-[380px]:mb-[43px] mb-5 justify-between">
+      <div className="container mob:hidden w-full">
+        <header className="flex items-center mob:mb-[43px] mb-5 justify-between">
           <Title text="Новости" />
         </header>
 
         <div className="mb-[35px]">
           <Swiper
-            modules={[Navigation]}
+            modules={[Pagination]}
             slidesPerView={1}
-            navigation={{
-              nextEl: ".next-btn",
-              prevEl: ".prev-btn",
-            }}
+            pagination={{ type: "bullets", el: ".swiper-pagination" }}
           >
             {newsCardData &&
               newsCardData.map((item) => (
@@ -75,6 +73,7 @@ export const News = () => {
                   <NewsCard {...item} />
                 </SwiperSlide>
               ))}
+            <div className="swiper-pagination swiper-pagination-horizontal"></div>
           </Swiper>
         </div>
 
