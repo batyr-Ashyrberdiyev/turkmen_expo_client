@@ -12,6 +12,8 @@ import { Title } from "./Title";
 
 import { newsCardData } from "@/lib/database/newsData";
 
+import "swiper/css/bundle";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -64,6 +66,7 @@ export const News = () => {
           <Swiper
             modules={[Pagination]}
             slidesPerView={1}
+            spaceBetween={20}
             pagination={{ type: "bullets", el: ".swiper-pagination" }}
           >
             {newsCardData &&

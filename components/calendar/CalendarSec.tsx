@@ -13,6 +13,7 @@ import { Pathnames } from "../page/Pathnames";
 import Pagination from "../ui/Pagination";
 import { useAppDispatch } from "@/redux/hooks";
 import { setBurgerMenu } from "@/redux/slices/headerSlice";
+import { Title } from "../home/Title";
 
 export const CalendarSec = ({}: {}) => {
   const [showCards, setShowCards] = React.useState(false);
@@ -43,9 +44,7 @@ export const CalendarSec = ({}: {}) => {
           <div className="mb-[24px]">
             <Pathnames sort="calendar" />
           </div>
-          <h2 className="text-extra font-semibold leading-[100%]">
-            Календарь мероприятий
-          </h2>
+          <Title text="Календарь мероприятий" />
         </div>
         <div className="flex flex-col gap-6">
           {entries

@@ -27,7 +27,9 @@ export const Radio = ({ text, id, active, changeRadio }: Props) => {
             )}
           ></div>
         </div>
-        <div>{text}</div>
+        <div className="mob:text-[13px] mob:leading-[125%] text-[12px] leading-[100%]">
+          {text}
+        </div>
       </div>
     </div>
   );

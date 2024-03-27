@@ -6,7 +6,7 @@ import { NewsCardProps } from "@/lib/types";
 export const NewsCard = ({ img, text, date }: NewsCardProps) => {
   return (
     <div className="bg-bgWhite rounded-sm mob:max-w-[290px] w-full transition-all hover:hover-shadow cursor-pointer">
-      <Image src={img} width={329} height={209} alt="photo" />
+      <Image src={img} width={380} height={240} alt="photo" />
       <div className="p-[25px]">
         <p className="min-text-extraSm leading-[125%] text-gray mb-[10px]">
           {date}

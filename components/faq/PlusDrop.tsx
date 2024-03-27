@@ -17,15 +17,16 @@ interface Props {
   wifi?: string;
 }
 
-const PlusDrop = ({ ...item }: Props) => {
+export const PlusDrop = ({ ...item }: Props) => {
   const { text, text2, text3, text4, text5, list, list2, list3, list4, wifi } =
     item;
 
   return (
-    <div className="ml-[30px]">
+    <div className="mob:ml-[30px] ml-0">
       <h4
         className={clsx({
-          "text-[16px] text-bgWhite ": wifi,
+          "text-[14px] leading-[130%] mob:text-[16px] mob:leading-[150%] text-bgWhite":
+            wifi,
         })}
       >
         {text}
@@ -44,5 +45,3 @@ const PlusDrop = ({ ...item }: Props) => {
     </div>
   );
 };
-
-export default PlusDrop;

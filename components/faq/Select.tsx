@@ -13,7 +13,7 @@ import openIcon from "@/public/assets/icons/contact-arrow.svg";
 
 import { faqData } from "@/lib/database/faqData";
 import { selectFaq, setFaqInfo, setFaqTitle } from "@/redux/slices/faqSlice";
-import PlusDrop from "./PlusDrop";
+import { PlusDrop } from "./PlusDrop";
 
 interface Props {
   visitors?: boolean;
@@ -26,8 +26,7 @@ export const Select = ({
   members = false,
   all = false,
 }: Props) => {
-  const dispatch = useAppDispatch();
-  const { faqTitle, faqInfo } = useAppSelector(selectFaq);
+  const { faqTitle } = useAppSelector(selectFaq);
 
   const [openItems, setOpenItems] = React.useState<string[]>([]);
   const [openTitles, setOpenTitles] = React.useState<string[]>([]);
@@ -68,7 +67,7 @@ export const Select = ({
                 }
               )}
             >
-              <h2 className="text-[21px] leading-[100%] font-semibold py-[20px]">
+              <h2 className="mob:text-[21px] text-[16px] mob:leading-[100%] leading-[120%] mob:font-semibold font-[400] py-[20px]">
                 {item.title}
               </h2>
               <Image

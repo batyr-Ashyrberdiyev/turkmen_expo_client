@@ -1,15 +1,18 @@
-import React from 'react';
-import Image from 'next/image';
-import { ContactsSec } from '@/components/contacts/ContactsSec';
+import React from "react";
+import Image from "next/image";
+import { ContactsSec } from "@/components/contacts/ContactsSec";
 
-import mapImg from '@/public/assets/images/map.png';
+import mapImg from "@/public/assets/images/map.png";
+import { Title } from "@/components/home/Title";
 
 const Contacts = () => {
   return (
     <div className="bg-blueBg h-full">
       <div className="container flex flex-col items-start pt-[20px]">
-        <p className="text-[12px] mb-[24px] text-gray4">Главная / Календарь мероприятий</p>
-        <h2 className="text-extra font-semibold mb-[48px] leading-[100%]">Календарь мероприятий</h2>
+        <p className="text-[12px] mb-[24px] text-gray4">
+          Главная / Календарь мероприятий
+        </p>
+        <Title text="Контакты" />
         <p className="text-[21px] mb-[24px] leading-[100%]">Адрес:</p>
         <p className="leading-[1.7] mb-[48px]">
           123100, Москва, Краснопресненская наб., 14 <br />
@@ -18,7 +21,13 @@ const Contacts = () => {
           E-mail: centr@expocentr.ru
         </p>
       </div>
-      <Image src={mapImg} width={1920} height={800} alt="map" className="mx-auto mb-[24px]" />
+      <Image
+        src={mapImg}
+        width={1920}
+        height={800}
+        alt="map"
+        className="mx-auto mb-[24px]"
+      />
       <div className="container mb-[132px]">
         <ContactsSec />
       </div>

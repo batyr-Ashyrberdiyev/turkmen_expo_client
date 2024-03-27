@@ -179,6 +179,20 @@ body {
     @apply pointer-events-none;
   }
 
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    @apply w-[6px] h-[6px] bg-gray;
+  }
+
+  .swiper-horizontal
+    > .swiper-pagination-bullets
+    .swiper-pagination-bullet-active,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet-active {
+    @apply h-3 w-3 bg-green translate-y-[1.7px];
+  }
+
   .hover-shadow {
     box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.35);
   }

@@ -23,22 +23,21 @@ export const BurgerMenu = () => {
   const dispatch = useAppDispatch();
   const { burgerMenu } = useAppSelector(selectHeader);
 
-  const onLink = (single: boolean) => {
-    if (single) {
-      setBurgerMenu(false);
-    }
-  };
-
   useEffect(() => {
-    if (burgerMenu) {
-      document.body.style.overflowY = "hidden";
-    } else {
-      document.body.style.overflowY = "unset";
-    }
-  }, [burgerMenu]);
+    // Блокируем скролл при монтировании компонента
+    document.body.style.overflow = "hidden";
+
+    // Разблокируем скролл при размонтировании компонента
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
 
   return (
-    <div className="bg-green absolute w-full z-[150] top-[74px] left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col gap-10 overflow-y-auto">
+    <div
+      // style={{ overscrollBehavior: "none" }}
+      className="bg-green absolute w-full z-[150] top-[74px] left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col gap-10 overflow-y-auto"
+    >
       <div className="flex flex-col gap-5">
         {headerMenu2.map((item) => (
           <Link

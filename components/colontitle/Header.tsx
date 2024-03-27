@@ -29,19 +29,13 @@ export const Header = () => {
   const toggleMenu = () => {
     dispatch(setBurgerMenu(!burgerMenu));
     dispatch(setShowInput(false));
-
-    if (!burgerMenu) {
-      document.body.classList.add("body-scroll-lock");
-    } else {
-      document.body.classList.remove("body-scroll-lock");
-    }
   };
 
   return (
     <>
       {/* Mobile */}
 
-      <header className="bg-bgWhite relative z-[200] lg:hidden flex items-center justify-between px-4 py-6 h-[80px]">
+      <header className="bg-bgWhite lg:hidden flex items-center justify-between px-4 py-6 h-[80px]">
         <Input mob />
 
         <Link href={"/"}>
