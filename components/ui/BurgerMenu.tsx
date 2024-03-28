@@ -9,8 +9,8 @@ import en from "@/public/assets/icons/header/en.svg";
 import tm from "@/public/assets/icons/header/tm.svg";
 import arrow from "@/public/assets/icons/header/burger-arrow.svg";
 import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { selectHeader, setBurgerMenu } from "@/redux/slices/headerSlice";
+import { useAppSelector } from "@/redux/hooks";
+import { selectHeader } from "@/redux/slices/headerSlice";
 import { useEffect } from "react";
 
 export const flags = [
@@ -20,24 +20,21 @@ export const flags = [
 ];
 
 export const BurgerMenu = () => {
-  const dispatch = useAppDispatch();
-  const { burgerMenu } = useAppSelector(selectHeader);
+  const main = document.querySelector(".main");
+  const wrapper = document.querySelector(".wrapper");
 
   useEffect(() => {
-    // Блокируем скролл при монтировании компонента
-    document.body.style.overflow = "hidden";
+    main?.classList.add("overflow-hidden");
+    wrapper?.classList.add("overflow-hidden");
 
-    // Разблокируем скролл при размонтировании компонента
     return () => {
-      document.body.style.overflow = "unset";
+      main?.classList.remove("overflow-hidden");
+      wrapper?.classList.remove("overflow-hidden");
     };
   }, []);
 
   return (
-    <div
-      // style={{ overscrollBehavior: "none" }}
-      className="bg-green absolute w-full z-[150] top-[74px] left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col gap-10 overflow-y-auto"
-    >
+    <div className="bg-green fixed w-full z-[1001] top-[74px] bottom-0 left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col gap-10 overflow-y-auto">
       <div className="flex flex-col gap-5">
         {headerMenu2.map((item) => (
           <Link

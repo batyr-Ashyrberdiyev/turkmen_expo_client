@@ -5,9 +5,9 @@ import { Footer } from "@/components/colontitle/Footer";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col h-full overflow-x-hidden">
+    <div className="flex flex-col h-full wrapper">
       <Header />
-      <div className="flex-auto bg-blueBg">{children}</div>
+      <main className="flex-auto bg-blueBg main">{children}</main>
       <Footer />
     </div>
   );

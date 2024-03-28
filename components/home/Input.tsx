@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -37,6 +39,19 @@ export const Input = ({ mob = false }: { mob?: boolean }) => {
     dispatch(setBurgerMenu(false));
   };
 
+  const main = document.querySelector(".main");
+  const wrapper = document.querySelector(".wrapper");
+
+  useEffect(() => {
+    main?.classList.add("overflow-hidden");
+    wrapper?.classList.add("overflow-hidden");
+
+    return () => {
+      main?.classList.remove("overflow-hidden");
+      wrapper?.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   return (
     <>
       <div className="cursor-pointer">
@@ -51,9 +66,9 @@ export const Input = ({ mob = false }: { mob?: boolean }) => {
       </div>
       {showInput && (
         <div
-          className={`absolute ${
-            mob && "top-[74px]"
-          } top-0 left-0 w-full h-svh z-[100] overflow-y-hidden bg-blueBg`}
+          className={`${
+            mob ? "fixed top-[74px] bottom-0" : "absolute top-0"
+          } left-0 w-full min-h-svh z-[1000] overflow-y-auto bg-blueBg`}
         >
           <div className="container">
             <div className="w-full flex justify-end mt-[40px]">
@@ -94,54 +109,5 @@ export const Input = ({ mob = false }: { mob?: boolean }) => {
         </div>
       )}
     </>
-  );
-};
-
-export const InputMob = ({ mobSearchModal }: { mobSearchModal: boolean }) => {
-  const dispatch = useAppDispatch();
-  const { inputStatus } = useAppSelector(selectInput);
-  const [active, setActive] = React.useState(false);
-
-  const setStatus = (name: string) => {
-    dispatch(setInputStatus(name));
-  };
-
-  return (
-    <div className="absolute top-0 left-0 w-full h-svh z-[100] overflow-y-hidden bg-blueBg">
-      <div className="container relative">
-        <div className="w-full flex justify-end mt-[40px]">
-          <Image
-            alt="close"
-            className="cursor-pointer"
-            onClick={() => setActive(false)}
-            src={close}
-          />
-        </div>
-        <div className="flex flex-col mt-[112px] items-center w-full max-w-[566px] mx-auto">
-          <form className="w-full mb-[24px]">
-            <input
-              type="search"
-              placeholder="Что найти?"
-              className="p-3 w-full leading-[150%] placeholder:leading-[150%] placeholder:text-gray focus:outline-none rounded-sm bg-transparent border-[1px] border-[#BCC4CC]"
-            />
-          </form>
-
-          <div className="flex items-center gap-[48px] mb-[48px]">
-            {inputRadio.map((item) => (
-              <div
-                onClick={() => setStatus(item.id)}
-                className="flex cursor-pointer items-center gap-[10px]"
-                key={v4()}
-              >
-                <Radio fill={inputStatus === item.id} />
-                <p>{item.name}</p>
-              </div>
-            ))}
-          </div>
-
-          <GreenBtn text={"Найти"} px />
-        </div>
-      </div>
-    </div>
   );
 };

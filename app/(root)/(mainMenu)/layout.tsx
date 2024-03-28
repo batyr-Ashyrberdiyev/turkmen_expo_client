@@ -7,9 +7,9 @@ const CompanyLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="mob:bg-blueBg bg-navyBlueBg h-full">
       <div className="container h-full">
         <div className="flex w-full h-full">
-          <main className="w-[25%] hidden mob:block">
+          <aside className="w-[25%] hidden mob:block">
             <Sidebar />
-          </main>
+          </aside>
           <div className="bg-navyBlueBg pt-[20px] mob:pl-[56px] pl-0 mob:w-[75%] w-full relative main-abs-bg h-full">
             {children}
           </div>

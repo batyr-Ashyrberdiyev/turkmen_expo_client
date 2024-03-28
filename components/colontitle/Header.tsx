@@ -35,7 +35,14 @@ export const Header = () => {
     <>
       {/* Mobile */}
 
-      <header className="bg-bgWhite lg:hidden flex items-center justify-between px-4 py-6 h-[80px]">
+      <header
+        className={clsx(
+          "bg-bgWhite lg:hidden flex items-center justify-between px-4 py-6 h-[80px] sticky z-[100]",
+          {
+            "fixed w-full top-0": burgerMenu,
+          }
+        )}
+      >
         <Input mob />
 
         <Link href={"/"}>
