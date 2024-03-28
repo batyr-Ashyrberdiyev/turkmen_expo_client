@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import React from "react";
-import { v4 } from "uuid";
+import React from 'react';
+import { v4 } from 'uuid';
 
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
-import { Radio } from "../ui/Radio";
-import { selectFaq, setFaqStatus, setFaqTitle } from "@/redux/slices/faqSlice";
-import { Members } from "./Members";
-import { All } from "./All";
-import { Visitors } from "./Visitors";
-import { Pathnames } from "../page/Pathnames";
-import { Title } from "../home/Title";
+import { Radio } from '../ui/Radio';
+import { selectFaq, setFaqStatus, setFaqTitle } from '@/redux/slices/faqSlice';
+import { Members } from './Members';
+import { All } from './All';
+import { Visitors } from './Visitors';
+import { Pathnames } from '../page/Pathnames';
+import { Title } from '../home/Title';
 
 export const radio = [
-  { name: "Все", id: "all" },
-  { name: "Посетителям", id: "visitors" },
-  { name: "Участникам", id: "members" },
+  { name: 'Все', id: 'all' },
+  { name: 'Посетителям', id: 'visitors' },
+  { name: 'Участникам', id: 'members' },
 ];
 
 export const FaqSec = () => {
@@ -28,15 +28,13 @@ export const FaqSec = () => {
   };
 
   const onTitle = (name: string) => {
-    if (faqTitle === name) dispatch(setFaqTitle(""));
+    if (faqTitle === name) dispatch(setFaqTitle(''));
     else dispatch(setFaqTitle(name));
   };
 
   return (
     <div className="container flex flex-col items-start pt-[20px] mb-[100px]">
-      <div className="mb-[24px]">
-        <Pathnames sort="faq" />
-      </div>
+      <Pathnames sort="faq" />
       <Title text="«Вопросы-ответы»" />
       <div className="flex items-center mob:mt-6 mt-10 mob:gap-[20px] gap-10 mb-[48px]">
         {radio.map((item) => (
@@ -50,9 +48,9 @@ export const FaqSec = () => {
           </div>
         ))}
       </div>
-      {faqStatus === "all" && <All />}
-      {faqStatus === "visitors" && <Visitors />}
-      {faqStatus === "members" && <Members />}
+      {faqStatus === 'all' && <All />}
+      {faqStatus === 'visitors' && <Visitors />}
+      {faqStatus === 'members' && <Members />}
     </div>
   );
 };

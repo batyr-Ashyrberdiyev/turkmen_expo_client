@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import vk from "@/public/assets/icons/footer/vk.svg";
-import rss from "@/public/assets/icons/footer/rss.svg";
-import telegram from "@/public/assets/icons/footer/telegram.svg";
+import vk from '@/public/assets/icons/footer/vk.svg';
+import rss from '@/public/assets/icons/footer/rss.svg';
+import telegram from '@/public/assets/icons/footer/telegram.svg';
 
-import { footerInfo, footerMenu, footerMenu2 } from "@/lib/database/pathnames";
-import { v4 } from "uuid";
+import { footerInfo, footerMenu, footerMenu2 } from '@/lib/database/pathnames';
+import { v4 } from 'uuid';
 
 export const icons = [
-  { title: telegram, link: "" },
-  { title: vk, link: "" },
-  { title: rss, link: "" },
+  { title: telegram, link: '' },
+  { title: vk, link: '' },
+  { title: rss, link: '' },
 ];
 
 export const Footer = () => {
@@ -45,39 +45,29 @@ export const Footer = () => {
             <div className="flex flex-col w-full">
               <div className="mb-[39px] flex flex-col mob:gap-y-[10px] gap-0">
                 {footerInfo.map((item) => (
-                  <p
-                    className="mob:leading-[100%] text-[12px] leading-[130%]"
-                    key={v4()}
-                  >
+                  <p className="mob:leading-[100%] text-[12px] leading-[130%]" key={v4()}>
                     {item}
                   </p>
                 ))}
               </div>
-              <form className="flex flex-col items-start gap-x-[10px] w-full">
-                <label
-                  htmlFor="footer"
-                  className="text-sm mob:mb-[19px] mb-[10px]"
-                >
+              <form className="flex flex-col flex-wrap items-start gap-x-[10px] w-full">
+                <label htmlFor="footer" className="text-sm mob:mb-[19px] mb-[10px]">
                   Подписка на новости «ТуркменЭкспо»
                 </label>
-                <div className="flex w-full mb-5 mob:mb-0 mob:flex-row flex-col mob:items-center items-start gap-[10px]">
+                <div className="flex w-full mb-5 mob:mb-0 mob:flex-row flex-wrap flex-col mob:items-center items-start gap-[10px]">
                   <input
                     id="footer"
                     type="email"
                     placeholder="Ваш e-mail адрес"
                     className="focus:outline-none mob:w-[206px] w-full border-[1px] border-gray3 placeholder:text-bgWhite placeholder:text-[12px] mob:px-[15px] mob:py-[10px] p-4 bg-navyBlue2 text-[12px] text-bgWhite"
                   />
-                  <button
-                    type="submit"
-                    className="bg-navyBlue p-[16px] text-[12px] mob:py-[10px]"
-                  >
+                  <button type="submit" className="bg-navyBlue p-[16px] text-[12px] mob:py-[10px]">
                     Подписаться
                   </button>
                 </div>
               </form>
               <p className="mob:hidden text-[12px] leading-[130%]">
-                Оформляя подписку, вы даете согласие на обработку своих
-                персональных данных
+                Оформляя подписку, вы даете согласие на обработку своих персональных данных
               </p>
             </div>
           </div>

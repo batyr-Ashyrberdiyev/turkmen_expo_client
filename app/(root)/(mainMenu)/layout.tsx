@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Sidebar } from "@/components/ui/Sidebar";
+import { Sidebar } from '@/components/ui/Sidebar';
 
 const CompanyLayout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -18,7 +18,7 @@ export const ContactsSec = () => {
   };
 
   return (
-    <div className="flex flex-col items-start w-full">
+    <div className="flex flex-col w-full">
       {menuData.map((obj) => (
         <ContactsDropDown key={v4()} openContacts={openContacts} {...obj} />
       ))}

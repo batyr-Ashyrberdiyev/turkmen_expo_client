@@ -8,7 +8,7 @@ import { v4 } from 'uuid';
 
 export const Pathnames = ({ sort }: { sort: string }) => {
   return (
-    <div className="text-[12px] text-gray4 flex items-center">
+    <div className="text-[12px] text-gray4 flex items-center mb-6">
       <Link href={'/'}>{'Главная '}</Link>
       {topMenu
         .filter((item) => item.path === sort)

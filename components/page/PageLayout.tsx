@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pathnames } from './Pathnames';
 
 interface Props {
@@ -10,8 +9,10 @@ interface Props {
 export const PageLayout = ({ children, path, title }: Props) => {
   return (
     <div className="flex flex-col gap-y-[24px] mb-[100px]">
-      <Pathnames sort={path} />
-      <h2 className="text-extra font-semibold leading-[100%]">{title}</h2>
+      <div className="">
+        <Pathnames sort={path} />
+        <h2 className="text-extra font-semibold leading-[100%]">{title}</h2>
+      </div>
       {children}
     </div>
   );

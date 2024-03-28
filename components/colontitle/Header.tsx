@@ -1,34 +1,37 @@
-"use client";
+'use client';
 
-import React, { useEffect } from "react";
-import clsx from "clsx";
-import Link from "next/link";
-import Image from "next/image";
-import { v4 } from "uuid";
-import { usePathname } from "next/navigation";
+import React, { useEffect } from 'react';
+import clsx from 'clsx';
+import Link from 'next/link';
+import Image from 'next/image';
+import { v4 } from 'uuid';
+import { usePathname } from 'next/navigation';
 
-import logo from "@/public/assets/icons/header/logo.svg";
-import burger from "@/public/assets/icons/header/burger.svg";
+import logo from '@/public/assets/icons/header/logo.svg';
+import burger from '@/public/assets/icons/header/burger.svg';
+import search from '@/public/assets/icons/header/search.svg';
+import searchMob from '@/public/assets/icons/header/mob-search.svg';
 
-import { LangMenu } from "../ui/LangMenu";
-import { Input } from "../home/Input";
-import { headerMenu, headerMenu2 } from "@/lib/database/pathnames";
-import { BurgerMenu } from "../ui/BurgerMenu";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import {
-  selectHeader,
-  setBurgerMenu,
-  setShowInput,
-} from "@/redux/slices/headerSlice";
+import { LangMenu } from '../ui/LangMenu';
+import { Input } from '../home/Input';
+import { headerMenu, headerMenu2 } from '@/lib/database/pathnames';
+import { BurgerMenu } from '../ui/BurgerMenu';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { selectHeader, setBurgerMenu, setShowInput } from '@/redux/slices/headerSlice';
 
 export const Header = () => {
   const pathname = usePathname();
   const dispatch = useAppDispatch();
-  const { burgerMenu } = useAppSelector(selectHeader);
+  const { burgerMenu, showInput } = useAppSelector(selectHeader);
 
   const toggleMenu = () => {
     dispatch(setBurgerMenu(!burgerMenu));
     dispatch(setShowInput(false));
+  };
+
+  const onSearch = () => {
+    dispatch(setShowInput(!showInput));
+    dispatch(setBurgerMenu(false));
   };
 
   return (
@@ -37,22 +40,24 @@ export const Header = () => {
 
       <header
         className={clsx(
-          "bg-bgWhite lg:hidden flex items-center justify-between px-4 py-6 h-[80px] sticky z-[100]",
+          'bg-bgWhite lg:hidden flex items-center justify-between px-4 py-6 h-[80px] sticky z-[100]',
           {
-            "fixed w-full top-0": burgerMenu,
-          }
-        )}
-      >
-        <Input mob />
+            'fixed w-full top-0': burgerMenu,
+          },
+        )}>
+        <Image
+          src={searchMob}
+          height={32}
+          width={32}
+          alt="поиск"
+          className="cursor-pointer"
+          onClick={onSearch}
+        />
 
-        <Link href={"/"}>
-          <Image
-            src={logo}
-            height={24}
-            width={160}
-            alt="лого"
-            className="cursor-pointer"
-          />
+        {showInput && <Input mob />}
+
+        <Link href={'/'}>
+          <Image src={logo} height={24} width={160} alt="лого" className="cursor-pointer" />
         </Link>
 
         <Image
@@ -79,20 +84,24 @@ export const Header = () => {
                   <Link
                     key={v4()}
                     href={item.link}
-                    className={clsx("leading-[130%] relative transition-al", {
-                      "link-border-bottom cursor-default hover:after:bg-green":
+                    className={clsx('leading-[130%] relative transition-al', {
+                      'link-border-bottom cursor-default hover:after:bg-green':
                         item.link === pathname,
-                      "hover:link-border-bottom hover:after:bg-[#738799]":
-                        item.link === item.link,
-                    })}
-                  >
+                      'hover:link-border-bottom hover:after:bg-[#738799]': item.link === item.link,
+                    })}>
                     {item.title}
                   </Link>
                 ))}
               </div>
               <div className="flex gap-[10px]">
                 <LangMenu />
-                <Input />
+                <Image
+                  src={search}
+                  alt="поиск"
+                  onClick={() => dispatch(setShowInput(true))}
+                  className="cursor-pointer"
+                />
+                {showInput && <Input />}
               </div>
             </div>
           </div>
