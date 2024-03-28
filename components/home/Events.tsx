@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { v4 } from 'uuid';
-import { EventCard } from '../cards/EventCard';
-import { GreenBtn, GreenBtnMob } from '../ui/Buttons';
-import { eventCardData } from '@/lib/database/eventsData';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { v4 } from "uuid";
+import { EventCard } from "../cards/EventCard";
+import { GreenBtn, GreenBtnMob } from "../ui/Buttons";
+import { eventCardData } from "@/lib/database/eventsData";
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import './styles/events.css';
+import "swiper/css";
+import "swiper/css/pagination";
+import "./styles/events.css";
 
-import { Title } from './Title';
-import { Pagination } from 'swiper/modules';
+import { Title } from "./Title";
+import { Pagination } from "swiper/modules";
 
 export const Events = () => {
   const [openCards, setOpenCards] = React.useState<boolean>(true);
@@ -34,7 +34,11 @@ export const Events = () => {
                 .map((item) => <EventCard key={v4()} {...item} />)
             : eventCardData.map((item) => <EventCard key={v4()} {...item} />)}
 
-          <GreenBtn onEventBtn={onEventBtn} text={'Показать ещё'} mt="mt-[25px]" />
+          <GreenBtn
+            onEventBtn={onEventBtn}
+            text={"Показать ещё"}
+            mt="mt-[25px]"
+          />
         </div>
       </div>
 
@@ -50,17 +54,18 @@ export const Events = () => {
               modules={[Pagination]}
               slidesPerView={1}
               spaceBetween={20}
-              pagination={{ type: 'bullets', el: '.swiper-pagination' }}>
+              pagination={{ type: "bullets", el: ".swiper-pagination" }}
+            >
               {openCards &&
                 eventCardData.map((item) => (
                   <SwiperSlide key={v4()} className="mb-[72px]">
                     <EventCard {...item} />
                   </SwiperSlide>
                 ))}
-              <div className="swiper-pagination bottom-[30px]"></div>
+              <div className="swiper-pagination swiper-pagination-horizontal"></div>
             </Swiper>
           </div>
-          <GreenBtnMob text={'Все мероприятия'} />
+          <GreenBtnMob text={"Все мероприятия"} />
         </div>
       </div>
     </>

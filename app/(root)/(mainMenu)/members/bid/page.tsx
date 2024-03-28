@@ -1,14 +1,17 @@
 import React from "react";
 
 import { FormSec } from "@/components/bid/FormSec";
-import { PageLayout } from "@/components/page/PageLayout";
+import { LayoutWithSidebar } from "@/components/page/LayoutWithSidebar";
 
 const Bid = () => {
   return (
     <div className="h-full w-full">
-      <PageLayout title="Онлайн-заявка для участников" path="members/bid">
+      <LayoutWithSidebar
+        title="Онлайн-заявка для участников"
+        sortBy="members/bid"
+      >
         <FormSec />
-      </PageLayout>
+      </LayoutWithSidebar>
     </div>
   );
 };

@@ -11,15 +11,15 @@ import Slider from "@/components/home/Slider";
 const Home = () => {
   return (
     <div className="bg-blueBg">
-      <section className="h-full mx-auto mb-[60px] mob:mb-[160px]">
+      <section className="h-full mx-auto section-mb">
         <Slider />
       </section>
 
-      <section className="mob:mb-[60px] section-mb w-full">
+      <section className="mb-[60px] section-mb w-full">
         <Events />
       </section>
 
-      <section className="mob:mb-[221px] mb-[60px]">
+      <section className="lg:mb-[113px] md:mb-[100px] mb-[60px]">
         <News />
       </section>
 
@@ -37,7 +37,7 @@ const Home = () => {
         <Services />
       </section>
 
-      <section className="mob:pb-[160px] pb-[60px]">
+      <section className="section-mb">
         <Partners />
       </section>
     </div>

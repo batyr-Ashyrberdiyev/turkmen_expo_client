@@ -1,15 +1,17 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
 import membersImg from "@/public/assets/images/members.png";
-import { PageLayout } from "../page/PageLayout";
 import { aboutMembers } from "@/lib/database/members";
 import { v4 } from "uuid";
+import { LayoutWithSidebar } from "../page/LayoutWithSidebar";
 
 export const MembersSec = () => {
   return (
     <div className="flex flex-col">
-      <PageLayout title="Информация для участников" path="members">
+      <LayoutWithSidebar title="Информация для участников" sortBy="members">
         <p className="text-p">
           В распоряжении компании имеются возможности размещения и застройки
           полностью оборудованных павильонов общей площадью 1200 кв.м. которые
@@ -24,13 +26,13 @@ export const MembersSec = () => {
             <p>{item.text}</p>
             <ol className="list-disc ml-[20px]">
               {item.list.map((text) => (
-                <li>{text}</li>
+                <li key={v4()}>{text}</li>
               ))}
             </ol>
             <p>{item.text2}</p>
           </div>
         ))}
-      </PageLayout>
+      </LayoutWithSidebar>
     </div>
   );
 };

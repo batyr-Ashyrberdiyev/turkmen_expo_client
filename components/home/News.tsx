@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { v4 } from 'uuid';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import React from "react";
+import { v4 } from "uuid";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
-import { NewsCard } from '../cards/NewsCard';
-import { NavBtn } from './ui/NavBtn';
-import { GreenBtn, GreenBtnMob } from '../ui/Buttons';
-import { Title } from './Title';
+import { NewsCard } from "../cards/NewsCard";
+import { NavBtn } from "./ui/NavBtn";
+import { GreenBtn, GreenBtnMob } from "../ui/Buttons";
+import { Title } from "./Title";
 
-import { newsCardData } from '@/lib/database/newsData';
+import { newsCardData } from "@/lib/database/newsData";
 
-import 'swiper/css/bundle';
+import "swiper/css/bundle";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export const News = () => {
   return (
@@ -37,9 +37,10 @@ export const News = () => {
             spaceBetween={20}
             slidesPerView={4}
             navigation={{
-              nextEl: '.next-btn',
-              prevEl: '.prev-btn',
-            }}>
+              nextEl: ".next-btn",
+              prevEl: ".prev-btn",
+            }}
+          >
             {newsCardData &&
               newsCardData.map((item) => (
                 <SwiperSlide key={v4()}>
@@ -66,7 +67,8 @@ export const News = () => {
             modules={[Pagination]}
             slidesPerView={1}
             spaceBetween={20}
-            pagination={{ type: 'bullets', el: '.swiper-pagination' }}>
+            pagination={{ type: "bullets", el: ".swiper-pagination" }}
+          >
             {newsCardData &&
               newsCardData.map((item) => (
                 <SwiperSlide key={v4()}>

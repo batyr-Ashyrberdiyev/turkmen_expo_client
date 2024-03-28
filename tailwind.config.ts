@@ -44,6 +44,7 @@ const config: Config = {
       },
       screens: {
         mob: "380px",
+        tab: "980px",
       },
     },
   },
